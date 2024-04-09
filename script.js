@@ -6,18 +6,18 @@ const communautes = [
     },
     {
         titre: "illuminatis",
-        description: "Les illuminatis contrôle le monde ?",
+        description: "communautés des illuminatis",
         image: "chemin/vers/image2.jpg"
     },
     {
         titre: "famille Rodchild",
-        description: "Ils contrôle le monde ?",
+        description: "Askip ils contrôlent le monde ? LOL",
         image: "chemin/vers/image2.jpg"
     },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.catalogue'); // Assurez-vous que .catalogue existe dans votre HTML
+    const container = document.querySelector('.catalogue'); 
 
     articles.forEach(article => {
         const box = document.createElement('div');

@@ -1,0 +1,6 @@
+09/04/2024 :
+
+Début du projet
+
+Page visiteur commencée, Nav-bar, boxes de communautées,
+

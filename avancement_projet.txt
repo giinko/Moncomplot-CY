@@ -4,13 +4,19 @@ Début du projet
 
 Page visiteur commencée, Nav-bar, boxes de communautées,
 
+
 11/04/2024 :
 
 Page de register finis (la base), il reste a voir les informations précisent qu'on veut mettre dedans
 et faire les check.
+
 
 12-15/04/2024 : 
 
 fini : CSS/HTML de la page visiteur, base footer, "base d'une page de MONCOMPLOT", CARDS du catalogue, bannière, 
 
 à faire : Ajuster la page register/login, responsive du site (à moitié finie), lier catalogues/données du site, dynamiser la nav-bar (ptetre en js)
+         / !!!! \    FAIRE UN TRI DANS LE CSS    / !!!! \
+
+
+         

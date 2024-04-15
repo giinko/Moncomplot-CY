@@ -1,3 +1,261 @@
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;}
+
+body {
+    line-height: 1.3;
+}
+@media screen and (max-width: 480px) {
+
+    html, body {
+        min-width: 400px;
+    }
+
+}
+/* Basic */
+
+@-ms-viewport {
+    width: device-width;
+}
+
+body {
+    -ms-overflow-style: scrollbar;
+}
+
+@media screen and (max-width: 480px) {
+
+    html, body {
+        min-width: 320px;
+    }
+
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: #333;
+}
+
+    body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+        -moz-animation: none !important;
+        -webkit-animation: none !important;
+        -ms-animation: none !important;
+        animation: none !important;
+        -moz-transition: none !important;
+        -webkit-transition: none !important;
+        -ms-transition: none !important;
+        transition: none !important;
+    }
+
+
+    
+/* Type */
+
+	body, input, select, textarea {
+		color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 17pt;
+		font-weight: 300;
+		letter-spacing: 0.025em;
+		line-height: 1.65;
+	}
+
+		@media screen and (max-width: 1080px) {
+
+			body, input, select, textarea {
+				font-size: 17pt;
+			}
+
+		}
+
+		@media screen and (max-width: 700px) {
+
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+
+		}
+
+		@media screen and (max-width: 360px) {
+
+			body, input, select, textarea {
+				font-size: 11pt;
+			}
+
+		}
+
+
+	@media screen and (max-width: 736px) {
+
+		h1 {
+			font-size: 2em;
+		}
+
+		h2 {
+			font-size: 1.5em;
+		}
+
+		h3 {
+			font-size: 1.25em;
+		}
+
+	}
+
+a {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    color: inherit;
+    text-decoration: none;
+}
+
+    a:hover {
+        border-bottom-color: transparent;
+        color: #ff9cef !important;
+    }
+
+    a:active {
+        color: #ff60ff !important;
+    }
+
+	p {
+		margin: 0 0 2em 0;
+	}
+
+    @media screen and (max-width: 736px) {
+
+		h1 {
+			font-size: 2em;
+		}
+
+		h2 {
+			font-size: 1.5em;
+		}
+
+		h3 {
+			font-size: 1.25em;
+		}
+
+	}
+        .align-left {
+            text-align: left;
+        }
+    
+        .align-center {
+            text-align: center;
+        }
+    
+        .align-right {
+            text-align: right;
+        }
+
+
+        /* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    padding: 0 15px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #4CAF50;
+}
+
+.footer {
+    margin-top: 500px;
+    background-color: #333;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+    }
+}
+
+
+
 :root {
     --primary-color: #007bff;
     --text-color: #ffffff;
@@ -12,13 +270,12 @@ body, html {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.main-content{
-    padding-top: 90px;
+.main{
+    margin-top: 90px;
 }
 
 .navbar {
     display: flex;
-    position: fixed;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -36,16 +293,11 @@ body, html {
 }
 
 .navbar-links a {
-    color: var(--nav-text-color);
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-.navbar-links a:hover {
-    background-color: var(--nav-hover-bg-color);
-}
 
 @media (max-width: 768px) {
     .navbar-links a {
@@ -107,3 +359,78 @@ body, html {
     color: #666; /* Couleur du texte secondaire */
     font-size: 16px; /* Taille du texte secondaire */
 }
+.catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* NE PAS OUBLIER DE REGLER LE MEDIASCREEN FARES !!!!! */
+    padding: 20px;
+}
+
+.card {
+    width: 250px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 16px;
+    text-align: center;
+}
+.wrapper {
+    margin-top: 800px;
+}
+.banner {
+    background-image: url('/Moncomplot-CY/assets/images/planette.jpg'); /* Remplacez par le chemin de votre image de fond */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 50px 20px; /* Ajustez selon la taille souhaitée */
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Assurez-vous qu'elle reste au-dessus des autres éléments de contenu */
+}
+
+body {
+    padding-top: 50px; /* Ajustement selon nav-bar */
+}
+
+
+

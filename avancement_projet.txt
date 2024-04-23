@@ -18,5 +18,7 @@ fini : CSS/HTML de la page visiteur, base footer, "base d'une page de MONCOMPLOT
 à faire : Ajuster la page register/login, responsive du site (à moitié finie), lier catalogues/données du site, dynamiser la nav-bar (ptetre en js)
          / !!!! \    FAIRE UN TRI DANS LE CSS    / !!!! \
 
+15-24/04/2024 : 
 
-         
+Apprentissage approfondis sur le PHP, Javascript, HTML, CSS (Auto-formations)
+Pas d'avancement sur le projet néanmoins.

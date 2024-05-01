@@ -1,8 +1,3 @@
-function login()
-{
-	console.log("salut bg");
-}
-
 function register()
 {
 	//récupération des variables 
@@ -46,6 +41,53 @@ function register()
 			console.log("erreur");
 		}
 	})
+}
+
+function login()
+{	
+	event.preventDefault();
+	var username = document.getElementById("username_loginpage").value;
+	var password = document.getElementById("password_loginpage").value;
+
+	//Check les variable si besoin
+	//Si tt est ok requette ajax :
+
+	$.ajax({
+		type: "POST",
+		url: "../../script.php",
+		data: {
+			action : "LoginData",
+			username : username,
+			password : password
+		},
+		dataType: "json",
+
+		success : function(response){
+
+			if(response.response_code==343){
+				var div_err_log = document.getElementById("erreur_message");
+				div_err_log.innerHTML="";
+				var elem_center = document.createElement("center");
+				var elem_span = document.createElement("span");
+
+				var textNode = document.createTextNode(response.message);
+				elem_span.appendChild(textNode);
+
+				elem_span.classList.add("red");
+				elem_center.appendChild(elem_span);
+				div_err_log.appendChild(elem_center);
+
+				document.getElementById("username_loginpage").value = '';
+				document.getElementById("password_loginpage").value = '';
+			}
+			else if(response.response_code==200){
+				window.location.href = "index.html";
+			}
 
 
+		},
+		error : function(){
+			console.log("erreur");
+		}
+	})
 }

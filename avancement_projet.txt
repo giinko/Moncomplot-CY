@@ -22,3 +22,7 @@ fini : CSS/HTML de la page visiteur, base footer, "base d'une page de MONCOMPLOT
 
 Apprentissage approfondis sur le PHP, Javascript, HTML, CSS (Auto-formations)
 Pas d'avancement sur le projet néanmoins.
+
+01/05/2024 :
+
+Page login finis il reste juste a vérifier si le user est co et ne pas le laisser voir la page si il clique dessu

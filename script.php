@@ -34,7 +34,49 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 
 	}
 
-	response($response_code, $message,$number);
+	if($_POST['action'] == "LoginData")
+	{	
+
+		$response_code = HTTP_OK;
+		$message = "Tout s'est bien passé";
+
+		$username = $_POST['username'];
+		$mdp = $_POST['password'];
+
+		$fichier = fopen("assets/Data/data.csv", "r");
+
+		if ($fichier === false){
+			die("Une erreur s'est produite impossible d'ouvrir le fichier");
+		}
+
+		$users = array();
+		$mdps = array();
+		$emails = array();
+		$names = array();
+		$lastnames = array();
+
+		while (!feof($fichier)) {
+			list($users[],$names[],$lastnames[],$emails[], $mdps[]) = fgetcsv($fichier);
+		}
+
+		$number = 0;
+		for ($i = 0; $i < sizeof($users);$i++){
+			if ($username == $users[$i] && $mdp == $mdps[$i]){
+				$number = 1;
+				$_SESSION['LOGGED_USER'] = $username;
+			}
+		}
+
+		fclose($fichier);
+
+		if($number == 0){
+			$response_code = 343;
+			$message = "Mauvais username ou mdp";
+		}
+
+	}
+
+	response($response_code, $message);
 }
 else
 {

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,8 +82,8 @@
 
     <?php 
         if(isset($_SESSION['LOGGED_USER'])){
-            header("Location: /index.html");
-            exit;
+            header("Location: index.html");
+            exit();
         }
     ?>
 

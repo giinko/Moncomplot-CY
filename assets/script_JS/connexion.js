@@ -2,13 +2,31 @@ function register()
 {
 	//récupération des variables 
 
-	var username = document.getElementById("register_username").value;
-	var name = document.getElementById("register_name").value;
-	var lastname = document.getElementById("register_lastname").value;
-	var email = document.getElementById("register_email").value;
-	var mdp1 = document.getElementById("register_mdp1").value;
-	var mdp2 = document.getElementById("register_mdp2").value;
+	var username = document.getElementById("username_register").value;
+	var mdp1 = document.getElementById("password1_register").value;
+	var mdp2 = document.getElementById("password2_register").value;
+	var name = document.getElementById("name_register").value;
+	var lastname = document.getElementById("lastname_register").value;
+	var email = document.getElementById("email_register").value;
+	var complot = document.getElementById("complot_register").value;
 
+	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
+
+	for(var i=0;i<username.length;i++){
+		console.log(username[i]);
+	}
+	//password compris entre 8 et 20 caratères + pass1 == pass2
+
+	//nom et prenom uniquement des lettres
+
+	//email n'existe pas dans la base de donné
+
+	//complot différent de "chsoir complot"
+
+	console.log(complot);
+	
+	console.log("salut bg");
+	return 0;
 	//Check si les variables sont bonnne :
 	// (mdp1 == mdp 1) / (email est bien un email) / (pas de chiffre ou carac bizzare dans name et lastname) / ...
 

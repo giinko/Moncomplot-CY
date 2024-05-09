@@ -25,4 +25,13 @@ Pas d'avancement sur le projet néanmoins.
 
 01/05/2024 :
 
-Page login finis il reste juste a vérifier si le user est co et ne pas le laisser voir la page si il clique dessu
+Page login finis il reste juste a vérifier si le user est co et ne pas le laisser voir la page si il clique dessus
+
+09/05/2024 :
+
+HTML/CSS mise en page générale du site (thème couleur + logique dans le style CSS et dans le plan)
+
+à faire pour le 10/05 : finir le register + responsive, finir page d'accueil, finir login + voir avec Maxime la suite
+                         L> Grid en forme 1 2 2 2 3 1 
+Manque des images
+10/05/2024 : 

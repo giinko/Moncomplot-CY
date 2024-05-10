@@ -32,15 +32,14 @@ session_start();
             margin-bottom: 20px;
         }
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             margin-right: 20px;
         }
         .profile-header h1 {
-            font-size: 200%;
+            font-size: 24px;
             margin: 0;
-            margin-left: 20px;
         }
         .profile-information {
             line-height: 1.6;
@@ -70,50 +69,48 @@ session_start();
     
     -->
 
-<?php
-    $fichier = fopen("assets/Data/data.csv", "r");
-
-    if ($fichier === false){
-        die("Une erreur s'est produite impossible d'ouvrir le fichier");
-    }
-
-    $users = array();
-    $mdps = array();
-    $emails = array();
-    $names = array();
-    $lastnames = array();
-
-    while (!feof($fichier)) {
-        list($users[],$names[],$lastnames[],$emails[], $mdps[]) = fgetcsv($fichier);
-    }
-    $number = 0;
-    for ($i = 0; $i < sizeof($users);$i++){
-    if ($_SESSION['LOGGED_USER'] == $users[$i]){
-        $number = 1;
-        $user = $users[$i];
-        $mdp = $mdps[$i];
-        $mail = $emails[$i];
-        $name = $names[$i];
-        $lastname = $lastnames[$i];
-    }
-    }
-?>    
-
-
 
     <div class="profile-container">
         <div class="profile-header">
-            <img src="https://via.placeholder.com/150" alt="Profil Image" class="profile-image">
+            <img src="https://via.placeholder.com/60" alt="Profil Image" class="profile-image">
+            <?php
+                $fichier = fopen("assets/Data/data.csv", "r");
+
+                if ($fichier === false){
+                    die("Une erreur s'est produite impossible d'ouvrir le fichier");
+                }
+
+                $users = array();
+                $mdps = array();
+                $emails = array();
+                $names = array();
+                $lastnames = array();
+
+                while (!feof($fichier)) {
+                    list($users[],$mdps[],$names[],$lastnames[],$emails[], ) = fgetcsv($fichier);
+                }
+
+                $number = 0;
+                for ($i = 0; $i < sizeof($users);$i++){
+                    if ($_SESSION['LOGGED_USER'] == $users[$i]){
+                        $number = 1;
+                        $user = $users[$i];
+                        $mdp = $mdps[$i];
+                        $mail = $emails[$i];
+                        $name = $names[$i];
+                        $lastname = $lastnames[$i];
+                    }
+                }
+            ?>
+
             <h1><?php echo $user; ?></h1>
         </div>
         <div class="profile-information">
-            <p><strong>Prénom :</strong> <?php echo $name; ?> </p>
+            <p><strong>Email :  </strong><input type="" name="" placeholder=" <?php echo $mail; ?>">  </p>
             <p><strong>Nom :</strong>  <?php echo $lastname; ?>  </p>
-            <p><strong>Email :</strong> <?php echo $mail; ?>  </p>
-
-            <a href="edit_profile.php">Éditer Profil</a>
-            <a href="index.html">Retour à l'accueil</a>
-            <a href="#">Se déconnecter</a>
+            <p><strong>Prénom :</strong> <?php echo $name; ?> </p>
+            <a href="profile.php">Retour</a>
+            <a href="#">Valider</a>
         </div>
     </div>
 </body>

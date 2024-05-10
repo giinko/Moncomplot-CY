@@ -10,7 +10,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 	$response_code = HTTP_BAD_REQUEST;
 	$message = "Un erreur s'est produite";
 
-	if($_POST['action'] == "RegisterData") // Bien tous check en JS comme ca on se prend pas la tete en php, a voir quand mme pour la sécu 
+	if($_POST['action'] == "RegisterData")  
 	{	
 
 		$response_code = HTTP_OK;
@@ -21,6 +21,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 		$lastname = $_POST['lastname'];
 		$email = $_POST['email'];
 		$mdp = $_POST['mdp']; 
+		$complot = $_POST['complot'];
 
 
 		$fichier = fopen("assets/Data/data.csv", "a");
@@ -28,7 +29,8 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 		if ($fichier === false){
 			die("Une erreur s'est produite impossible d'ouvrir le fichier");
 		}
-		$ligne = $username .",". $name .",". $lastname .",". $email .",". $mdp ."\n";
+
+		$ligne = $username .",". $mdp .",". $name .",". $lastname .",". $email .",". $complot ."\n";
 		fwrite($fichier, $ligne);
 
 		fclose($fichier);
@@ -55,9 +57,10 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 		$emails = array();
 		$names = array();
 		$lastnames = array();
+		$complots = array();
 
 		while (!feof($fichier)) {
-			list($users[],$names[],$lastnames[],$emails[], $mdps[]) = fgetcsv($fichier);
+			list($users[],$mdps[],$names[],$lastnames[],$emails[], $complots[] ) = fgetcsv($fichier);
 		}
 
 		$number = 0;

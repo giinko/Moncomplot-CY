@@ -12,10 +12,29 @@ function register()
 
 	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
 
-	for(var i=0;i<username.length;i++){
-		console.log(username[i]);
-	}
 	//password compris entre 8 et 20 caratères + pass1 == pass2
+
+	
+	// Si les 2 mdp sont différent on renvoie une erreur
+	if (mdp1 != mdp2){
+
+		var div_error_reg = document.getElementById("erreur_message_register");
+		div_error_reg.innerHTML="";
+
+		var elem_center = document.createElement("center");
+		var elem_span = document.createElement("span");
+		var textNode = document.createTextNode("Les 2 mdp ne sont pas identiques");
+
+		elem_span.appendChild(textNode);
+		elem_span.classList.add("red");
+		elem_center.appendChild(elem_span);
+		div_error_reg.appendChild(elem_center);
+
+		document.getElementById("password1_register").value = "";
+		document.getElementById("password2_register").value = "";
+
+		return 1;
+	}
 
 	//nom et prenom uniquement des lettres
 
@@ -23,18 +42,11 @@ function register()
 
 	//complot différent de "chsoir complot"
 
-	console.log(complot);
-	
-	console.log("salut bg");
-	return 0;
 	//Check si les variables sont bonnne :
 	// (mdp1 == mdp 1) / (email est bien un email) / (pas de chiffre ou carac bizzare dans name et lastname) / ...
 
 	//Si c'est bon on supp les champs 
-	document.getElementById("register_username").value = '';
-	document.getElementById("register_name").value = '';
-	document.getElementById("register_lastname").value = '';
-	document.getElementById("register_email").value = '';
+
 	// ... on verra les autres après
 
 	//AJAX
@@ -45,15 +57,16 @@ function register()
 		data: {
 			action : "RegisterData",
 			username : username,
+			mdp : mdp1,
 			name : name,
 			lastname : lastname,
 			email : email,
-			mdp : mdp1
+			complot : complot                                                    
 		},
 		dataType: "json",
 
 		success : function(){
-			console.log("C'est passé");
+			window.location.href = "login.php";
 		},
 		error : function(){
 			console.log("erreur");

@@ -94,8 +94,7 @@
 
     <div class="login-container">
         <h2>Register</h2>
-        <div id="erreur_message"></div>
-        
+        <div id="erreur_message_register"></div>
         <br>
         <form method="post">
             <input id="username_register" type="text" name="username" placeholder="Username" required>

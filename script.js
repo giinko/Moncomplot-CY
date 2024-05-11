@@ -17,7 +17,7 @@ const communautes = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.catalogue'); 
+    const container = document.querySelector('.catalogue');
 
     articles.forEach(article => {
         const box = document.createElement('div');
@@ -40,3 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
         container.appendChild(box);
     });
 });
+
+function openSubscriptionModal() {
+    var modal = document.getElementById('subscriptionModal');
+    modal.style.display = 'block';
+}
+
+function closeSubscriptionModal() {
+    var modal = document.getElementById('subscriptionModal');
+    modal.style.display = 'none';
+}
+
+function redirectToRegistration() {
+    window.location.href = 'inscription.html'; // Rediriger vers la page d'inscription
+}

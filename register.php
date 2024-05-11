@@ -152,13 +152,13 @@ session_start();
                 <input type="checkbox" id="certif_majeur" name="certif_majeur" class="checkbox" required>
                 <label for="certif_majeur">Je certifie avoir 18 ans ou +</label> <br>
                 <input type="checkbox" id="conditions" name="conditions" class="checkbox" required>
-                <label for="conditions">J'accepte Conditions d'utilisation , Politique de confidentialité.</label>
+                <label for="conditions">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label>
 
 
                 <button class="button_login" onclick="register()">S'inscrire</button>
             </form>
             <div class="mini-menu">
-                Déjà inscrit ? <a href="register.php">Se connecter</a>
+                Déjà inscrit ? <a href="login.php" class="hoverr">Se connecter</a>
             </div>
         </div>
 

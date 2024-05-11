@@ -26,7 +26,7 @@ a:hover {
 /* Styles globaux */
 body {
     font-family: Montserrat, sans-serif;
-    background: #333 url('/MAISOUI/assets/images/fond-violet.jpg');
+    background: #333 url('/assets/images/fond-violet.jpg');
     color: white;
     line-height: 1.5;
     min-height: 100vh;
@@ -219,8 +219,8 @@ body {
     box-shadow: 0 8 16 black;
     border-radius: 10px;
     width: 60%;
-    height: 300px;
-    background: url(/MAISOUI/assets/images/fond-violet.jpg);
+    height: 350px;
+    background: url(/assets/images/fond-violet.jpg);
     text-align: center;
 
 }

@@ -1,5 +1,38 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['LOGGED_USER'])){
+    header("Location: login.php");
+    exit();
+}
+
+$fichier = fopen("assets/Data/data.csv", "r");
+
+if ($fichier === false){
+    die("impossible d'ouvrir le fichier");
+}
+
+$users = array();
+$mdps = array();
+$emails = array();
+$names = array();
+$lastnames = array();
+
+while (!feof($fichier)) {
+    list($users[],$mdps[],$names[],$lastnames[],$emails[]) = fgetcsv($fichier);
+}
+$number = 0;
+for ($i = 0; $i < sizeof($users);$i++){
+    if ($_SESSION['LOGGED_USER'] == $users[$i]){
+        $number = 1;
+        $user = $users[$i];
+        $mdp = $mdps[$i];
+        $mail = $emails[$i];
+        $name = $names[$i];
+        $lastname = $lastnames[$i];
+    }
+}
+
 ?>
 
 
@@ -9,6 +42,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,14 +81,15 @@ session_start();
             line-height: 1.6;
         }
 
-        .profile-container a {
+        .profile-container a,
+        .profile-container input{
             color: #333;
             text-decoration: none;
             border: solid 1px #333;
             padding: 1px 4px;
             border-radius: 4px;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 0px;
         }
 
         .profile-container a:hover {
@@ -68,36 +104,7 @@ session_start();
     <!--
         possibilité de voir uniquement si connecter sinon reenvoie vers la page de login 
     
-    -->
-
-<?php
-    $fichier = fopen("assets/Data/data.csv", "r");
-
-    if ($fichier === false){
-        die("Une erreur s'est produite impossible d'ouvrir le fichier");
-    }
-
-    $users = array();
-    $mdps = array();
-    $emails = array();
-    $names = array();
-    $lastnames = array();
-
-    while (!feof($fichier)) {
-        list($users[],$names[],$lastnames[],$emails[], $mdps[]) = fgetcsv($fichier);
-    }
-    $number = 0;
-    for ($i = 0; $i < sizeof($users);$i++){
-    if ($_SESSION['LOGGED_USER'] == $users[$i]){
-        $number = 1;
-        $user = $users[$i];
-        $mdp = $mdps[$i];
-        $mail = $emails[$i];
-        $name = $names[$i];
-        $lastname = $lastnames[$i];
-    }
-    }
-?>    
+    --> 
 
 
 
@@ -107,11 +114,12 @@ session_start();
             <h1><?php echo $user; ?></h1>
         </div>
         <div class="profile-information">
-            <p><strong>Prénom :</strong> <?php echo $name; ?> </p>
-            <p><strong>Nom :</strong>  <?php echo $lastname; ?>  </p>
-            <p><strong>Email :</strong> <?php echo $mail; ?>  </p>
-
-            <a href="edit_profile.php">Éditer Profil</a>
+            <p><strong>Prénom :</strong> <span id="edit_name"><?php echo $name; ?>  <button onclick='edit_profile("edit_name")'>modifier</button></span></p>
+            <p><strong>Nom :</strong><span id="edit_lastname"><?php echo $lastname; ?>  <button onclick='edit_profile("edit_lastname")'>modifier</button></span></p>
+            <p><strong>Email :</strong><span id="edit_email"><?php echo $mail; ?>  <button onclick='edit_profile("edit_email")'>modifier</button></span></p>
+        </div>
+        <div>
+           
             <a href="index.html">Retour à l'accueil</a>
             <a href="#">Se déconnecter</a>
         </div>

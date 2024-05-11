@@ -122,3 +122,59 @@ function login()
 		}
 	})
 }
+
+function valide_edit_profile(ok)
+{
+	var recup = document.getElementById("edit_profile_input").value;
+	console.log(ok);
+
+	//On peut rajouter des cheacks pour vérif qu'il n'y a aucun problème sur les nouvelles variabel entré meme si le JS est tres permissif
+
+	$.ajax({
+		type: "POST",
+		url: "../../script.php",
+		data: {
+			action : "edit_profile_data",
+			type : ok,
+			contenu : recup                                                 
+		},
+		dataType: "json",
+
+		success : function(){
+			window.location.href = "profile.php";
+		},
+		error : function(){
+			console.log("erreur");
+		}
+	})
+	
+
+
+}
+
+function edit_profile(id)
+{
+	var tt = id.split('_')[1];
+	var span_name = document.getElementById(id);
+	span_name.innerHTML="";
+
+	var input = document.createElement("input");
+	input.id = "edit_profile_input";
+	input.placeholder = tt;
+
+	var but = document.createElement("button");
+	but.textContent= "Valider";
+	var chaine = 'valide_edit_profile("'+tt+'")'
+	but.setAttribute('onclick', chaine);
+
+	var a = document.createElement("a");
+	a.textContent= "Retour";
+	a.href = "profile.php";
+
+	span_name.appendChild(input);
+	span_name.appendChild(but);
+	span_name.appendChild(a);
+
+
+}
+

@@ -80,6 +80,65 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 
 	}
 
+	if ($_POST["action"] == "edit_profile_data")
+	{
+		// sert plus a rien mais a voir si on peut faire une erreur comme ca
+		if(!isset($_SESSION['LOGGED_USER'])){
+		    $response_code = 756;
+		    $message = "Assurez vous d'etre bien connecté";
+		}
+		else
+		{
+
+		$user = $_SESSION['LOGGED_USER'];
+
+		$fichier = fopen("assets/Data/data.csv", "r");
+
+		if ($fichier === false){
+			die("erreur");
+		}
+
+		$users = $mdps = $names = $lastnames = $emails = $complots = [];
+
+		while (!feof($fichier)) {
+			list($users[],$mdps[],$names[],$lastnames[],$emails[], $complots[] ) = fgetcsv($fichier);
+		}
+
+		fclose($fichier);
+
+		$type  =$_POST["type"];
+		$value =$_POST["contenu"];
+
+		
+
+		for ($i = 0; $i < sizeof($users);$i++){
+			if ($user == $users[$i]){
+				if($type == "name"){
+					$names[$i] = $value;
+				}
+				if($type == "lastname"){
+					$lastnames[$i] = $value;
+				}
+				if($type == "email"){
+					$emails[$i] = $value;
+				}
+			}
+		}
+
+		$fichier = fopen("assets/Data/data.csv", "w");
+		for ($i = 0; $i < sizeof($users)-1; $i++) {
+		    fputcsv($fichier, [$users[$i], $mdps[$i], $names[$i], $lastnames[$i], $emails[$i], $complots[$i]]);
+		}
+		fclose($fichier);
+
+
+
+		}
+
+	}
+
+
+
 	response($response_code, $message);
 }
 else

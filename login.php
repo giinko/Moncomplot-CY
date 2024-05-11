@@ -98,7 +98,7 @@
             <button class="button_login" onclick="login()">Login</button>
         </form>
         <br>
-        <a href="#">S'enregistrer</a>
+        <a href="register.php">S'enregistrer</a>
         <a href="index.html">Acceuil</a>
     </div>
 

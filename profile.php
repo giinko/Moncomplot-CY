@@ -121,7 +121,7 @@ for ($i = 0; $i < sizeof($users);$i++){
         <div>
            
             <a href="index.html">Retour à l'accueil</a>
-            <a href="#">Se déconnecter</a>
+            <button onclick="deco()">Se déconnecter</button>
         </div>
     </div>
 </body>

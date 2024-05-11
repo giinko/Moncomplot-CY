@@ -178,3 +178,24 @@ function edit_profile(id)
 
 }
 
+function deco()
+{
+
+$.ajax({
+		type: "POST",
+		url: "../../script.php",
+		data: {
+			action : "deco"                                            
+		},
+		dataType: "json",
+
+		success : function(){
+			window.location.href = "login.php";
+		},
+		error : function(){
+			console.log("erreur");
+		}
+	})
+
+}
+

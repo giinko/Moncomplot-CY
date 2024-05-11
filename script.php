@@ -127,14 +127,17 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 
 		$fichier = fopen("assets/Data/data.csv", "w");
 		for ($i = 0; $i < sizeof($users)-1; $i++) {
-		    fputcsv($fichier, [$users[$i], $mdps[$i], $names[$i], $lastnames[$i], $emails[$i], $complots[$i]]);
+		    $ligne = $users[$i] .",". $mdps[$i] .",". $names[$i] .",". $lastnames[$i] .",". $emails[$i] .",". $complots[$i] ."\n";
+			fwrite($fichier, $ligne);;
 		}
 		fclose($fichier);
-
-
-
 		}
 
+	}
+
+	if ($_POST["action"] == "deco")
+	{
+		session_destroy();
 	}
 
 

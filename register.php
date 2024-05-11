@@ -66,83 +66,128 @@ session_start();
                     <option valeur="other">Réptiliens</option>
                 </select>
                 <div class="choix-conspiration">
-                    <h4>Choisissez vo(tre)s complot(s) :</h4>
+                    <h4>Choisissez votre ou vos complot(s) :</h4>
                     <div class="scroll-box">
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
 
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/pyramides.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Pyramides</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/Chemtrails.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Chemtrails</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
-                        </div>
-
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/illuminatis.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Illuminatis</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Autre
+                            <img src="assets/images/conspirations/reptiliens.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Réptiliens</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/alien.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Aliens</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/vaccins.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Vaccins</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/platistes.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Platistes</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/Mayas.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Mayas</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/experience.jpg" alt="experience">
+                            <div class="container">
+                                <h4>Éxperiences</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
-                        </div>
-
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/tours-jumelles.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Tours Jumelles</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Complot 1
-                        </div>
-
-                        <div class="conspiration-card">
-                            Complot 1
-                        </div>
-                        <div class="conspiration-card">
-                            Complot 1
+                            <img src="assets/images/conspirations/elections.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Élections</h4>
+                            </div>
                         </div>
                         <div class="conspiration-card">
-                            Autre
+                            <img src="assets/images/conspirations/puceRFID.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Puces RFID</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/satanisme.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Satanisme</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/cimetière.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Cimetières</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/satanique.jpg" alt="Pacte-satanique">
+                            <div class="container">
+                                <h4>Pactes sataniques</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/trou_noir.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Trous noirs</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/clonnage.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Clonnage</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/secret-defense.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Secrets gouvernementaux</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/Pharmaceutique.jpeg" alt="Avatar">
+                            <div class="container">
+                                <h4>Pharmaceutiques</h4>
+                            </div>
+                        </div>
+                        <div class="conspiration-card">
+                            <img src="assets/images/conspirations/autre.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Autre(s)</h4>
+                            </div>
                         </div>
 
 

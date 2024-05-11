@@ -44,27 +44,27 @@ session_start();
         }
         ?>
 
-        <div class="login-container">
-            <h2>Connexion</h2>
-            <div id="erreur_message"></div>
-
-            <br>
-            <form method="post">
-                <input id="username_loginpage" type="text" name="username" placeholder="Nom de compte" required>
-                <input id="password_loginpage" type="password" name="password" placeholder="Mot de passe" required>
-
-                <label for="stay_logged_in">Rester connecté</label>
-                <input type="checkbox" id="stay_logged_in" name="stay_logged_in" class="checkbox">
-                <button class="button_login" onclick="login()">Se connecter</button>
-            </form>
-            <div class="mini-menu">
-                Pas encore inscrit ? <a href="register.php">S'inscrire</a>
-            </div>
-        </div>
-        <!-- Bannière -->
-
         <!-- Main -->
         <div class="main">
+            <div class="login-container">
+                <h2>Connexion</h2>
+                <div id="erreur_message"></div>
+
+                <br>
+                <form method="post">
+                    <input id="username_loginpage" type="text" name="username" placeholder="Nom de compte" required>
+                    <input id="password_loginpage" type="password" name="password" placeholder="Mot de passe" required>
+
+                    <label for="stay_logged_in">Rester connecté</label>
+                    <input type="checkbox" id="stay_logged_in" name="stay_logged_in" class="checkbox">
+                    <button class="button_login" onclick="login()">Se connecter</button>
+                </form>
+                <div class="mini-menu">
+                    Pas encore inscrit ? <a href="register.php">S'inscrire</a>
+                </div>
+            </div>
+            <!-- Bannière -->
+
 
 
 

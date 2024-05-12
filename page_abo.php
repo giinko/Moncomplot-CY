@@ -12,12 +12,7 @@ if ($fichier === false){
     die("impossible d'ouvrir le fichier");
 }
 
-$users = array();
-$mdps = array();
-$emails = array();
-$names = array();
-$lastnames = array();
-$complots = array();
+$users = $mdps  = $emails = $names = $lastnames = $complots = [];
 
 while (!feof($fichier)) {
     list($users[],$mdps[],$names[],$lastnames[],$emails[],$complots[]) = fgetcsv($fichier);
@@ -40,18 +35,40 @@ for ($i = 0; $i < sizeof($users);$i++){
 //ON actualise la page du user :
 // other_user.csv 
 
-$fichier = fopen("assets/Data/"+$user+"/other_user.csv", "r+");
+$fichier = fopen("assets/Data/".$user."/other_user.csv", "r");
 
-$o_users = $o_mdps = $o_names = $o_lastnames = $o_emails = $o_complots = []
+echo "assets/Data/".$user."/other_user.csv";
+
+$o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
 if ($fichier === false){
     die("impossible d'ouvrir le fichier");
-
-    while (!feof($fichier)) {
-    list($users[],$mdps[],$names[],$lastnames[],$emails[],$complots[]) = fgetcsv($fichier);
-}
 }
 
+while (!feof($fichier)) {
+    list($o_users[],$o_complots[],$o_friends[],$o_swips[],$o_bloque[]) = fgetcsv($fichier);
+}
+
+for ($i = 0; $i < sizeof($users);$i++){
+    if(!isset($o_users[$i])){
+        $o_users[$i] = $users[$i];
+        $o_complots[$i] = $complots[$i];
+        $o_friends[$i] = 0; 
+        $o_swips[$i] = 0;
+        $o_bloque[$i] = 0;
+
+    }
+}
+
+fclose($fichier);
+
+$fichier = fopen("assets/Data/".$user."/other_user.csv", "w");
+
+for ($i = 0; $i < sizeof($users)-1; $i++) {
+    $ligne = $o_users[$i] .",". $o_complots[$i] . "," . $o_friends[$i] .",". $o_swips[$i] .",". $o_bloque[$i] ."\n";
+    fwrite($fichier, $ligne);;
+}
+fclose($fichier);
 
 ?>
 
@@ -61,6 +78,8 @@ if ($fichier === false){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -179,15 +198,9 @@ if ($fichier === false){
             <h2> Aller découvir d'autre profile </h2>
             <p> La on met les swipes</p>
             <br><br><br><br><br>
-            <div class="profile-card">
-                <img src="https://via.placeholder.com/300x400.png?text=Noémie" class="background-img" alt="Background Image">
-                <div class="info">
-                    <h1 id="nom_swipe_pageabo">Noémie</h1>
-                    <p id="age_swipe_pageabo">34 ans</p>
-                </div>
+            <div id="profile_card" class="profile-card">
+            <button onclick="begin_swip()">Commencer a swip</button>
             </div>
-            <button> Ajouter </button>
-            <button> Next </button>
             <br><br><br><br><br><br>
             <hr>
             <h2>Introduction au sujet</h2>

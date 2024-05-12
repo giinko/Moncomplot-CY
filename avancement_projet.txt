@@ -31,7 +31,12 @@ Page login finis il reste juste a vérifier si le user est co et ne pas le laiss
 
 HTML/CSS mise en page générale du site (thème couleur + logique dans le style CSS et dans le plan)
 
-à faire pour le 10/05 : finir le register + responsive, finir page d'accueil, finir login + voir avec Maxime la suite
+à faire pour le 10/05 : CSS trié + finir le register + responsive, finir page d'accueil, finir login + voir avec Maxime la suite
                          L> Grid en forme 1 2 2 2 3 1 
 Manque des images
-10/05/2024 : 
+
+10 - 12 /05/2024 : 
+
+Register fini (finir le choix des complots interminable) + Login fini + a propos fini + Politique de Confidentialité fini + back profil (en cours) + images des conspirations fini
+à faire : Register choix des complots (après ça register officilement fini) + front profil + front interface abonné + boutique (paiements abonnements)
+

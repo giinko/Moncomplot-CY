@@ -488,8 +488,9 @@ body {
 }
 
 .conspiration-card:hover {
-    background-color: rgb(132, 85, 177);
-    box-shadow: 0 5px 16px 0 rgb(188, 3, 235);
+    background-color: rgb(255, 241, 252);
+    box-shadow: 0 5px 16px 0 rgb(165, 18, 202);
+    transition: 0.3s;
     cursor: pointer;
 }
 
@@ -509,8 +510,4 @@ body {
 .main-politique h2 {
     font-size: 1.1rem;
     margin-bottom: 5px;
-}
-
-.hoverr {
-    color: #34b92f;
 }

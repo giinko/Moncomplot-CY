@@ -31,7 +31,7 @@ session_start();
                     <li id="logo"><a href="index.html">Logo</a></li>
                     <li><a href="login.php">Se connecter</a></li>
                     <li><a href="register.php">Inscription</a></li>
-                    <li><a href="#">À propos</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
                     <li><a href="index.html">Accueil</a></li>
                 </ul>
             </nav>
@@ -78,9 +78,9 @@ session_start();
                 <li>
                     <p>© blablabla</p>
                 </li>
-                <li><a href="index.html">À propos</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="Politique-de-confidentialite.html">Politique de confidentialité</a></li>
             </ul>
         </div>
     </footer>

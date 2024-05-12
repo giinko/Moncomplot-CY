@@ -42,8 +42,14 @@ for ($i = 0; $i < sizeof($users);$i++){
 
 $fichier = fopen("assets/Data/"+$user+"/other_user.csv", "r+");
 
+$o_users = $o_mdps = $o_names = $o_lastnames = $o_emails = $o_complots = []
+
 if ($fichier === false){
     die("impossible d'ouvrir le fichier");
+
+    while (!feof($fichier)) {
+    list($users[],$mdps[],$names[],$lastnames[],$emails[],$complots[]) = fgetcsv($fichier);
+}
 }
 
 

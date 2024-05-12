@@ -54,10 +54,18 @@ session_start();
             <form method="post">
                 <input id="name_register" type="text" name="name" placeholder="Prénom" required>
                 <input id="lastname_register" type="text" name="lastname" placeholder="Nom" required>
-                <input id="username_register" type="text" name="username" placeholder="Nom de compte" required>
+                <input id="username_register" type="text" name="username" placeholder="Pseudo" required>
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" required>
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" required>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" required>
+                <select id="complot_register">
+                    <option valeur="fr">Choisir votre complot</option>
+                    <option valeur="fr">Terre plate</option>
+                    <option valeur="nl">Autre</option>
+                    <option valeur="en">Autre</option>
+                    <option valeur="other">Autre</option>
+                </select>
+
                 <!--
                 
                 <select id="complot_register" name="complot_register" required>
@@ -78,7 +86,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Chemtrails.jpeg" alt="Chemtrails">
+                            <img src="assets/images/conspirations/chemtrails.jpeg" alt="Chemtrails">
                             <div class="container">
                                 <h4>Chemtrails</h4>
                             </div>
@@ -114,7 +122,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Mayas.jpg" alt="Mayas">
+                            <img src="assets/images/conspirations/mayas.jpg" alt="Mayas">
                             <div class="container">
                                 <h4>Mayas</h4>
                             </div>
@@ -180,7 +188,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Pharmaceutique.jpeg" alt="Pharmaceutique">
+                            <img src="assets/images/conspirations/pharmaceutique.jpeg" alt="Pharmaceutique">
                             <div class="container">
                                 <h4>Pharmaceutiques</h4>
                             </div>

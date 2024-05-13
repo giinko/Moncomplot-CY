@@ -76,33 +76,40 @@ session_start();
                     <option valeur="en">Hommes sur la lune</option>
                     <option valeur="other">Réptiliens</option>
                 </select> -->
+
                 <div class="choix-conspiration">
                     <h4>Choisissez le(s) complot(s) qui vous interesse :</h4>
+
                     <div id= "scroll_box_reg" class="scroll-box">
-                        <div onclick="cards_register('pyramide')" class="conspiration-card" value="pyramides">
+
+                        <div onclick="cards_register('Pyramides')" class="conspiration-card" value="Pyramides">
                             <img src="assets/images/conspirations/pyramides.jpeg" alt="pyramides">
                             <div class="container">
                                 <h4>Pyramides</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+
+                        <div onclick="cards_register('Chemtrails')" class="conspiration-card" value="Chemtrails">
                             <img src="assets/images/conspirations/chemtrails.jpeg" alt="Chemtrails">
                             <div class="container">
                                 <h4>Chemtrails</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+
+                        <div onclick="cards_register('Illuminatis')" class="conspiration-card" value="Illuminatis">
                             <img src="assets/images/conspirations/illuminatis.jpeg" alt="Illuminatis">
                             <div class="container">
                                 <h4>Illuminatis</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+
+                        <div onclick="cards_register('Reptiliens')" class="conspiration-card" value="Reptiliens">
                             <img src="assets/images/conspirations/reptiliens.jpeg" alt="Réptiliens">
                             <div class="container">
                                 <h4>Réptiliens</h4>
                             </div>
                         </div>
+                        <!--
                         <div class="conspiration-card">
                             <img src="assets/images/conspirations/alien.jpg" alt="Aliens">
                             <div class="container">
@@ -199,6 +206,7 @@ session_start();
                                 <h4>Autre(s)</h4>
                             </div>
                         </div>
+                    -->
 
 
                     </div>

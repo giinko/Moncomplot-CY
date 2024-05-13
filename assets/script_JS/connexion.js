@@ -18,9 +18,19 @@ function cards_register(complot)
 
 	var scroll_boc = document.getElementById("scroll_box_reg");
 
+	var all_div_cards = scroll_boc.querySelectorAll(':scope > div');
 
+	all_div_cards.forEach(function(div){
 
+		if(complot==div.getAttribute('value')){
 
+			div.id = "selected";
+		}
+		else{
+			div.id = "not_selected";
+		}
+		
+	});
 
 
 
@@ -29,21 +39,15 @@ function cards_register(complot)
 function register() {
 	//récupération des variables 
 
-
-	// Récupération de la seule carte avec la classe "selected"
-	var complot = document.querySelector('.conspiration-card.selected').value;
-	console.log(document.querySelector('.conspiration-card.selected').value);
-
 	var name = document.getElementById("name_register").value;
 	var lastname = document.getElementById("lastname_register").value;
 	var username = document.getElementById("username_register").value;
 	var email = document.getElementById("email_register").value;
 	var mdp1 = document.getElementById("password1_register").value;
 	var mdp2 = document.getElementById("password2_register").value;
+	var complot = document.getElementById("selected").getAttribute('value');
 
-	// var complot = document.getElementById("complot_register").value;
-
-	console.log("info recupérées"); // Afficher un message de débog
+	console.log(complot);
 	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
 
 	//password compris entre 8 et 20 caratères + pass1 == pass2

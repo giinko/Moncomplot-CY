@@ -37,8 +37,6 @@ for ($i = 0; $i < sizeof($users);$i++){
 
 $fichier = fopen("assets/Data/".$user."/other_user.csv", "r");
 
-echo "assets/Data/".$user."/other_user.csv";
-
 $o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
 if ($fichier === false){
@@ -188,7 +186,7 @@ fclose($fichier);
     <header>
         <nav>
             <ul>
-                <li><a href="/profil.php">Mon Profil</a></li>
+                <li><a href="/profile.php">Mon Profil</a></li>
                 <li><a href="#">Rechercher</a></li>
             </ul>
         </nav>

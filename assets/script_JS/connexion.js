@@ -1,18 +1,30 @@
 
-console.log("TEST6");
 // Sélection de toutes les cartes
+/*
 const cards = document.querySelectorAll('.conspiration-card');
-
-// Ajout d'un gestionnaire d'événements click à chaque carte
+Ajout d'un gestionnaire d'événements click à chaque carte
 cards.forEach(card => {
 	card.addEventListener('click', function () {
 		// Supprimer la classe "selected" de toutes les cartes
 		cards.forEach(card => {
 			card.classList.remove('selected');
 		});
-		this.classList.add('selected'); // Si elle n'est pas sélectionnée, la sélectionner
+		cards.classList.add('selected'); // Si elle n'est pas sélectionnée, la sélectionner
 	});
 });
+*/
+function cards_register(complot)
+{
+
+	var scroll_boc = document.getElementById("scroll_box_reg");
+
+
+
+
+
+
+
+}
 
 function register() {
 	//récupération des variables 
@@ -28,6 +40,7 @@ function register() {
 	var email = document.getElementById("email_register").value;
 	var mdp1 = document.getElementById("password1_register").value;
 	var mdp2 = document.getElementById("password2_register").value;
+
 	// var complot = document.getElementById("complot_register").value;
 
 	console.log("info recupérées"); // Afficher un message de débog
@@ -342,4 +355,3 @@ function next() {
 
 
 }
->>>>>>> ea40b0f29fc5ccbc52e9db3e13afda55f448bb90

@@ -78,8 +78,8 @@ session_start();
                 </select> -->
                 <div class="choix-conspiration">
                     <h4>Choisissez le(s) complot(s) qui vous interesse :</h4>
-                    <div class="scroll-box">
-                        <div class="conspiration-card" id="pyramides" value="pyramides">
+                    <div id= "scroll_box_reg" class="scroll-box">
+                        <div onclick="cards_register('pyramide')" class="conspiration-card" value="pyramides">
                             <img src="assets/images/conspirations/pyramides.jpeg" alt="pyramides">
                             <div class="container">
                                 <h4>Pyramides</h4>

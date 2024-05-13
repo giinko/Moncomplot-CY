@@ -215,3 +215,131 @@ function deco() {
 	})
 
 }
+// fonction comencer a swip les profils
+
+//<div class="profile-card">
+//              <img src="https://via.placeholder.com/300x400.png?text=Noémie" class="background-img" alt="Background Image">
+//            <div class="info">
+//              <h1 id="nom_swipe_pageabo">Noémie</h1>
+//            <p id="age_swipe_pageabo">34 ans</p>
+//      </div>
+//  </div>
+//  <button> Ajouter </button>
+//  <button> Next </button>
+
+function begin_swip() {
+
+	$.ajax({
+		type: "POST",
+		url: "../../script.php",
+		data: {
+			action: "next",
+			begin: 0,
+			user_swip: 1 // à définir
+		},
+		dataType: "json",
+
+		success: function (response) {
+			var resp = response.message.split("/");
+
+			var div_card = document.getElementById("profile_card");
+			div_card.innerHTML = "";
+
+			var img_back = document.createElement("img");
+			img_back.src = "https://via.placeholder.com/300x400.png?text=" + resp[0];
+			img_back.className = "background-img";
+
+			var div_info = document.createElement("div");
+			div_info.className = "info";
+
+			var h1 = document.createElement("h1");
+			h1.textContent = resp[0]
+			h1.id = "key_user";
+
+
+			var p = document.createElement("p");
+			p.textContent = resp[1]
+
+			var but1 = document.createElement("button");
+			but1.textContent = "Ajouter";
+
+			var but2 = document.createElement("button");
+			but2.textContent = "next";
+			but2.setAttribute('onclick', "next()");
+
+
+			div_info.appendChild(h1);
+			div_info.appendChild(p);
+			div_info.appendChild(but1);
+			div_info.appendChild(but2);
+
+			div_card.appendChild(img_back);
+			div_card.appendChild(div_info);
+
+		},
+		error: function () {
+			console.log("erreur");
+		}
+	})
+}
+
+
+function next() {
+
+	var user = document.getElementById("key_user").textContent;
+
+	$.ajax({
+		type: "POST",
+		url: "../../script.php",
+		data: {
+			action: "next",
+			begin: 1,
+			user_swip: user
+		},
+		dataType: "json",
+
+		success: function (response) {
+			var resp = response.message.split("/");
+
+			var div_card = document.getElementById("profile_card");
+			div_card.innerHTML = "";
+
+			var img_back = document.createElement("img");
+			img_back.src = "https://via.placeholder.com/300x400.png?text=" + resp[0];
+			img_back.className = "background-img";
+
+			var div_info = document.createElement("div");
+			div_info.className = "info";
+
+			var h1 = document.createElement("h1");
+			h1.textContent = resp[0]
+			h1.id = "key_user";
+
+
+			var p = document.createElement("p");
+			p.textContent = resp[1]
+
+			var but1 = document.createElement("button");
+			but1.textContent = "Ajouter";
+
+			var but2 = document.createElement("button");
+			but2.textContent = "next";
+			but2.setAttribute('onclick', "next()");
+
+
+			div_info.appendChild(h1);
+			div_info.appendChild(p);
+			div_info.appendChild(but1);
+			div_info.appendChild(but2);
+
+			div_card.appendChild(img_back);
+			div_card.appendChild(div_info);
+		},
+		error: function () {
+			console.log("erreur");
+		}
+	})
+
+
+}
+>>>>>>> ea40b0f29fc5ccbc52e9db3e13afda55f448bb90

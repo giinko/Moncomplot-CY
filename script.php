@@ -140,9 +140,51 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 		session_destroy();
 	}
 
+	if ($_POST["action"] == "next")
+	{
 
+
+		$fichier = fopen("assets/Data/".$_SESSION['LOGGED_USER']."/other_user.csv", "r");
+
+		$o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
+
+		if ($fichier === false){
+		    die("impossible d'ouvrir le fichier");
+		}
+
+		while (!feof($fichier)) {
+		    list($o_users[],$o_complots[],$o_friends[],$o_swips[],$o_bloque[]) = fgetcsv($fichier);
+		}
+
+		fclose($fichier);
+
+		if($_POST['begin'] == 0){
+
+			for ($i = 0; $i < sizeof($o_users)-1;$i++){
+			    if($o_swips[$i] != 1){
+			        $response_code = 555;
+			        $message = $o_users[$i]."/".$o_complots[$i];
+			        break;
+			    }
+			}
+		}
+
+		if($_POST['begin'] == 1){
+
+			for ($i = 0; $i < sizeof($o_users)-1;$i++){
+			    if($o_users[$i] == $_POST["user_swip"]){
+			        $o_swips[$i] = 1;
+			    }
+			    if($o_swips[$i] != 1){
+			        $response_code = 555;
+			        $message = $o_users[$i]."/".$o_complots[$i];
+			    }
+			}
+		}			
+	}
 
 	response($response_code, $message);
+
 }
 else
 {

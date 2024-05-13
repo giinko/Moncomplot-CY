@@ -10,6 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'enregistrer</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
 
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="icon" href="favicon.ico" />
@@ -58,6 +59,14 @@ session_start();
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
+                <select id="complot_register">
+                    <option valeur="fr">Choisir votre complot</option>
+                    <option valeur="fr">Terre plate</option>
+                    <option valeur="nl">Autre</option>
+                    <option valeur="en">Autre</option>
+                    <option valeur="other">Autre</option>
+                </select>
+
                 <!--
                 
                 <select id="complot_register" name="complot_register" required>
@@ -77,7 +86,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Chemtrails.jpeg" alt="Chemtrails">
+                            <img src="assets/images/conspirations/chemtrails.jpeg" alt="Chemtrails">
                             <div class="container">
                                 <h4>Chemtrails</h4>
                             </div>
@@ -113,7 +122,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Mayas.jpg" alt="Mayas">
+                            <img src="assets/images/conspirations/mayas.jpg" alt="Mayas">
                             <div class="container">
                                 <h4>Mayas</h4>
                             </div>
@@ -179,7 +188,7 @@ session_start();
                             </div>
                         </div>
                         <div class="conspiration-card">
-                            <img src="assets/images/conspirations/Pharmaceutique.jpeg" alt="Pharmaceutique">
+                            <img src="assets/images/conspirations/pharmaceutique.jpeg" alt="Pharmaceutique">
                             <div class="container">
                                 <h4>Pharmaceutiques</h4>
                             </div>

@@ -26,12 +26,14 @@ a:hover {
 /* Styles globaux */
 body {
     font-family: Montserrat, sans-serif;
-    background-image: url('../images/fond-violet.jpg');
+    /* background-image: url('../images/fond-violet.jpg'); */
+    background: linear-gradient(to bottom right, rgb(22, 0, 58), rgb(192, 0, 209));
     color: white;
     line-height: 1.5;
     min-height: 100vh;
     margin: 0;
 }
+
 
 /* Styles du header */
 .navbar {
@@ -514,7 +516,6 @@ body {
 
 #selected {
     background-color: rgb(255, 197, 247);
-    border: 2px solid purple;
     box-shadow: 0 5px 16px 0 rgb(165, 18, 202);
     transition: 0.3s;
     cursor: pointer;

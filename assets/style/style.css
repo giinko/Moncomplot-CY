@@ -512,8 +512,9 @@ body {
     margin-bottom: 5px;
 }
 
-.selected {
-    background-color: rgb(252, 157, 231);
+#selected {
+    background-color: rgb(255, 197, 247);
+    border: 2px solid purple;
     box-shadow: 0 5px 16px 0 rgb(165, 18, 202);
     transition: 0.3s;
     cursor: pointer;

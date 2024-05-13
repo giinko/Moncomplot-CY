@@ -13,8 +13,6 @@ session_start();
     <script src="assets/script_JS/connexion.js"></script>
 
     <link rel="stylesheet" href="assets/style/style.css">
-    <link rel="icon" href="favicon.ico" />
-    <link rel="icon" type="/assets/images/favicon" href="/assets/images/favicon.ico" />
 
 </head>
 
@@ -59,28 +57,19 @@ session_start();
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
+                <!--
                 <select id="complot_register">
                     <option valeur="fr">Choisir votre complot</option>
                     <option valeur="fr">Terre plate</option>
                     <option valeur="nl">Autre</option>
                     <option valeur="en">Autre</option>
                     <option valeur="other">Autre</option>
-                </select>
-
-                <!--
-                
-                <select id="complot_register" name="complot_register" required>
-                    <option valeur="fr">Choisir votre complot</option>
-                    <option valeur="fr">Terre plate</option>
-                    <option valeur="nl">Platiste</option>
-                    <option valeur="en">Hommes sur la lune</option>
-                    <option valeur="other">Réptiliens</option>
                 </select> -->
 
                 <div class="choix-conspiration">
-                    <h4>Choisissez le(s) complot(s) qui vous interesse :</h4>
+                    <h4>Choisissez le complot qui vous interesse :</h4>
 
-                    <div id= "scroll_box_reg" class="scroll-box">
+                    <div id="scroll_box_reg" class="scroll-box">
 
                         <div onclick="cards_register('Pyramides')" class="conspiration-card" value="Pyramides">
                             <img src="assets/images/conspirations/pyramides.jpeg" alt="pyramides">

@@ -25,9 +25,11 @@ function cards_register(complot)
 		if(complot==div.getAttribute('value')){
 
 			div.id = "selected";
+			div.className = "selected";
 		}
 		else{
 			div.id = "not_selected";
+			div.className = "conspiration-card";
 		}
 		
 	});
@@ -45,9 +47,30 @@ function register() {
 	var email = document.getElementById("email_register").value;
 	var mdp1 = document.getElementById("password1_register").value;
 	var mdp2 = document.getElementById("password2_register").value;
-	var complot = document.getElementById("selected").getAttribute('value');
+	var complot_cards = document.getElementById("selected");
 
-	console.log(complot);
+	if (complot_cards){
+		var complot = document.getElementById("selected").getAttribute('value');
+	}
+	else{
+		var div_error_reg = document.getElementById("erreur_message_register");
+		div_error_reg.innerHTML = "";
+
+		var elem_center = document.createElement("center");
+		var elem_span = document.createElement("span");
+		var textNode = document.createTextNode("Veuillez selectionnez un complot");
+
+		elem_span.appendChild(textNode);
+		elem_span.classList.add("red");
+		elem_center.appendChild(elem_span);
+		div_error_reg.appendChild(elem_center);
+
+		return 1;
+	}
+
+	// Vérifier que chaque champs est remplit (non vide)
+	
+
 	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
 
 	//password compris entre 8 et 20 caratères + pass1 == pass2

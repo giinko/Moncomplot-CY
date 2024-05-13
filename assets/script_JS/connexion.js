@@ -1,7 +1,26 @@
 
+console.log("TEST6");
+// Sélection de toutes les cartes
+const cards = document.querySelectorAll('.conspiration-card');
+
+// Ajout d'un gestionnaire d'événements click à chaque carte
+cards.forEach(card => {
+	card.addEventListener('click', function () {
+		// Supprimer la classe "selected" de toutes les cartes
+		cards.forEach(card => {
+			card.classList.remove('selected');
+		});
+		this.classList.add('selected'); // Si elle n'est pas sélectionnée, la sélectionner
+	});
+});
 
 function register() {
 	//récupération des variables 
+
+
+	// Récupération de la seule carte avec la classe "selected"
+	var complot = document.querySelector('.conspiration-card.selected').value;
+	console.log(document.querySelector('.conspiration-card.selected').value);
 
 	var name = document.getElementById("name_register").value;
 	var lastname = document.getElementById("lastname_register").value;
@@ -9,8 +28,9 @@ function register() {
 	var email = document.getElementById("email_register").value;
 	var mdp1 = document.getElementById("password1_register").value;
 	var mdp2 = document.getElementById("password2_register").value;
-	var complot = document.getElementById("complot_register").value;
+	// var complot = document.getElementById("complot_register").value;
 
+	console.log("info recupérées"); // Afficher un message de débog
 	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
 
 	//password compris entre 8 et 20 caratères + pass1 == pass2
@@ -195,4 +215,3 @@ function deco() {
 	})
 
 }
-

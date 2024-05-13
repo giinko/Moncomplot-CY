@@ -55,9 +55,9 @@ session_start();
                 <input id="name_register" type="text" name="name" placeholder="Prénom" required>
                 <input id="lastname_register" type="text" name="lastname" placeholder="Nom" required>
                 <input id="username_register" type="text" name="username" placeholder="Nom de compte" required>
-                <input id="email_register" type="email" name="email" placeholder="Adresse email" required>
-                <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" required>
-                <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" required>
+                <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
+                <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
+                <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
                 <!--
                 
                 <select id="complot_register" name="complot_register" required>
@@ -70,8 +70,7 @@ session_start();
                 <div class="choix-conspiration">
                     <h4>Choisissez le(s) complot(s) qui vous interesse :</h4>
                     <div class="scroll-box">
-
-                        <div class="conspiration-card">
+                        <div class="conspiration-card" id="pyramides" value="pyramides">
                             <img src="assets/images/conspirations/pyramides.jpeg" alt="pyramides">
                             <div class="container">
                                 <h4>Pyramides</h4>

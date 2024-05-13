@@ -1,20 +1,3 @@
-const communautes = [
-    {
-        titre: "Platistes",
-        description: "Communautée des platistes",
-        image: "chemin/vers/image1.jpg"
-    },
-    {
-        titre: "illuminatis",
-        description: "communautés des illuminatis",
-        image: "chemin/vers/image2.jpg"
-    },
-    {
-        titre: "famille Rodchild",
-        description: "Askip ils contrôlent le monde ? LOL",
-        image: "chemin/vers/image2.jpg"
-    },
-];
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.catalogue');
@@ -54,3 +37,18 @@ function closeSubscriptionModal() {
 function redirectToRegistration() {
     window.location.href = 'inscription.html'; // Rediriger vers la page d'inscription
 }
+
+// Sélection de toutes les cartes
+const cards = document.querySelectorAll('.conspiration-card');
+
+// Ajout d'un gestionnaire d'événements click à chaque carte
+cards.forEach(card => {
+    card.addEventListener('click', function () {
+        // Vérifier si la carte est déjà sélectionnée ou non
+        if (this.classList.contains('selected')) {
+            this.classList.remove('selected'); // Si elle est sélectionnée, la désélectionner
+        } else {
+            this.classList.add('selected'); // Si elle n'est pas sélectionnée, la sélectionner
+        }
+    });
+});

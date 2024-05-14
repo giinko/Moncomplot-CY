@@ -16,6 +16,8 @@ if (isset($_SESSION['LOGGED_USER'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <script src="assets/script_JS/connexion.js"></script>
     <link rel="stylesheet" href="assets/style/style.css">
 </head>

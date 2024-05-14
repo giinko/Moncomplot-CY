@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['LOGGED_USER'])) {
+            header("Location: page_abo.php");
+            exit();
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,7 +25,7 @@
     <header>
       <nav class="navbar" id="navbar">
         <ul>
-          <li id="logo"><a href="index.html">MonComplot.fr</a></li>
+          <li id="logo"><a href="index.php">MonComplot.fr</a></li>
           <li><a href="login.php">Se connecter</a></li>
           <li><a href="register.php">Inscription</a></li>
           <li><a href="a-propos.html">À propos</a></li>

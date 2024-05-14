@@ -172,7 +172,7 @@ function login() {
 				document.getElementById("password_loginpage").value = '';
 			}
 			else if (response.response_code == 200) {
-				window.location.href = "index.html";
+				window.location.href = "page_abo.php";
 			}
 
 
@@ -255,17 +255,6 @@ function deco() {
 	})
 
 }
-// fonction comencer a swip les profils
-
-//<div class="profile-card">
-//              <img src="https://via.placeholder.com/300x400.png?text=Noémie" class="background-img" alt="Background Image">
-//            <div class="info">
-//              <h1 id="nom_swipe_pageabo">Noémie</h1>
-//            <p id="age_swipe_pageabo">34 ans</p>
-//      </div>
-//  </div>
-//  <button> Ajouter </button>
-//  <button> Next </button>
 
 function begin_swip() {
 
@@ -302,10 +291,11 @@ function begin_swip() {
 
 			var but1 = document.createElement("button");
 			but1.textContent = "Ajouter";
+			but1.setAttribute('onclick', "next(2)");
 
 			var but2 = document.createElement("button");
 			but2.textContent = "next";
-			but2.setAttribute('onclick', "next()");
+			but2.setAttribute('onclick', "next(1)");
 
 
 			div_info.appendChild(h1);
@@ -324,7 +314,7 @@ function begin_swip() {
 }
 
 
-function next() {
+function next(beg) {
 
 	var user = document.getElementById("key_user").textContent;
 
@@ -333,7 +323,7 @@ function next() {
 		url: "../../script.php",
 		data: {
 			action: "next",
-			begin: 1,
+			begin: beg,
 			user_swip: user
 		},
 		dataType: "json",
@@ -361,6 +351,7 @@ function next() {
 
 			var but1 = document.createElement("button");
 			but1.textContent = "Ajouter";
+			but1.setAttribute('onclick', "next(2)");
 
 			var but2 = document.createElement("button");
 			but2.textContent = "next";

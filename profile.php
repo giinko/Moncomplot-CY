@@ -120,7 +120,7 @@ for ($i = 0; $i < sizeof($users);$i++){
         </div>
         <div>
            
-            <a href="index.html">Retour à l'accueil</a>
+            <a href="page_abo.php">Retour à l'accueil</a>
             <button onclick="deco()">Se déconnecter</button>
         </div>
     </div>

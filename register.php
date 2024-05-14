@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (isset($_SESSION['LOGGED_USER'])) {
+            header("Location: page_abo.php");
+            exit();
+        }
 ?>
 
 <!DOCTYPE html>
@@ -30,22 +35,14 @@ session_start();
         <header>
             <nav class="navbar">
                 <ul>
-                    <li id="logo"><a href="index.html">Logo</a></li>
+                    <li id="logo"><a href="index.php">Logo</a></li>
                     <li><a href="login.php">Se connecter</a></li>
                     <li><a href="register.php">Inscription</a></li>
                     <li><a href="a-propos.html">À propos</a></li>
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.php">Accueil</a></li>
                 </ul>
             </nav>
         </header>
-
-        <?php
-        if (isset($_SESSION['LOGGED_USER'])) {
-            header("Location: index.html");
-            exit();
-        }
-        ?>
-
         <div class="login-container">
             <h2>Inscription</h2>
             <div id="erreur_message_register"></div>

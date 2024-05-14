@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION['LOGGED_USER'])) {
+    header("Location: index.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +22,6 @@ session_start();
 
 <body>
 
-    <!--
-        1) vérifier si le user est co, si il est co on le redirige vers page de base, <- IL RESTE A VéRIFIER CA
-        2) dire si mdp ou username est invalide
-    -->
-
 
     <div id="wrapper">
 
@@ -28,21 +29,14 @@ session_start();
         <header>
             <nav class="navbar">
                 <ul>
-                    <li id="logo"><a href="index.html">Logo</a></li>
+                    <li id="logo"><a href="index.php">Logo</a></li>
                     <li><a href="login.php">Se connecter</a></li>
                     <li><a href="register.php">Inscription</a></li>
                     <li><a href="a-propos.html">À propos</a></li>
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.php">Accueil</a></li>
                 </ul>
             </nav>
         </header>
-
-        <?php
-        if (isset($_SESSION['LOGGED_USER'])) {
-            header("Location: index.html");
-            exit();
-        }
-        ?>
 
         <!-- Main -->
         <div class="main">

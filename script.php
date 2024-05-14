@@ -171,16 +171,65 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 
 		if($_POST['begin'] == 1){
 
+			$all_profil = 0;
 			for ($i = 0; $i < sizeof($o_users)-1;$i++){
 			    if($o_users[$i] == $_POST["user_swip"]){
 			        $o_swips[$i] = 1;
+			        
 			    }
 			    if($o_swips[$i] != 1){
 			        $response_code = 555;
 			        $message = $o_users[$i]."/".$o_complots[$i];
+			        $all_profil = 1;
 			    }
 			}
-		}			
+
+			$fichier = fopen("assets/Data/".$_SESSION['LOGGED_USER']."/other_user.csv", "w");
+
+			for ($i = 0; $i < sizeof($o_users)-1; $i++) {
+			    $ligne = $o_users[$i] .",". $o_complots[$i] . "," . $o_friends[$i] .",". $o_swips[$i] .",". $o_bloque[$i] ."\n";
+			    fwrite($fichier, $ligne);
+			}
+
+			fclose($fichier);
+
+			if($all_profil==0){
+				$message = "Oups/Il n'y a plus d'utilisateur";
+			}
+		
+		}
+
+		if($_POST['begin'] == 2){
+
+			$all_profil = 0;
+			for ($i = 0; $i < sizeof($o_users)-1;$i++){
+			    if($o_users[$i] == $_POST["user_swip"]){
+			        $o_swips[$i] = 1;
+			        $o_friends[$i] = 1;
+			        
+			    }
+			    if($o_swips[$i] != 1 ){
+			        $response_code = 555;
+			        $message = $o_users[$i]."/".$o_complots[$i];
+			        $all_profil = 1;
+			    }
+			}
+
+			$fichier = fopen("assets/Data/".$_SESSION['LOGGED_USER']."/other_user.csv", "w");
+
+			for ($i = 0; $i < sizeof($o_users)-1; $i++) {
+			    $ligne = $o_users[$i] .",". $o_complots[$i] . "," . $o_friends[$i] .",". $o_swips[$i] .",". $o_bloque[$i] ."\n";
+			    fwrite($fichier, $ligne);
+			}
+
+			fclose($fichier);
+
+			if($all_profil==0){
+				$message = "Oups/Il n'y a plus d'utilisateur";
+			}
+		
+		}
+
 	}
 
 	response($response_code, $message);

@@ -47,22 +47,25 @@ while (!feof($fichier)) {
     list($o_users[],$o_complots[],$o_friends[],$o_swips[],$o_bloque[]) = fgetcsv($fichier);
 }
 
-for ($i = 0; $i < sizeof($users);$i++){
-    if(!isset($o_users[$i])){
-        $o_users[$i] = $users[$i];
-        $o_complots[$i] = $complots[$i];
-        $o_friends[$i] = 0; 
-        $o_swips[$i] = 0;
-        $o_bloque[$i] = 0;
-
+$i=0;
+$y=0;
+while(isset($users[$i])){
+    if(!isset($o_users[$y]) && $users[$i] != $_SESSION['LOGGED_USER']){
+        $o_users[$y] = $users[$i];
+        $o_complots[$y] = $complots[$i];
+        $o_friends[$y] = 0; 
+        $o_swips[$y] = 0;
+        $o_bloque[$y] = 0;
+        $y+=1;
     }
+    $i+=1;
 }
 
 fclose($fichier);
 
 $fichier = fopen("assets/Data/".$user."/other_user.csv", "w");
 
-for ($i = 0; $i < sizeof($users)-1; $i++) {
+for ($i = 0; $i < sizeof($o_users)-1; $i++) {
     $ligne = $o_users[$i] .",". $o_complots[$i] . "," . $o_friends[$i] .",". $o_swips[$i] .",". $o_bloque[$i] ."\n";
     fwrite($fichier, $ligne);;
 }

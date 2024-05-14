@@ -105,7 +105,8 @@ body {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     margin: 20px 0;
-    scrollbar-color: rgba(217, 0, 255, 0.5) #650272;
+    scrollbar-color: auto;
+    /*scrollbar-color: rgba(217, 0, 255, 0.5) #650272;*/
     overflow-x: scroll;
     flex-direction: row;
     display: flex;

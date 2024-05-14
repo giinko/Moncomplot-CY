@@ -9,7 +9,7 @@ if(!isset($_SESSION['LOGGED_USER'])){
 $fichier = fopen("assets/Data/data.csv", "r");
 
 if ($fichier === false){
-    die("impossible d'ouvrir le fichier");
+    die("impossible d'ouvrir le fichier data");
 }
 
 $users = $mdps  = $emails = $names = $lastnames = $complots = [];

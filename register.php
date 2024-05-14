@@ -51,11 +51,17 @@ session_start();
             <div id="erreur_message_register"></div>
             <br>
             <form method="post">
+                <label>Prénom :</label>
                 <input id="name_register" type="text" name="name" placeholder="Prénom" required>
+                <label>Nom :</label>
                 <input id="lastname_register" type="text" name="lastname" placeholder="Nom" required>
+                <label>Nom de compte :</label>
                 <input id="username_register" type="text" name="username" placeholder="Nom de compte" required>
+                <label>Adresse email :</label>
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
+                <label>Mot de passe :</label>
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
+                <label>Confirmez votre mot de passe :</label>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
                 <!--
                 <select id="complot_register">
@@ -77,74 +83,77 @@ session_start();
                                 <h4>Pyramides</h4>
                             </div>
                         </div>
-
                         <div onclick="cards_register('Chemtrails')" class="conspiration-card" value="Chemtrails">
                             <img src="assets/images/conspirations/chemtrails.jpeg" alt="Chemtrails">
                             <div class="container">
                                 <h4>Chemtrails</h4>
                             </div>
                         </div>
-
                         <div onclick="cards_register('Illuminatis')" class="conspiration-card" value="Illuminatis">
                             <img src="assets/images/conspirations/illuminatis.jpeg" alt="Illuminatis">
                             <div class="container">
                                 <h4>Illuminatis</h4>
                             </div>
                         </div>
-
                         <div onclick="cards_register('Reptiliens')" class="conspiration-card" value="Reptiliens">
                             <img src="assets/images/conspirations/reptiliens.jpeg" alt="Réptiliens">
                             <div class="container">
                                 <h4>Réptiliens</h4>
                             </div>
                         </div>
-                        <!--
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('Aliens')" class="conspiration-card" value="Aliens">
                             <img src="assets/images/conspirations/alien.jpg" alt="Aliens">
                             <div class="container">
                                 <h4>Aliens</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('Vaccins')" class="conspiration-card" value="Vaccins">
                             <img src="assets/images/conspirations/vaccins.jpg" alt="Vaccins">
                             <div class="container">
                                 <h4>Vaccins</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('Platistes')" class="conspiration-card" value="Platistes">
                             <img src="assets/images/conspirations/platistes.jpg" alt="Platistes">
                             <div class="container">
                                 <h4>Platistes</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
-                            <img src="assets/images/conspirations/mayas.jpg" alt="Mayas">
-                            <div class="container">
-                                <h4>Mayas</h4>
-                            </div>
-                        </div>
-                        <div class="conspiration-card">
-                            <img src="assets/images/conspirations/experience.jpg" alt="Éxperiences">
-                            <div class="container">
-                                <h4>Éxperiences</h4>
-                            </div>
-                        </div>
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('Tours_Jumelles')" class="conspiration-card" value="Tours_Jumelles">
                             <img src="assets/images/conspirations/tours-jumelles.jpg" alt="Tours Jumelles">
                             <div class="container">
                                 <h4>Tours Jumelles</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('Rothschild')" class="conspiration-card" value="Rothschild">
+                            <img src="assets/images/conspirations/rothschild.jpg" alt="Famille Rothschild">
+                            <div class="container">
+                                <h4>Famille Rothschild</h4>
+                            </div>
+                        </div>
+                        <div onclick="cards_register('Élections')" class="conspiration-card" value="Élections">
                             <img src="assets/images/conspirations/elections.jpg" alt="Élections">
                             <div class="container">
                                 <h4>Élections</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
+                        <div onclick="cards_register('PucesRFID')" class="conspiration-card" value="PucesRFID">
                             <img src="assets/images/conspirations/puceRFID.jpeg" alt="Puces RFID">
                             <div class="container">
                                 <h4>Puces RFID</h4>
+                            </div>
+                        </div>
+                        <div onclick="cards_register('Autre')" class="conspiration-card" value="Autre">
+                            <img src="assets/images/conspirations/autre.jpg" alt="Autre">
+                            <div class="container">
+                                <h4>Autre</h4>
+                            </div>
+                        </div>
+                        <!--
+                        <div onclick="cards_register('Mayas')" class="conspiration-card" value="Mayas">
+                            <img src="assets/images/conspirations/mayas.jpg" alt="Mayas">
+                            <div class="container">
+                                <h4>Mayas</h4>
                             </div>
                         </div>
                         <div class="conspiration-card">
@@ -189,13 +198,7 @@ session_start();
                                 <h4>Pharmaceutiques</h4>
                             </div>
                         </div>
-                        <div class="conspiration-card">
-                            <img src="assets/images/conspirations/autre.jpg" alt="Autre(s)?">
-                            <div class="container">
-                                <h4>Autre(s)</h4>
-                            </div>
-                        </div>
-                    -->
+                        -->
 
 
                     </div>

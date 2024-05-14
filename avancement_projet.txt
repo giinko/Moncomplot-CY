@@ -40,3 +40,9 @@ Manque des images
 Register fini (finir le choix des complots interminable) + Login fini + a propos fini + Politique de Confidentialité fini + back profil (en cours) + images des conspirations fini
 à faire : Register choix des complots (après ça register officilement fini) + front profil + front interface abonné + boutique (paiements abonnements)
 
+13-14/05/2024 :
+
+Tellement d'avancée je saurai touteS les dénombrées ici
+Register avec choix des complots enfin fini. Page d'accueil visiteur améliorée etc
+à faire : beaucoup de choses, front des nouvelles pages + ça serai bien d'améliorer la nav-bar ( la rendre coulissante et responsive)
+faire la responsive de tout le site.

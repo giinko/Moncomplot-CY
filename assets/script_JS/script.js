@@ -1,29 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.catalogue');
-
-    articles.forEach(article => {
-        const box = document.createElement('div');
-        box.className = 'box';
-
-        const image = document.createElement('img');
-        image.src = article.image;
-        image.alt = 'Image de ' + article.titre;
-
-        const title = document.createElement('h3');
-        title.textContent = article.titre;
-
-        const description = document.createElement('p');
-        description.textContent = article.description;
-
-        box.appendChild(image);
-        box.appendChild(title);
-        box.appendChild(description);
-
-        container.appendChild(box);
-    });
-});
-
 function openSubscriptionModal() {
     var modal = document.getElementById('subscriptionModal');
     modal.style.display = 'block';

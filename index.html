@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moncomplot</title>
   <link rel="stylesheet" href="assets/style/style.css">
-  <link rel="icon" type="MonComplot-CY/assets/images/favicon" href="./assets/images/favicon.ico" />
-  <script src="/assets/script_JS/script.js"></script>
 </head>
 
 <body>
@@ -16,9 +14,9 @@
 
     <!-- Header -->
     <header>
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
         <ul>
-          <li id="logo"><a href="index.html">Logo</a></li>
+          <li id="logo"><a href="index.html">MonComplot.fr</a></li>
           <li><a href="login.php">Se connecter</a></li>
           <li><a href="register.php">Inscription</a></li>
           <li><a href="a-propos.html">À propos</a></li>
@@ -69,17 +67,105 @@
             <p>Réptiliens</p>
           </div>
         </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/background-image.avif" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/background-image.avif" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/background-image.avif" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/background-image.avif" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
       </div>
 
       <div class="presentation">
         <h2>Rejoignez nos multiples communautées !</h2>
       </div>
-      <div class="catalogue-communautes" onclick="openSubscriptionModal()">
-        <div class="communaute">
-          <img src="assets/images/theorie_terre-plate.jpg" alt="Avatar">
+      <div class="catalogue-communautes">
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/platistes.jpg" alt="Platiste_image">
           <div class="container">
             <h4><b>Platistes</b></h4>
             <p>Communauté des platistes</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/illuminatis.jpeg" alt="Illuminatis_image">
+          <div class="container">
+            <h4><b>Illuminatis</b></h4>
+            <p>Contrôlent-ils le monde ?</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/prgm_appollo.jpeg" alt="Programme_AppolloII_image">
+          <div class="container">
+            <h4><b>Programme Appollo II</b></h4>
+            <p>Ils ne sont jamais allés sur la lune.</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/reptiliens.jpeg" alt="Reptiliens_image">
+          <div class="container">
+            <h4><b>Réptiliens</b></h4>
+            <p>Ils vivent parmis nous...</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/pyramides.jpeg" alt="Pyramides_image">
+          <div class="container">
+            <h4><b>Pyramides</b></h4>
+            <p>Ce n'est pas l'oeuvre d'être-humains</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/vaccins.jpg" alt="Vaccins_image">
+          <div class="container">
+            <h4><b>Vaccins</b></h4>
+            <p>Ils veulent nous contrôler c'est sûr</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/tours-jumelles.jpg" alt="Tours_jumelles_image">
+          <div class="container">
+            <h4><b>Tours jumelles</b></h4>
+            <p>Un coup de l'état ?</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/alien.jpg" alt="Aliens_image">
+          <div class="container">
+            <h4><b>Aliens</b></h4>
+            <p>Nous ne sommes pas seuls...</p>
+          </div>
+        </div>
+        <div class="communaute" onclick="openSubscriptionModal()">
+          <img src="assets/images/conspirations/LOT_complots.jpg" alt="lotcomplots_image">
+          <div class="container">
+            <h4><b>Et pleins d'autres encore !</b></h4>
+            <p>Rejoignez MonComplot.fr pour voir d'avantage de communautées</p>
           </div>
         </div>
 
@@ -92,7 +178,7 @@
     <div class="modal-content">
       <span class="close" onclick="closeSubscriptionModal()">&times;</span>
       <h2>Inscrivez-vous !</h2>
-      <p>Cela vous interesse ? Rejoignez MonComplot.fr et rencontrez votre âme-soeur dès a présent !</p>
+      <p>Cela vous interesse ? Rejoignez MonComplot.fr et faites des rencontres exceptionnelles</p>
       <a href="register.php"><button>Je m'inscris !</button></a>
       <p> Déja membre ? <a href="login.php" id="djj"> Je me connecte</a> </p>
     </div>
@@ -110,6 +196,7 @@
       </ul>
     </div>
   </footer>
+  <script src="assets/script_JS/script.js"></script>
 </body>
 
 </html>

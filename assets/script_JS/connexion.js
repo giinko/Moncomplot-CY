@@ -1,18 +1,4 @@
 
-// Sélection de toutes les cartes
-/*
-const cards = document.querySelectorAll('.conspiration-card');
-Ajout d'un gestionnaire d'événements click à chaque carte
-cards.forEach(card => {
-	card.addEventListener('click', function () {
-		// Supprimer la classe "selected" de toutes les cartes
-		cards.forEach(card => {
-			card.classList.remove('selected');
-		});
-		cards.classList.add('selected'); // Si elle n'est pas sélectionnée, la sélectionner
-	});
-});
-*/
 function cards_register(complot) {
 
 	var scroll_boc = document.getElementById("scroll_box_reg");
@@ -32,12 +18,35 @@ function cards_register(complot) {
 		}
 
 	});
+}
 
+function error_register(text){
 
+	var div_error_reg = document.getElementById("erreur_message_register");
+	div_error_reg.innerHTML = "";
+
+	var elem_center = document.createElement("center");
+	var elem_span = document.createElement("span");
+	var textNode = document.createTextNode(text);
+
+	elem_span.appendChild(textNode);
+	elem_span.classList.add("red");
+	elem_center.appendChild(elem_span);
+	div_error_reg.appendChild(elem_center);
 
 }
 
+function empty(value)
+{
+	return(
+		value === undefined || value === null || value === "" || value === false
+		)
+}
+
 function register() {
+	
+	event.preventDefault();
+
 	//récupération des variables 
 
 	var name = document.getElementById("name_register").value;
@@ -52,65 +61,90 @@ function register() {
 		var complot = document.getElementById("selected").getAttribute('value');
 	}
 	else {
-		var div_error_reg = document.getElementById("erreur_message_register");
-		div_error_reg.innerHTML = "";
-
-		var elem_center = document.createElement("center");
-		var elem_span = document.createElement("span");
-		var textNode = document.createTextNode("Veuillez selectionnez un complot");
-
-		elem_span.appendChild(textNode);
-		elem_span.classList.add("red");
-		elem_center.appendChild(elem_span);
-		div_error_reg.appendChild(elem_center);
-
+		error_register("Veuillez selectionnez un complot");
 		return 1;
 	}
 
 	// Vérifier que chaque champs est remplit (non vide)
 
+	if(empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)){
+		error_register("Tous les champs sont obligatoires");
+		return 1;
+	}
 
-	//username seulement lettre et chiffre et n'existe pas dans la base de donnée
+	//username seulement lettre et chiffre
 
-	//password compris entre 8 et 20 caratères + pass1 == pass2
+	if (!(/^[a-zA-Z0-9]*$/.test(username))) {
 
+    	error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
+    	document.getElementById("username_register").value = "";
+
+    	return 1;
+	}
+
+	if (!(/^[a-zA-Z]*$/.test(name))) {
+
+    	error_register("Merci de rentré un prénom valide");
+    	document.getElementById("name_register").value = "";
+
+    	return 1;
+	}
+
+	if (!(/^[a-zA-Z]*$/.test(lastname))) {
+
+    	error_register("Merci de rentré un nom valide");
+    	document.getElementById("lastname_register").value = "";
+
+    	return 1;
+	}
+
+	// username n'existe pas dans la base de donnée
+	// email n'existe pas dans la base de donné
+
+	
 
 	// Si les 2 mdp sont différent on renvoie une erreur
 	if (mdp1 != mdp2) {
 
-		var div_error_reg = document.getElementById("erreur_message_register");
-		div_error_reg.innerHTML = "";
-
-		var elem_center = document.createElement("center");
-		var elem_span = document.createElement("span");
-		var textNode = document.createTextNode("Les mots de passes ne sont pas identiques");
-
-		elem_span.appendChild(textNode);
-		elem_span.classList.add("red");
-		elem_center.appendChild(elem_span);
-		div_error_reg.appendChild(elem_center);
-
+		error_register("Les mots de passes ne sont pas identiques");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
 
 		return 1;
 	}
 
-	//nom et prenom uniquement des lettres
+	//password compris entre 5 et 20 caratères
+	if((mdp1.lenght < 5) && (mdp1.lenght > 20)){
 
-	//email n'existe pas dans la base de donné
+		error_register("Les mots de passes doivent etre compris entre 5 et 20 caractères");
+		document.getElementById("password1_register").value = "";
+		document.getElementById("password2_register").value = "";
 
-	//complot différent de "chsoir complot"
+		return 1;
 
-	//Check si les variables sont bonnne :
-	// (mdp1 == mdp 1) / (email est bien un email) / (pas de chiffre ou carac bizzare dans name et lastname) / ...
+	}
 
-	//Si c'est bon on supp les champs 
+	// Verif si le mail ressemble a un mail valide
+	var verif_mail = email.split("@");
 
-	// ... on verra les autres après
+	if(empty(verif_mail[0]) || empty(verif_mail[1]) ){
+
+		error_register("Merci d'entrer un mail valide");
+		document.getElementById("email_register").value = "";
+		return 1;
+	}
+	else{
+		var verif_mail2 = verif_mail[1].split(".");
+		if(empty(verif_mail2[0]) || empty(verif_mail2[1]) ){
+			error_register("Merci d'entrer un mail valide");
+			document.getElementById("email_register").value = "";
+			return 1;
+		}
+	}
+
+
 
 	//AJAX
-
 	$.ajax({
 		type: "POST",
 		url: "../../script.php",
@@ -135,12 +169,11 @@ function register() {
 }
 
 function login() {
+
 	event.preventDefault();
+
 	var username = document.getElementById("username_loginpage").value;
 	var password = document.getElementById("password_loginpage").value;
-
-	//Check les variable si besoin
-	//Si tt est ok requette ajax :
 
 	$.ajax({
 		type: "POST",
@@ -154,28 +187,34 @@ function login() {
 
 		success: function (response) {
 
-			if (response.response_code == 343) {
-				var div_err_log = document.getElementById("erreur_message");
-				div_err_log.innerHTML = "";
-				var elem_center = document.createElement("center");
-				var elem_span = document.createElement("span");
+			var resp = response.message.split("/");
+			
+			if (response.response_code == 200){
 
-				var textNode = document.createTextNode(response.message);
-				elem_span.appendChild(textNode);
+				if(resp[0] == "incorect_mdp"){
+					var div_err_log = document.getElementById("erreur_message");
+					div_err_log.innerHTML = "";
+					var elem_center = document.createElement("center");
+					var elem_span = document.createElement("span");
 
-				elem_span.classList.add("red");
-				elem_center.appendChild(elem_span);
-				div_err_log.appendChild(elem_center);
+					var textNode = document.createTextNode(resp[1]);
+					elem_span.appendChild(textNode);
 
-				document.getElementById("username_loginpage").value = '';
-				document.getElementById("password_loginpage").value = '';
+					elem_span.classList.add("red");
+					elem_center.appendChild(elem_span);
+					div_err_log.appendChild(elem_center);
+
+					document.getElementById("username_loginpage").value = '';
+					document.getElementById("password_loginpage").value = '';
+				}
+
+				else{
+					window.location.href = "index.php";
+				}
 			}
-			else if (response.response_code == 200) {
-				window.location.href = "index.php";
-			}
-
 
 		},
+
 		error: function () {
 			console.log("erreur");
 		}
@@ -183,6 +222,7 @@ function login() {
 }
 
 function valide_edit_profile(ok) {
+
 	var recup = document.getElementById("edit_profile_input").value;
 	console.log(ok);
 
@@ -259,7 +299,6 @@ function deco() {
 			console.log("erreur");
 		}
 	})
-
 }
 
 function begin_swip() {

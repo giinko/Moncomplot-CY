@@ -52,7 +52,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
                 <input id="name_register" type="text" name="name" placeholder="Prénom" required>
                 <label>Nom :</label>
                 <input id="lastname_register" type="text" name="lastname" placeholder="Nom" required>
-                <label>Nom de compte :</label>
+                <label>Pseudo :</label>
                 <input id="username_register" type="text" name="username" placeholder="Nom de compte" required>
                 <label>Adresse email :</label>
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>

@@ -76,16 +76,18 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 		if ($number == 0) {
 			$response_code = HTTP_OK;
-			$message = "Mauvais username ou mdp";
+			$message = "incorect_mdp/Mauvais username ou mdp";
 		}
 	}
 
 	if ($_POST["action"] == "edit_profile_data") {
+
 		// sert plus a rien mais a voir si on peut faire une erreur comme ca
 		if (!isset($_SESSION['LOGGED_USER'])) {
 			$response_code = HTTP_OK;
 			$message = "Assurez vous d'etre bien connecté";
-		} else {
+		}
+		else {
 
 			$user = $_SESSION['LOGGED_USER'];
 
@@ -107,7 +109,6 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 			$value = $_POST["contenu"];
 
 
-
 			for ($i = 0; $i < sizeof($users); $i++) {
 				if ($user == $users[$i]) {
 					if ($type == "name") {
@@ -119,6 +120,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 					if ($type == "email") {
 						$emails[$i] = $value;
 					}
+					if ($type == "mdp") {
+						$mdps[$i] = $value;
+					}
 				}
 			}
 
@@ -128,6 +132,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				fwrite($fichier, $ligne);;
 			}
 			fclose($fichier);
+
+			$response_code = HTTP_OK;
+			$message = "ok";
 		}
 	}
 

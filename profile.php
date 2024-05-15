@@ -89,13 +89,13 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
             <div class="line">
                 <p><strong>Mot de Passe :</strong> <span id="edit_mdp"><?php echo $mdp; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_mdp", "<?php echo $mdp; ?>");' id="button_edit" alt="">
                     </span></p>
             </div>
 
             <div class="line">
                 <p><strong>Complots :</strong> <span id="edit_complot"><?php echo $complot; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                        <img src="/assets/images/modify.png" id="button_edit" alt="">
                     </span></p>
             </div>
 

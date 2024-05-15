@@ -293,7 +293,7 @@ function deco() {
 		dataType: "json",
 
 		success: function () {
-			window.location.href = "login.php";
+			window.location.href = "index.php";
 		},
 		error: function () {
 			console.log("erreur");
@@ -359,8 +359,7 @@ function begin_swip() {
 }
 
 
-function next(beg)
-{
+function next(beg) {
 
 	var user = document.getElementById("key_user").textContent;
 
@@ -419,8 +418,7 @@ function next(beg)
 }
 
 
-function upload_img()
-{
+function upload_img() {
 
 	var img = document.getElementById("img_up_profile");
 	var imageDisplay = document.getElementById('imageDisplay');
@@ -428,9 +426,9 @@ function upload_img()
 
 	var reader = new FileReader();
 
-	reader.onload = function(img){
+	reader.onload = function (img) {
 		imageDisplay.src = e.target.result;
-        imageDisplay.style.display = 'block';
+		imageDisplay.style.display = 'block';
 	}
 
 	console.log("ok");

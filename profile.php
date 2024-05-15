@@ -15,7 +15,7 @@ if ($fichier === false) {
 $users = $mdps = $names = $lastnames = $emails = $complots = [];
 
 while (!feof($fichier)) {
-    list($users[], $mdps[], $names[], $lastnames[], $emails[],$complots[]) = fgetcsv($fichier);
+    list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier);
 }
 
 for ($i = 0; $i < sizeof($users); $i++) {
@@ -60,9 +60,9 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
     <div class="profile-container">
         <div class="profile-header">
-            
+
             <img src="https://via.placeholder.com/150" alt="Profil Image" class="profile-image">
-            
+
 
             <input id="img_up_profile" type="file" name="photo" accept="image/*">
             <button onclick="upload_img()"> Submit</button>

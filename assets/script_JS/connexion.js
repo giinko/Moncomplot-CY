@@ -379,8 +379,6 @@ function next(beg)
 	})
 }
 
-	
-
 
 function upload_img()
 {
@@ -388,7 +386,7 @@ function upload_img()
 	var img = document.getElementById("img_up_profile");
 	var imageDisplay = document.getElementById('imageDisplay');
 
-	
+
 	var reader = new FileReader();
 
 	reader.onload = function(img){

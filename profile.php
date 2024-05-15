@@ -12,24 +12,20 @@ if ($fichier === false) {
     die("impossible d'ouvrir le fichier");
 }
 
-$users = array();
-$mdps = array();
-$emails = array();
-$names = array();
-$lastnames = array();
+$users = $mdps = $names = $lastnames = $emails = $complots = [];
 
 while (!feof($fichier)) {
-    list($users[], $mdps[], $names[], $lastnames[], $emails[]) = fgetcsv($fichier);
+    list($users[], $mdps[], $names[], $lastnames[], $emails[],$complots[]) = fgetcsv($fichier);
 }
-$number = 0;
+
 for ($i = 0; $i < sizeof($users); $i++) {
     if ($_SESSION['LOGGED_USER'] == $users[$i]) {
-        $number = 1;
         $user = $users[$i];
         $mdp = $mdps[$i];
         $mail = $emails[$i];
         $name = $names[$i];
         $lastname = $lastnames[$i];
+        $complot = $complots[$i];
     }
 }
 
@@ -49,13 +45,6 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
 <body>
 
-    <!--
-        possibilité de voir uniquement si connecter sinon reenvoie vers la page de login 
-    
-    -->
-
-
-
     <header>
         <nav class="navbar">
             <ul>
@@ -71,7 +60,15 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
     <div class="profile-container">
         <div class="profile-header">
+            
             <img src="https://via.placeholder.com/150" alt="Profil Image" class="profile-image">
+            
+
+            <input id="img_up_profile" type="file" name="photo" accept="image/*">
+            <button onclick="upload_img()"> Submit</button>
+            <img id="imageDisplay" src="" alt="Image sélectionnée" style="max-width: 300px; display: none;">
+
+
             <h1><?php echo $user; ?></h1>
         </div>
         <h1 class="info_class">Informations</h1>
@@ -89,6 +86,19 @@ for ($i = 0; $i < sizeof($users); $i++) {
                 <p><strong>Email :</strong><span id="edit_email"><?php echo $mail; ?>
                         <img src="/assets/images/modify.png" onclick='edit_profile("edit_email", "<?php echo $mail; ?>");' id="button_edit" alt="">
             </div>
+
+            <div class="line">
+                <p><strong>Mot de Passe :</strong> <span id="edit_mdp"><?php echo $mdp; ?>
+                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                    </span></p>
+            </div>
+
+            <div class="line">
+                <p><strong>Complots :</strong> <span id="edit_complot"><?php echo $complot; ?>
+                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                    </span></p>
+            </div>
+
         </div>
         <div>
             <div class="container_end">

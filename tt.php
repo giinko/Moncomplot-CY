@@ -1,23 +1,41 @@
-<?php
-    $fichier = fopen("assets/Data/chat_platiste.csv", "r");
-
-    if($fichier===false){
-        file_put_contents("assets/Data/chats_complots/chat_platiste.csv","\n");
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test AJAX avec PHP</title>
-    
-    <style>
-        
-    </style>
+<meta charset="UTF-8">
+<title>Charger une image</title>
 </head>
 <body>
-    <h1>Test  PHP</h1>
+
+<!-- Input pour sélectionner un fichier -->
+<input type="file" id="fileInput" accept="image/*">
+
+<!-- Zone où l'image sera affichée -->
+<img id="imageDisplay" src="" alt="Image sélectionnée" style="max-width: 300px; display: none;">
+
+<script>
+// Sélection de l'input et de l'élément img
+const input = document.getElementById('fileInput');
+const imageDisplay = document.getElementById('imageDisplay');
+
+// Fonction appelée lorsque l'utilisateur sélectionne un fichier
+input.addEventListener('change', function() {
+    // Vérifier si un fichier a été sélectionné
+    if (this.files && this.files[0]) {
+        // Création d'une instance de FileReader
+        var reader = new FileReader();
+
+        // Définir ce qui se passe lorsque le fichier est lu
+        reader.onload = function(e) {
+            // Mettre à jour la source de l'élément img
+            imageDisplay.src = e.target.result;
+            imageDisplay.style.display = 'block';
+        };
+
+        // Lire le fichier sélectionné
+        reader.readAsDataURL(this.files[0]);
+    }
+});
+</script>
+
 </body>
 </html>

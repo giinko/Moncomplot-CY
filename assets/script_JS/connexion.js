@@ -355,7 +355,7 @@ function next(beg) {
 
 			var but2 = document.createElement("button");
 			but2.textContent = "next";
-			but2.setAttribute('onclick', "next()");
+			but2.setAttribute('onclick', "next(1)");
 
 
 			div_info.appendChild(h1);

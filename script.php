@@ -27,7 +27,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUE
 
 		mkdir($chemin_dos,0777,True);
 
-		file_put_contents($chemin_dos . "other_user.csv","\n");
+		file_put_contents($chemin_dos . "/other_user.csv","\n");
 
 		$fichier = fopen("assets/Data/data.csv", "a");
 

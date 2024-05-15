@@ -52,7 +52,7 @@ for ($i = 0; $i < sizeof($users); $i++) {
                 <li><a href="">
                         <div onclick="deco()">Se déconnecter</div>
                     </a></li>
-                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="a-propos_abo.html">À propos</a></li>
                 <li><a href="index.php">Accueil</a></li>
             </ul>
         </nav>

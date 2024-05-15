@@ -98,12 +98,18 @@ fclose($fichier);
                 <li><a href="">
                         <div onclick="deco()">Se déconnecter</div>
                     </a></li>
-                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="profile.php">Profil</a></li>
+                <li><a href="a-propos_abo.html">À propos</a></li>
                 <li><a href="index.php">Accueil</a></li>
             </ul>
         </nav>
     </header>
     <main class="main_pageabo">
+        <div class="sujetdujour">
+            <h2>Introduction au sujet</h2>
+            <p>Ceci est un texte de présentation pour introduire le sujet du jour. Vous pouvez ici écrire tout ce que vous souhaitez pour engager vos visiteurs.</p>
+            <p> Bienvenue chez les platistes blablablabla</p>
+        </div>
         <div class="chat_swipe">
 
             <div class="chat">
@@ -117,8 +123,8 @@ fclose($fichier);
 
             </div>
             <div class="swipe">
-                <h2> Aller découvir d'autre profile </h2>
-                <p> La on met les swipes</p>
+                <h2> Swipes </h2>
+                <p> Découvrez de nouveaux profils </p>
                 <div id="profile_card" class="profile-card">
                     <button onclick="begin_swip()">Commencer a swipe</button>
                 </div>
@@ -130,6 +136,21 @@ fclose($fichier);
             <p> Bienvenue chez les platistes blablablabla</p>
         </div>
     </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li>
+                    <p>© blablabla</p>
+                </li>
+                <li><a href="index.html">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="Politique-de-confidentialite.html">Politique de confidentialité</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

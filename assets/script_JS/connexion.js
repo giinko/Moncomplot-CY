@@ -378,7 +378,10 @@ function next(beg) {
 	})
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f81b9977fea9791a71fe42aa96586e8946c0d02f
 
 
 function upload_img() {

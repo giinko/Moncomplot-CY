@@ -75,7 +75,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		fclose($fichier);
 
 		if ($number == 0) {
-			$response_code = 343;
+			$response_code = HTTP_OK;
 			$message = "Mauvais username ou mdp";
 		}
 	}
@@ -83,7 +83,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 	if ($_POST["action"] == "edit_profile_data") {
 		// sert plus a rien mais a voir si on peut faire une erreur comme ca
 		if (!isset($_SESSION['LOGGED_USER'])) {
-			$response_code = 756;
+			$response_code = HTTP_OK;
 			$message = "Assurez vous d'etre bien connecté";
 		} else {
 

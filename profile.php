@@ -15,7 +15,7 @@ if ($fichier === false) {
 $users = $mdps = $names = $lastnames = $emails = $complots = [];
 
 while (!feof($fichier)) {
-    list($users[], $mdps[], $names[], $lastnames[], $emails[],$complots[]) = fgetcsv($fichier);
+    list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier);
 }
 
 for ($i = 0; $i < sizeof($users); $i++) {
@@ -60,9 +60,9 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
     <div class="profile-container">
         <div class="profile-header">
-            
+
             <img src="https://via.placeholder.com/150" alt="Profil Image" class="profile-image">
-            
+
 
             <input id="img_up_profile" type="file" name="photo" accept="image/*">
             <button onclick="upload_img()"> Submit</button>
@@ -89,13 +89,13 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
             <div class="line">
                 <p><strong>Mot de Passe :</strong> <span id="edit_mdp"><?php echo $mdp; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_mdp", "<?php echo $mdp; ?>");' id="button_edit" alt="">
                     </span></p>
             </div>
 
             <div class="line">
-                <p><strong>Complots :</strong> <span id="edit_complot"><?php echo $complot; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
+                <p><strong>Complot :</strong> <span id="edit_complot"><?php echo $complot; ?>
+                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_complot", "<?php echo $complot; ?>");' id="button_edit" alt="">
                     </span></p>
             </div>
 

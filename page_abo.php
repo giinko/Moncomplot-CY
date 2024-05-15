@@ -6,24 +6,20 @@ if(!isset($_SESSION['LOGGED_USER'])){
     exit();
 }
 
-$fichier = fopen("assets/Data/data.csv", "r");
-
-if ($fichier === false){
-    die("impossible d'ouvrir le fichier data");
-}
-
+$fichier_all_users = fopen("assets/Data/data.csv", "r");
 $users = $mdps  = $emails = $names = $lastnames = $complots = [];
 
-while (!feof($fichier)) {
-    list($users[],$mdps[],$names[],$lastnames[],$emails[],$complots[]) = fgetcsv($fichier);
+if ($fichier_all_users === false){
+    die("impossible d'ouvrir le fichier all_data");
 }
 
-fclose($fichier);
+while (!feof($fichier_all_users)) {
+    list($users[],$mdps[],$names[],$lastnames[],$emails[],$complots[]) = fgetcsv($fichier_all_users);
+}
 
-$number = 0;
+//On récup les infos du user connecter
 for ($i = 0; $i < sizeof($users);$i++){
     if ($_SESSION['LOGGED_USER'] == $users[$i]){
-        $number = 1;
         $user = $users[$i];
         $mdp = $mdps[$i];
         $mail = $emails[$i];
@@ -32,25 +28,27 @@ for ($i = 0; $i < sizeof($users);$i++){
     }
 }
 
-//ON actualise la page du user :
-// other_user.csv 
+//On peut rajouter un check pour voir si le fichier existe.
 
-$fichier = fopen("assets/Data/".$user."/other_user.csv", "r");
-
+$fichier_spe = fopen("assets/Data/".$user."/other_user.csv", "r");
 $o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
-if ($fichier === false){
-    die("impossible d'ouvrir le fichier");
+if ($fichier_spe === false){
+    die("impossible d'ouvrir le fichier other_user");
 }
 
-while (!feof($fichier)) {
-    list($o_users[],$o_complots[],$o_friends[],$o_swips[],$o_bloque[]) = fgetcsv($fichier);
+while (!feof($fichier_spe)) {
+    list($o_users[],$o_complots[],$o_friends[],$o_swips[],$o_bloque[]) = fgetcsv($fichier_spe);
 }
+
+fclose($fichier_all_users);
+fclose($fichier_spe);
 
 $i=0;
 $y=0;
+
 while(isset($users[$i])){
-    if(!isset($o_users[$y]) && $users[$i] != $_SESSION['LOGGED_USER']){
+    if(($o_users[$y] != $users[$i]) && ($users[$i] != $_SESSION['LOGGED_USER']) ){
         $o_users[$y] = $users[$i];
         $o_complots[$y] = $complots[$i];
         $o_friends[$y] = 0; 
@@ -58,17 +56,25 @@ while(isset($users[$i])){
         $o_bloque[$y] = 0;
         $y+=1;
     }
+    elseif ($o_users[$y] == $users[$i]) {
+        $y+=1;
+    }
     $i+=1;
 }
 
-fclose($fichier);
-
 $fichier = fopen("assets/Data/".$user."/other_user.csv", "w");
 
-for ($i = 0; $i < sizeof($o_users)-1; $i++) {
-    $ligne = $o_users[$i] .",". $o_complots[$i] . "," . $o_friends[$i] .",". $o_swips[$i] .",". $o_bloque[$i] ."\n";
-    fwrite($fichier, $ligne);;
+if ($fichier === false){
+    die("impossible d'ouvrir le 2-fichier other_user");
 }
+
+$count = 0;
+while(isset($o_users[$count])){
+    $ligne = $o_users[$count] .",". $o_complots[$count] . "," . $o_friends[$count] .",". $o_swips[$count] .",". $o_bloque[$count] ."\n";
+    fwrite($fichier, $ligne);
+    $count+=1;
+}
+
 fclose($fichier);
 
 ?>
@@ -122,8 +128,7 @@ fclose($fichier);
             padding: 20px;
         }
 
-        .left-panel {
-            
+        .left-panel { 
             padding: 20px;
             border-right: 2px solid #ccc;
             width: 60%;

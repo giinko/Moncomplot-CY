@@ -7,7 +7,6 @@
     <title>Moncomplot</title>
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="icon" type="image/ico" href="images/favicon.ico" />
-    <script src="/assets/script_JS/script.js"></script>
 </head>
 
 <body>
@@ -19,11 +18,11 @@
             <nav class="navbar">
                 <ul>
                     <li id="logo"><a href="index.php">MonComplot.fr</a></li>
-                    <li><a href="">
+                    <li><a href="index.php">
                             <div onclick="deco()">Se déconnecter</div>
                         </a></li>
                     <li><a href="profile.php">Profil</a></li>
-                    <li><a href="a-propos_abo.html">À propos</a></li>
+                    <li><a href="a-propos_abo.php">À propos</a></li>
                     <li><a href="index.php">Accueil</a></li>
                 </ul>
             </nav>
@@ -113,6 +112,8 @@
             </ul>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
 </body>
 
 </html>

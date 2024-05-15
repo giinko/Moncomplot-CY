@@ -85,8 +85,6 @@ fclose($fichier);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="assets/script_JS/connexion.js"></script>
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
@@ -95,11 +93,11 @@ fclose($fichier);
         <nav class="navbar">
             <ul>
                 <li id="logo"><a href="index.php">MonComplot.fr</a></li>
-                <li><a href="">
-                        <div onclick="deco()">Se déconnecter</div>
+                <li><a href="index.php" onclick="deco()">
+                        <div>Se déconnecter</div>
                     </a></li>
                 <li><a href="profile.php">Profil</a></li>
-                <li><a href="a-propos_abo.html">À propos</a></li>
+                <li><a href="a-propos_abo.php">À propos</a></li>
                 <li><a href="index.php">Accueil</a></li>
             </ul>
         </nav>
@@ -151,6 +149,8 @@ fclose($fichier);
             </ul>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
 </body>
 
 </html>

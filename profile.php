@@ -29,6 +29,13 @@ for ($i = 0; $i < sizeof($users); $i++) {
     }
 }
 
+$img_profile_user = 'assets/Data/'. $user . '/img_profile.png';
+
+if(!file_exists($img_profile_user)){
+    $img_profile_user = 'https://via.placeholder.com/150';
+}
+
+
 ?>
 
 
@@ -61,16 +68,21 @@ for ($i = 0; $i < sizeof($users); $i++) {
     <div class="profile-container">
         <div class="profile-header">
 
-            <img src="https://via.placeholder.com/150" alt="Profil Image" class="profile-image">
+            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image">
 
 
             <input id="img_up_profile" type="file" name="photo" accept="image/*">
             <button onclick="upload_img()"> Submit</button>
-            <img id="imageDisplay" src="" alt="Image sélectionnée" style="max-width: 300px; display: none;">
+            
 
 
             <h1><?php echo $user; ?></h1>
+
+            
         </div>
+
+        <label id="confirm_up_img"></label>
+
         <h1 class="info_class">Informations</h1>
         <div class="profile-information">
             <div class="line">

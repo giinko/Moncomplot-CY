@@ -239,6 +239,29 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		}
 	}
 
+	if ($_POST["action"] == "upload_img")
+	{
+		$response_code = HTTP_OK;
+		$message = "ok on est deja la";
+		if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+
+		    $fileTmpPath = $_FILES['image']['tmp_name'];
+	    	                
+	        // Créez le chemin complet du fichier de destination
+	        $chemin_to_up = "assets/Data/" . $_SESSION['LOGGED_USER'] ."/img_profile.png" ;
+
+	        // Déplacez le fichier téléchargé vers le répertoire de destination
+	        if (move_uploaded_file($fileTmpPath, $chemin_to_up)) {
+	            $message = 'Image upload';
+	        } else {
+	            $message = 'Probleme force a toi';
+	        }
+    	} else {
+		    $message = 'Error:';
+		}
+
+	}
+
 	response($response_code, $message);
 
 } else {

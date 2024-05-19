@@ -226,7 +226,7 @@ function valide_edit_profile(ok) {
 	var recup = document.getElementById("edit_profile_input").value;
 	console.log(ok);
 
-	//On peut rajouter des cheacks pour vérif qu'il n'y a aucun problème sur les nouvelles variabel entré meme si le JS est tres permissif
+	//On peut rajouter des checks pour vérif qu'il n'y a aucun problème sur les nouvelles variabel entré meme si le JS est tres permissif
 
 	$.ajax({
 		type: "POST",
@@ -262,7 +262,7 @@ function edit_profile(id, name) {
 	input.placeholder = tt;
 
 	var valider = document.createElement("img");
-	valider.src = "../../valide.png";
+	valider.src = "../../assets/images/valide.png";
 	valider.id = "button_valid";
 	var chaine = 'valide_edit_profile("' + tt + '")'
 	valider.setAttribute('onclick', chaine);
@@ -270,7 +270,7 @@ function edit_profile(id, name) {
 	var link = document.createElement("a");
 	link.href = "profile.php";
 	var retour = document.createElement("img");
-	retour.src = "../../croix.png";
+	retour.src = "../../assets/images/croix.png";
 	retour.id = "button_return";
 
 	link.appendChild(retour);
@@ -426,11 +426,37 @@ function upload_img() {
 
 	var reader = new FileReader();
 
-	reader.onload = function (img) {
+	reader.onload = function (e) {
 		imageDisplay.src = e.target.result;
 		imageDisplay.style.display = 'block';
 	}
 
-	console.log("ok");
+	if (img.files && img.files[0]) {
+        reader.readAsDataURL(img.files[0]);
+    }
+    else {
+    	// Ca sert a rien de faire une requet server pour rien 
+    	return 1;
+    }
+
+    var formData = new FormData();
+    formData.append("image", img.files[0]);
+    formData.append("action", "upload_img");
+
+    $.ajax({
+        url: 'script.php',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+            console.log("Image successfully uploaded to the server");
+            console.log(response);
+        },
+        error: function(response) {
+            console.error("Error uploading image to the server");
+            console.error(response.message);
+        }
+    });
 
 }

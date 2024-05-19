@@ -33,8 +33,18 @@ for ($i = 0; $i < sizeof($users); $i++) {
 $fichier_spe = fopen("assets/Data/" . $user . "/other_user.csv", "r");
 $o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
+// Si le fichier other_user n'existe pas on le crée pour eviter les 
 if ($fichier_spe === false) {
-    die("impossible d'ouvrir le fichier other_user");
+
+    $chemin_dos = "assets/Data/" . $user;
+    mkdir($chemin_dos, 0777, True);
+    file_put_contents($chemin_dos . "/other_user.csv","\n");
+
+    $fichier_spe = fopen("assets/Data/" . $user . "/other_user.csv", "r");
+}
+
+if ($fichier_spe === false) {
+    die("impossible d'ouvrir le fichier other_user : erreur inconu");
 }
 
 while (!feof($fichier_spe)) {

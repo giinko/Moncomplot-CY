@@ -259,6 +259,59 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
     	} else {
 		    $message = 'Error:';
 		}
+	}
+
+	if ($_POST["action"] == "chat")
+	{
+		$response_code = HTTP_OK;
+		$users = $mdps = $names = $lastnames = $emails = $complots = [];
+
+		$fichier = fopen("assets/Data/data.csv", "r");
+		if ($fichier === false) {
+			die("erreur");
+		}
+		while (!feof($fichier)) {
+			list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier);
+		}
+		fclose($fichier);
+
+		for($i = 0;$i < sizeof($users)-1;$i++){
+			if($users[$i] == $_SESSION['LOGGED_USER']){
+				$user = $users[$i];
+				$complot = $complots[$i];
+			}
+		} 
+
+		$file = "assets/Data/chats_complots/chat_".$complot.".csv";
+
+		//si le fichier n'existe pas on le créé
+		if(!file_exists($file)){
+			$fichier = fopen($file,"w");
+			if($fichier === false){
+				echo "Une erreur s'est produite dans la création du fichier";
+			}
+			fclose($fichier);
+		}
+
+		// Pour récuperer les mesages
+		if($_POST['recup'] == 1)
+		{
+			$message = file_get_contents($file);	
+		}
+
+		//Pour ecrire un message dans la base de donné
+		if($_POST["recup"] == 0)
+		{	
+			$message = "Information enregistré avec succes";
+
+			$fichier = fopen($file,"a");
+
+			$ligne = $_SESSION['LOGGED_USER'] . " : " .$_POST["message"] . "\n";
+
+			fwrite($fichier, $ligne);
+			fclose($fichier);
+
+		}
 
 	}
 

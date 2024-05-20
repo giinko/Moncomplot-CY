@@ -452,6 +452,7 @@ function upload_img() {
         success: function(response) {
             console.log("Image successfully uploaded to the server");
             console.log(response);
+            window.location.href = "profile.php";
         },
         error: function(response) {
             console.error("Error uploading image to the server");

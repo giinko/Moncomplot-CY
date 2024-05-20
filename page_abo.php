@@ -96,6 +96,10 @@ fclose($fichier);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="assets/style/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/chat.js"></script>
+
 </head>
 
 <body>
@@ -118,18 +122,28 @@ fclose($fichier);
             <p>Ceci est un texte de présentation pour introduire le sujet du jour. Vous pouvez ici écrire tout ce que vous souhaitez pour engager vos visiteurs.</p>
             <p> Bienvenue chez les platistes blablablabla</p>
         </div>
+
+
+
+
         <div class="chat_swipe">
+
 
             <div class="chat">
                 <h3>Chat en direct</h3>
-                <div class="messages">
+
+                <div class="messages" id="chat_messages">
                     <p><strong>User1:</strong> Salut tout le monde !</p>
                     <p><strong>User2:</strong> Salut User1, comment ça va ?</p>
                 </div>
-                <textarea placeholder="Écrire un message..."></textarea>
-                <button>Envoyer</button>
 
+                <textarea id = "chat_input" placeholder="Écrire un message..."></textarea>
+                <button id="send_chat_msg">Envoyer</button>
             </div>
+
+
+
+
             <div class="swipe">
                 <h2> Swipes </h2>
                 <p> Découvrez de nouveaux profils </p>
@@ -137,7 +151,12 @@ fclose($fichier);
                     <button onclick="begin_swip()">Commencer a swipe</button>
                 </div>
             </div>
+
         </div>
+
+
+
+
         <div class="sujetdujour">
             <h2>Introduction au sujet</h2>
             <p>Ceci est un texte de présentation pour introduire le sujet du jour. Vous pouvez ici écrire tout ce que vous souhaitez pour engager vos visiteurs.</p>

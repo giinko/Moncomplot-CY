@@ -17,7 +17,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
     <title>Se connecter</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     <script src="assets/script_JS/connexion.js"></script>
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
@@ -48,7 +48,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
 
                 <br>
                 <form method="post">
-                    <input id="username_loginpage" type="text" name="username" placeholder="Nom de compte" required>
+                    <input id="username_loginpage" type="text" name="username" placeholder="Pseudo" required>
                     <input id="password_loginpage" type="password" name="password" placeholder="Mot de passe" required>
 
                     <label for="stay_logged_in">Rester connecté</label>
@@ -56,7 +56,8 @@ if (isset($_SESSION['LOGGED_USER'])) {
                     <button class="button_login" onclick="login()">Se connecter</button>
                 </form>
                 <div class="mini-menu">
-                    Pas encore inscrit ? <a href="register.php">S'inscrire</a>
+                    Pas encore inscrit ? <a href="register.php">S'inscrire</a> <br>
+                    Mot de passe oublié ? <a href="">Retrouver mon mot de passe</a>
                 </div>
             </div>
             <!-- Bannière -->

@@ -38,7 +38,7 @@ if ($fichier_spe === false) {
 
     $chemin_dos = "assets/Data/" . $user;
     mkdir($chemin_dos, 0777, True);
-    file_put_contents($chemin_dos . "/other_user.csv","\n");
+    file_put_contents($chemin_dos . "/other_user.csv", "\n");
 
     $fichier_spe = fopen("assets/Data/" . $user . "/other_user.csv", "r");
 }
@@ -96,7 +96,7 @@ fclose($fichier);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="assets/style/style.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="assets/script_JS/chat.js"></script>
 
@@ -106,7 +106,7 @@ fclose($fichier);
     <header>
         <nav class="navbar">
             <ul>
-                <li id="logo"><a href="index.php">MonComplot.fr</a></li>
+                <li id="logo"><a href="profile.php">Mon Profil</a></li>
                 <li><a href="index.php" onclick="deco()">
                         <div>Se déconnecter</div>
                     </a></li>
@@ -137,7 +137,7 @@ fclose($fichier);
                     <p><strong>User2:</strong> Salut User1, comment ça va ?</p>
                 </div>
 
-                <textarea id = "chat_input" placeholder="Écrire un message..."></textarea>
+                <textarea id="chat_input" placeholder="Écrire un message..."></textarea>
                 <button id="send_chat_msg">Envoyer</button>
             </div>
 

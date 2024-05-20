@@ -29,9 +29,9 @@ for ($i = 0; $i < sizeof($users); $i++) {
     }
 }
 
-$img_profile_user = 'assets/Data/'. $user . '/img_profile.png';
+$img_profile_user = 'assets/Data/Profils/' . $user . '/img_profile.png';
 
-if(!file_exists($img_profile_user)){
+if (!file_exists($img_profile_user)) {
     $img_profile_user = 'https://via.placeholder.com/150';
 }
 
@@ -68,17 +68,15 @@ if(!file_exists($img_profile_user)){
     <div class="profile-container">
         <div class="profile-header">
 
-            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image">
+            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image" onclick="openPPModal()">
 
 
-            <input id="img_up_profile" type="file" name="photo" accept="image/*">
-            <button onclick="upload_img()"> Submit</button>
-            
+
 
 
             <h1><?php echo $user; ?></h1>
 
-            
+
         </div>
 
         <label id="confirm_up_img"></label>
@@ -106,8 +104,7 @@ if(!file_exists($img_profile_user)){
             </div>
 
             <div class="line">
-                <p><strong>Complots :</strong> <span id="edit_complot"><?php echo $complot; ?>
-                        <img src="/assets/images/modify.png" id="button_edit" alt="">
+                <p><strong>Complot :</strong> <span id="edit_complot"><?php echo $complot; ?>
                     </span></p>
             </div>
 
@@ -122,6 +119,21 @@ if(!file_exists($img_profile_user)){
         </div>
     </div>
 
+    <div id="PPModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closePPModal()">&times;</span>
+            <h2>changer la photo de profil</h2>
+
+            <div class="modal_pp_content">
+                <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image">
+                <div id="importImage" class="import_image">
+                    Cliquez ou déposez une image ici pour importer une photo
+                    <input id="img_up_profile" type="file" name="photo" accept="image/*" onchange="handleFileSelect(event)">
+                </div>
+            </div>
+            <button id="submitBtn" onclick="upload_img()"> Enregistrer</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -136,8 +148,14 @@ if(!file_exists($img_profile_user)){
             </ul>
         </div>
     </footer>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="assets/script_JS/connexion.js"></script>
+    <script src="assets/script_JS/script.js"></script>
+
 </body>
 
 </html>

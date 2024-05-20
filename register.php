@@ -2,9 +2,9 @@
 session_start();
 
 if (isset($_SESSION['LOGGED_USER'])) {
-            header("Location: page_abo.php");
-            exit();
-        }
+    header("Location: page_abo.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,17 +48,17 @@ if (isset($_SESSION['LOGGED_USER'])) {
             <div id="erreur_message_register"></div>
             <br>
             <form method="post">
-                <label>Prénom :</label>
+                <label for="name_register">Prénom :</label>
                 <input id="name_register" type="text" name="name" placeholder="Prénom" required>
-                <label>Nom :</label>
+                <label for="lastname_register">Nom :</label>
                 <input id="lastname_register" type="text" name="lastname" placeholder="Nom" required>
-                <label>Pseudo :</label>
+                <label for="username_register">Pseudo :<em id="indication"> (Une fois inscrit, vous ne pourriez plus changer votre pseudo)</em></label>
                 <input id="username_register" type="text" name="username" placeholder="Nom de compte" required>
-                <label>Adresse email :</label>
+                <label for="email_register">Adresse email :</label>
                 <input id="email_register" type="email" name="email" placeholder="Adresse email" autocomplete="email" required>
-                <label>Mot de passe :</label>
+                <label for="password1_register">Mot de passe :</label>
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
-                <label>Confirmez votre mot de passe :</label>
+                <label for="password2_register">Confirmez votre mot de passe :</label>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
                 <!--
                 <select id="complot_register">
@@ -70,7 +70,8 @@ if (isset($_SESSION['LOGGED_USER'])) {
                 </select> -->
 
                 <div class="choix-conspiration">
-                    <h4>Choisissez le complot qui vous interesse :</h4>
+                    <h4>Choisissez le complot qui vous interesse :<em id="indication"> (Choix définitif)</em>
+                    </h4>
 
                     <div id="scroll_box_reg" class="scroll-box">
 
@@ -204,7 +205,9 @@ if (isset($_SESSION['LOGGED_USER'])) {
                 <input type="checkbox" id="certif_majeur" name="certif_majeur" class="checkbox" required>
                 <label for="certif_majeur">Je certifie avoir 18 ans ou +</label> <br>
                 <input type="checkbox" id="conditions" name="conditions" class="checkbox" required>
-                <label for="conditions">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label>
+                <label for="conditions">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label><br>
+                <input type="checkbox" id="croire" name="croire" class="checkbox" required>
+                <label for="croire">Je certifie croire fermement au complot que j'ai choisi</label>
 
 
                 <button class="button_login" onclick="register()">S'inscrire</button>

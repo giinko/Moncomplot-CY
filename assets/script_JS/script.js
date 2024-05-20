@@ -27,3 +27,51 @@ cards.forEach(card => {
         }
     });
 });
+
+// MODAL PHOTO DE PROFIL
+
+function openPPModal() {
+    var modal = document.getElementById('PPModal');
+    modal.style.display = 'block';
+}
+
+function closePPModal() {
+    var modal = document.getElementById('PPModal');
+    modal.style.display = 'none';
+}
+
+
+let selectedFile = null;
+
+document.getElementById('importImage').addEventListener('click', function () {
+    document.getElementById('img_up_profile').click();
+});
+
+document.getElementById('importImage').addEventListener('dragover', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.classList.add('dragover');
+});
+
+document.getElementById('importImage').addEventListener('dragleave', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.classList.remove('dragover');
+});
+
+document.getElementById('importImage').addEventListener('drop', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.classList.remove('dragover');
+    selectedFile = event.dataTransfer.files[0];
+});
+
+document.getElementById('submitBtn').addEventListener('click', function () {
+    if (selectedFile) {
+        displayImage(selectedFile);
+    }
+});
+
+function handleFileSelect(event) {
+    selectedFile = event.target.files[0];
+}

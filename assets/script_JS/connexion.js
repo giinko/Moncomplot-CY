@@ -20,7 +20,7 @@ function cards_register(complot) {
 	});
 }
 
-function error_register(text){
+function error_register(text) {
 
 	var div_error_reg = document.getElementById("erreur_message_register");
 	div_error_reg.innerHTML = "";
@@ -36,15 +36,14 @@ function error_register(text){
 
 }
 
-function empty(value)
-{
-	return(
+function empty(value) {
+	return (
 		value === undefined || value === null || value === "" || value === false
-		)
+	)
 }
 
 function register() {
-	
+
 	event.preventDefault();
 
 	//récupération des variables 
@@ -61,13 +60,13 @@ function register() {
 		var complot = document.getElementById("selected").getAttribute('value');
 	}
 	else {
-		error_register("Veuillez selectionnez un complot");
+		error_register("Veuillez selectionner un complot");
 		return 1;
 	}
 
 	// Vérifier que chaque champs est remplit (non vide)
 
-	if(empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)){
+	if (empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)) {
 		error_register("Tous les champs sont obligatoires");
 		return 1;
 	}
@@ -76,32 +75,32 @@ function register() {
 
 	if (!(/^[a-zA-Z0-9]*$/.test(username))) {
 
-    	error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
-    	document.getElementById("username_register").value = "";
+		error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
+		document.getElementById("username_register").value = "";
 
-    	return 1;
+		return 1;
 	}
 
 	if (!(/^[a-zA-Z]*$/.test(name))) {
 
-    	error_register("Merci de rentré un prénom valide");
-    	document.getElementById("name_register").value = "";
+		error_register("Veuillez entrer un prénom valide");
+		document.getElementById("name_register").value = "";
 
-    	return 1;
+		return 1;
 	}
 
 	if (!(/^[a-zA-Z]*$/.test(lastname))) {
 
-    	error_register("Merci de rentré un nom valide");
-    	document.getElementById("lastname_register").value = "";
+		error_register("Veuillez entrer un nom valide");
+		document.getElementById("lastname_register").value = "";
 
-    	return 1;
+		return 1;
 	}
 
 	// username n'existe pas dans la base de donnée
 	// email n'existe pas dans la base de donné
 
-	
+
 
 	// Si les 2 mdp sont différent on renvoie une erreur
 	if (mdp1 != mdp2) {
@@ -113,10 +112,10 @@ function register() {
 		return 1;
 	}
 
-	//password compris entre 5 et 20 caratères
-	if((mdp1.lenght < 5) && (mdp1.lenght > 20)){
+	//password compris entre 8 et 20 caratères
+	if ((mdp1.lenght < 8) && (mdp1.lenght > 20)) {
 
-		error_register("Les mots de passes doivent etre compris entre 5 et 20 caractères");
+		error_register("Les mots de passes doivent etre compris entre 8 et 20 caractères");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
 
@@ -127,16 +126,16 @@ function register() {
 	// Verif si le mail ressemble a un mail valide
 	var verif_mail = email.split("@");
 
-	if(empty(verif_mail[0]) || empty(verif_mail[1]) ){
+	if (empty(verif_mail[0]) || empty(verif_mail[1])) {
 
-		error_register("Merci d'entrer un mail valide");
+		error_register("Merci d'entrer une adresse email valide");
 		document.getElementById("email_register").value = "";
 		return 1;
 	}
-	else{
+	else {
 		var verif_mail2 = verif_mail[1].split(".");
-		if(empty(verif_mail2[0]) || empty(verif_mail2[1]) ){
-			error_register("Merci d'entrer un mail valide");
+		if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
+			error_register("Merci d'entrer une adresse email valide");
 			document.getElementById("email_register").value = "";
 			return 1;
 		}
@@ -188,10 +187,10 @@ function login() {
 		success: function (response) {
 
 			var resp = response.message.split("/");
-			
-			if (response.response_code == 200){
 
-				if(resp[0] == "incorect_mdp"){
+			if (response.response_code == 200) {
+
+				if (resp[0] == "incorect_mdp") {
 					var div_err_log = document.getElementById("erreur_message");
 					div_err_log.innerHTML = "";
 					var elem_center = document.createElement("center");
@@ -208,7 +207,7 @@ function login() {
 					document.getElementById("password_loginpage").value = '';
 				}
 
-				else{
+				else {
 					window.location.href = "index.php";
 				}
 			}
@@ -432,32 +431,32 @@ function upload_img() {
 	}
 
 	if (img.files && img.files[0]) {
-        reader.readAsDataURL(img.files[0]);
-    }
-    else {
-    	// Ca sert a rien de faire une requet server pour rien 
-    	return 1;
-    }
+		reader.readAsDataURL(img.files[0]);
+	}
+	else {
+		// Ca sert a rien de faire une requet server pour rien 
+		return 1;
+	}
 
-    var formData = new FormData();
-    formData.append("image", img.files[0]);
-    formData.append("action", "upload_img");
+	var formData = new FormData();
+	formData.append("image", img.files[0]);
+	formData.append("action", "upload_img");
 
-    $.ajax({
-        url: 'script.php',
-        type: 'POST',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(response) {
-            console.log("Image successfully uploaded to the server");
-            console.log(response);
-            window.location.href = "profile.php";
-        },
-        error: function(response) {
-            console.error("Error uploading image to the server");
-            console.error(response.message);
-        }
-    });
+	$.ajax({
+		url: 'script.php',
+		type: 'POST',
+		data: formData,
+		processData: false,
+		contentType: false,
+		success: function (response) {
+			console.log("Image successfully uploaded to the server");
+			console.log(response);
+			window.location.href = "profile.php";
+		},
+		error: function (response) {
+			console.error("Error uploading image to the server");
+			console.error(response.message);
+		}
+	});
 
 }

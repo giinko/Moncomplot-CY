@@ -21,11 +21,11 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		$mdp = $_POST['mdp'];
 		$complot = $_POST['complot'];
 
-		$chemin_dos = "assets/Data/" . $username;
+		$chemin_dos = "assets/Data/Profils/" . $username;
 
 		mkdir($chemin_dos, 0777, True);
 
-		file_put_contents($chemin_dos . "/other_user.csv","\n");
+		file_put_contents($chemin_dos . "/other_user.csv", "\n");
 
 		$fichier = fopen("assets/Data/data.csv", "a");
 
@@ -76,7 +76,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 		if ($number == 0) {
 			$response_code = HTTP_OK;
-			$message = "incorect_mdp/Mauvais username ou mdp";
+			$message = "incorect_mdp/Pseudo ou mot de passe incorrect";
 		}
 	}
 
@@ -85,9 +85,8 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		// sert plus a rien mais a voir si on peut faire une erreur comme ca
 		if (!isset($_SESSION['LOGGED_USER'])) {
 			$response_code = HTTP_OK;
-			$message = "Assurez vous d'etre bien connecté";
-		}
-		else {
+			$message = "Assurez vous de bien être connecté";
+		} else {
 
 			$user = $_SESSION['LOGGED_USER'];
 
@@ -146,7 +145,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 	if ($_POST["action"] == "next") {
 
-		$fichier = fopen("assets/Data/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "r");
+		$fichier = fopen("assets/Data/Profils/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "r");
 
 		$o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
@@ -168,10 +167,10 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
 
-					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+					$file = "assets/Data/Profils/" . $o_users[$i] . "/img_profile.png";
 
-					if(!file_exists($file)){
-						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					if (!file_exists($file)) {
+						$file = "https://via.placeholder.com/300x400.png?text=" . $o_users[$i];
 					}
 
 					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
@@ -180,7 +179,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 			}
 
-			if($no_user == 0){
+			if ($no_user == 0) {
 				$response_code = HTTP_OK;
 				$message = "Oups|Il n'y a plus d'utilisateur|https://via.placeholder.com/300x400.png?text=Oups";
 			}
@@ -196,10 +195,10 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
 
-					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+					$file = "assets/Data/Profils/" . $o_users[$i] . "/img_profile.png";
 
-					if(!file_exists($file)){
-						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					if (!file_exists($file)) {
+						$file = "https://via.placeholder.com/300x400.png?text=" . $o_users[$i];
 					}
 
 					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
@@ -207,7 +206,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 			}
 
-			$fichier = fopen("assets/Data/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "w");
+			$fichier = fopen("assets/Data/Profils/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "w");
 
 			for ($i = 0; $i < sizeof($o_users) - 1; $i++) {
 				$ligne = $o_users[$i] . "," . $o_complots[$i] . "," . $o_friends[$i] . "," . $o_swips[$i] . "," . $o_bloque[$i] . "\n";
@@ -232,10 +231,10 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
-					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+					$file = "assets/Data/Profils/" . $o_users[$i] . "/img_profile.png";
 
-					if(!file_exists($file)){
-						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					if (!file_exists($file)) {
+						$file = "https://via.placeholder.com/300x400.png?text=" . $o_users[$i];
 					}
 
 					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
@@ -243,7 +242,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 			}
 
-			$fichier = fopen("assets/Data/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "w");
+			$fichier = fopen("assets/Data/Profils/" . $_SESSION['LOGGED_USER'] . "/other_user.csv", "w");
 
 			for ($i = 0; $i < sizeof($o_users) - 1; $i++) {
 				$ligne = $o_users[$i] . "," . $o_complots[$i] . "," . $o_friends[$i] . "," . $o_swips[$i] . "," . $o_bloque[$i] . "\n";
@@ -259,30 +258,28 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		}
 	}
 
-	if ($_POST["action"] == "upload_img")
-	{
+	if ($_POST["action"] == "upload_img") {
 		$response_code = HTTP_OK;
 		$message = "ok on est deja la";
 		if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
 
-		    $fileTmpPath = $_FILES['image']['tmp_name'];
-	    	                
-	        // Créez le chemin complet du fichier de destination
-	        $chemin_to_up = "assets/Data/" . $_SESSION['LOGGED_USER'] ."/img_profile.png" ;
+			$fileTmpPath = $_FILES['image']['tmp_name'];
 
-	        // Déplacez le fichier téléchargé vers le répertoire de destination
-	        if (move_uploaded_file($fileTmpPath, $chemin_to_up)) {
-	            $message = 'Image upload';
-	        } else {
-	            $message = 'Probleme force a toi';
-	        }
-    	} else {
-		    $message = 'Error:';
+			// Créez le chemin complet du fichier de destination
+			$chemin_to_up = "assets/Data/Profils/" . $_SESSION['LOGGED_USER'] . "/img_profile.png";
+
+			// Déplacez le fichier téléchargé vers le répertoire de destination
+			if (move_uploaded_file($fileTmpPath, $chemin_to_up)) {
+				$message = 'Image upload';
+			} else {
+				$message = 'Probleme force a toi';
+			}
+		} else {
+			$message = 'Error:';
 		}
 	}
 
-	if ($_POST["action"] == "chat")
-	{
+	if ($_POST["action"] == "chat") {
 		$response_code = HTTP_OK;
 		$users = $mdps = $names = $lastnames = $emails = $complots = [];
 
@@ -295,48 +292,43 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		}
 		fclose($fichier);
 
-		for($i = 0;$i < sizeof($users)-1;$i++){
-			if($users[$i] == $_SESSION['LOGGED_USER']){
+		for ($i = 0; $i < sizeof($users) - 1; $i++) {
+			if ($users[$i] == $_SESSION['LOGGED_USER']) {
 				$user = $users[$i];
 				$complot = $complots[$i];
 			}
-		} 
+		}
 
-		$file = "assets/Data/chats_complots/chat_".$complot.".csv";
+		$file = "assets/Data/chats_complots/chat_" . $complot . ".csv";
 
 		//si le fichier n'existe pas on le créé
-		if(!file_exists($file)){
-			$fichier = fopen($file,"w");
-			if($fichier === false){
+		if (!file_exists($file)) {
+			$fichier = fopen($file, "w");
+			if ($fichier === false) {
 				echo "Une erreur s'est produite dans la création du fichier";
 			}
 			fclose($fichier);
 		}
 
 		// Pour récuperer les mesages
-		if($_POST['recup'] == 1)
-		{
-			$message = file_get_contents($file);	
+		if ($_POST['recup'] == 1) {
+			$message = file_get_contents($file);
 		}
 
 		//Pour ecrire un message dans la base de donné
-		if($_POST["recup"] == 0)
-		{	
+		if ($_POST["recup"] == 0) {
 			$message = "Information enregistré avec succes";
 
-			$fichier = fopen($file,"a");
+			$fichier = fopen($file, "a");
 
-			$ligne = $_SESSION['LOGGED_USER'] . " : " .$_POST["message"] . "\n";
+			$ligne = $_SESSION['LOGGED_USER'] . " : " . $_POST["message"] . "\n";
 
 			fwrite($fichier, $ligne);
 			fclose($fichier);
-
 		}
-
 	}
 
 	response($response_code, $message);
-
 } else {
 	$response_code = HTTP_METHOD_NOT_ALLOWED;
 	$message = "Method not allowed";

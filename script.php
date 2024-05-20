@@ -328,6 +328,53 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		}
 	}
 
+	if ($_POST["action"] == "asb_friend")
+	{
+		$response_code = HTTP_OK;
+		$fichier = fopen("assets/Data/Profils/" . $_SESSION["LOGGED_USER"] . "/other_user.csv", "r");
+		$o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
+		$message = "mhhh";
+		// Si le fichier other_user n'existe pas on le crée pour eviter les 
+		if ($fichier === false) {
+			die("erreur lors de l'ouverture du fichier");
+			$message = "erreur l'ouverture du fichier";
+		}
+
+		while (!feof($fichier)) {
+		    list($o_users[], $o_complots[], $o_friends[], $o_swips[], $o_bloque[]) = fgetcsv($fichier);
+		}
+		fclose($fichier);
+
+		//Pour supprimer
+		if($_POST['obj'] == "supp"){
+			for($i=0;$i<sizeof($o_users);$i++){
+				if($o_users[$i] == $_POST["user"]){
+					$o_friends[$i] == 0;
+					//On permet a la personne de la reswip ?
+					$o_swips[$i] == 0;
+				}
+			}
+		}
+
+
+		//On écris les nouvelles donné dans le fichier
+		$fichier = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "w");
+		if ($fichier === false) {
+		    die("impossible d'ouvrir le 2-fichier other_user");
+		    $message = "erreur l'ouverture du fichier 1";
+		}
+		$count = 0;
+		while (isset($o_users[$count])) {
+		    $ligne = $o_users[$count] . "," . $o_complots[$count] . "," . $o_friends[$count] . "," . $o_swips[$count] . "," . $o_bloque[$count] . "\n";
+		    fwrite($fichier, $ligne);
+		    $count += 1;
+		}
+		fclose($fichier);
+
+	}
+
+
+
 	response($response_code, $message);
 } else {
 	$response_code = HTTP_METHOD_NOT_ALLOWED;

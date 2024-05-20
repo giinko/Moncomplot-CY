@@ -460,3 +460,24 @@ function upload_img() {
 	});
 
 }
+
+function supp_friend(user)
+{
+	$.ajax({
+		url: 'script.php',
+		type: 'POST',
+		data: {
+			action : "asb_friend",
+			obj : "supp",
+			user : user
+		},
+		dataType: "json",
+		success: function (response) {
+			console.log("ok");
+		},
+		error: function (response) {
+			console.error("impossible de le supp");
+			console.error(response.message);
+		}
+	});
+}

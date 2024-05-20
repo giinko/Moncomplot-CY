@@ -30,17 +30,17 @@ for ($i = 0; $i < sizeof($users); $i++) {
 
 //On peut rajouter un check pour voir si le fichier existe.
 
-$fichier_spe = fopen("assets/Data/" . $user . "/other_user.csv", "r");
+$fichier_spe = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "r");
 $o_users = $o_complots = $o_friends = $o_swips = $o_bloque = [];
 
 // Si le fichier other_user n'existe pas on le crée pour eviter les 
 if ($fichier_spe === false) {
 
-    $chemin_dos = "assets/Data/" . $user;
+    $chemin_dos = "assets/Data/Profils/" . $user;
     mkdir($chemin_dos, 0777, True);
     file_put_contents($chemin_dos . "/other_user.csv", "\n");
 
-    $fichier_spe = fopen("assets/Data/" . $user . "/other_user.csv", "r");
+    $fichier_spe = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "r");
 }
 
 if ($fichier_spe === false) {
@@ -71,7 +71,7 @@ while (isset($users[$i])) {
     $i += 1;
 }
 
-$fichier = fopen("assets/Data/" . $user . "/other_user.csv", "w");
+$fichier = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "w");
 
 if ($fichier === false) {
     die("impossible d'ouvrir le 2-fichier other_user");
@@ -157,10 +157,30 @@ fclose($fichier);
 
 
 
-        <div class="sujetdujour">
-            <h2>Introduction au sujet</h2>
-            <p>Ceci est un texte de présentation pour introduire le sujet du jour. Vous pouvez ici écrire tout ce que vous souhaitez pour engager vos visiteurs.</p>
-            <p> Bienvenue chez les platistes blablablabla</p>
+        <div class="sujetdujour" id="all_friends">
+            
+            <?php 
+            for($i = 0;$i<sizeof($o_users);$i++){
+                if($o_friends[$i] == 1){
+                    echo "<p>votre ami : $o_users[$i]";
+
+                    echo "<button onclick='supp_friend(\"$o_users[$i]\")'>Supprimer ami</button>
+                    <button> Bloquer </button>
+                    </p>";
+                }
+            }
+
+            for($i = 0;$i<sizeof($o_users);$i++){
+                if($o_bloque[$i] == 1){
+                    echo "<p>vous avez bloqué : $o_users[$i]
+                    <button> Débloquer </button>
+                    </p>";
+                }
+            }
+
+
+            ?>
+
         </div>
     </main>
 

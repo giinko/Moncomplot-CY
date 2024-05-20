@@ -167,7 +167,14 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 			for ($i = 0; $i < sizeof($o_users) - 1; $i++) {
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
-					$message = $o_users[$i] . "/" . $o_complots[$i];
+
+					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+
+					if(!file_exists($file)){
+						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					}
+
+					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
 					$no_user = 1;
 					break;
 				}
@@ -175,7 +182,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 			if($no_user == 0){
 				$response_code = HTTP_OK;
-				$message = "Oups/Il n'y a plus d'utilisateur";
+				$message = "Oups|Il n'y a plus d'utilisateur|https://via.placeholder.com/300x400.png?text=Oups";
 			}
 		}
 
@@ -188,7 +195,14 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
-					$message = $o_users[$i] . "/" . $o_complots[$i];
+
+					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+
+					if(!file_exists($file)){
+						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					}
+
+					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
 					$all_profil = 1;
 				}
 			}
@@ -204,7 +218,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 			if ($all_profil == 0) {
 				$response_code = HTTP_OK;
-				$message = "Oups/Il n'y a plus d'utilisateur";
+				$message = "Oups|Il n'y a plus d'utilisateur|https://via.placeholder.com/300x400.png?text=Oups";
 			}
 		}
 
@@ -218,7 +232,13 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 				}
 				if ($o_swips[$i] != 1) {
 					$response_code = HTTP_OK;
-					$message = $o_users[$i] . "/" . $o_complots[$i];
+					$file = "assets/Data/".$o_users[$i]."/img_profile.png";
+
+					if(!file_exists($file)){
+						$file = "https://via.placeholder.com/300x400.png?text=".$o_users[$i];
+					}
+
+					$message = $o_users[$i] . "|" . $o_complots[$i] . "|" . $file;
 					$all_profil = 1;
 				}
 			}
@@ -234,7 +254,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 			if ($all_profil == 0) {
 				$response_code = HTTP_OK;
-				$message = "Oups/Il n'y a plus d'utilisateur";
+				$message = "Oups|Il n'y a plus d'utilisateur|https://via.placeholder.com/300x400.png?text=Oups";
 			}
 		}
 	}

@@ -314,13 +314,13 @@ function begin_swip() {
 		dataType: "json",
 
 		success: function (response) {
-			var resp = response.message.split("/");
+			var resp = response.message.split("|");
 
 			var div_card = document.getElementById("profile_card");
 			div_card.innerHTML = "";
 
 			var img_back = document.createElement("img");
-			img_back.src = "https://via.placeholder.com/300x400.png?text=" + resp[0];
+			img_back.src = resp[2];
 			img_back.className = "background-img";
 
 			var div_info = document.createElement("div");
@@ -374,13 +374,13 @@ function next(beg) {
 		dataType: "json",
 
 		success: function (response) {
-			var resp = response.message.split("/");
+			var resp = response.message.split("|");
 
 			var div_card = document.getElementById("profile_card");
 			div_card.innerHTML = "";
 
 			var img_back = document.createElement("img");
-			img_back.src = "https://via.placeholder.com/300x400.png?text=" + resp[0];
+			img_back.src = resp[2];
 			img_back.className = "background-img";
 
 			var div_info = document.createElement("div");

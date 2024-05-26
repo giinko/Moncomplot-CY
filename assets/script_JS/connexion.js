@@ -424,8 +424,11 @@ function begin_swip() {
 
 			var content = document.createElement("div");
 			content.classList = "container_button";
-			content.appendChild(but2);
-			content.appendChild(but1);
+			
+			if(resp[0]!="Oups"){
+				content.appendChild(but2);
+				content.appendChild(but1);
+			}
 
 
 			div_info.appendChild(h1);
@@ -458,7 +461,9 @@ function next(beg) {
 		dataType: "json",
 
 		success: function (response) {
+
 			var resp = response.message.split("|");
+
 
 			var div_card = document.getElementById("profile_card");
 			div_card.innerHTML = "";
@@ -490,13 +495,17 @@ function next(beg) {
 
 			var content = document.createElement("div");
 			content.classList = "container_button";
-			content.appendChild(but2);
-			content.appendChild(but1);
+
+			if(resp[0]!="Oups"){
+				content.appendChild(but2);
+				content.appendChild(but1);
+			}
+			
 
 
 			div_info.appendChild(h1);
 			div_info.appendChild(p);
-			div_info.appendChild(content);
+			div_card.appendChild(content);
 
 			div_card.appendChild(img_back);
 			div_card.appendChild(div_info);

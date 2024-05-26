@@ -926,9 +926,19 @@ textarea {
 
 }
 
-.info button {
-    width: 100%;
-    background-color: #00cc112a;
+.button_ajouter {
+    width: 50%;
+    background-color: #00ce116c;
+}
+
+.button_next {
+    width: 50%;
+    background-color: rgba(255, 0, 0, 0.404);
+}
+
+.container_button {
+    display: flex;
+    background: #000;
 }
 
 @media screen and (max-width:1100px) {}

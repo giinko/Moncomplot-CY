@@ -61,7 +61,7 @@ function register() {
 	}
 	else {
 		error_register("Veuillez selectionner un complot");
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -69,7 +69,7 @@ function register() {
 
 	if (empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)) {
 		error_register("Tous les champs sont obligatoires");
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -79,7 +79,7 @@ function register() {
 
 		error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
 		document.getElementById("username_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -87,7 +87,7 @@ function register() {
 
 		error_register("Veuillez entrer un prénom valide");
 		document.getElementById("name_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -95,7 +95,7 @@ function register() {
 
 		error_register("Veuillez entrer un nom valide");
 		document.getElementById("lastname_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -105,7 +105,7 @@ function register() {
 		error_register("Les mots de passes ne sont pas identiques");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -115,10 +115,10 @@ function register() {
 		error_register("Les mots de passes doivent etre compris entre 8 et 20 caractères");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 
-	} 
+	}
 
 	// Verif si le mail ressemble a un mail valide
 	var verif_mail = email.split("@");
@@ -127,7 +127,7 @@ function register() {
 
 		error_register("Merci d'entrer une adresse email valide");
 		document.getElementById("email_register").value = "";
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 	else {
@@ -135,7 +135,7 @@ function register() {
 		if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
 			error_register("Merci d'entrer une adresse email valide");
 			document.getElementById("email_register").value = "";
-			window.scrollTo({top:0,behavior: "smooth"});
+			window.scrollTo({ top: 0, behavior: "smooth" });
 			return 1;
 		}
 	}
@@ -147,21 +147,21 @@ function register() {
 	var boxe3 = document.getElementById("checkbox_3_reg");
 
 
-	if(!(boxe1.checked)){
+	if (!(boxe1.checked)) {
 		error_register("Véfiez d'avoir bien cocher toutes les cases");
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
-	if(!(boxe2.checked)){
+	if (!(boxe2.checked)) {
 		error_register("Véfiez d'avoir bien cocher toutes les cases");
-		window.scrollTo({top:10,behavior: "smooth"});
+		window.scrollTo({ top: 10, behavior: "smooth" });
 		return 1;
 	}
 
-	if(!(boxe3.checked)){
+	if (!(boxe3.checked)) {
 		error_register("Véfiez d'avoir bien cocher toutes les cases");
-		window.scrollTo({top:0,behavior: "smooth"});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 		return 1;
 	}
 
@@ -187,15 +187,15 @@ function register() {
 
 			var resp = response.message.split("|");
 			//username existe deja
-			if(resp[0]==1){
+			if (resp[0] == 1) {
 				error_register(resp[1]);
 				document.getElementById("username_register").value = "";
-				window.scrollTo({top:0,behavior: "smooth"});
+				window.scrollTo({ top: 0, behavior: "smooth" });
 			}
-			else{
+			else {
 				window.location.href = "login.php";
 			}
-			
+
 		},
 		error: function () {
 			console.log("erreur");
@@ -263,22 +263,22 @@ function valide_edit_profile(type) {
 	console.log(type);
 	console.log(recup);
 
-	if(empty(recup)){
+	if (empty(recup)) {
 		error_register("Aucun champs ne peut etre vide");
 		return 1;
 	}
-	
+
 	//check pour le prénom
-	if(type=="name" || type=="lastname"){
-		if (!(/^[a-zA-Z]*$/.test(recup))){
+	if (type == "name" || type == "lastname") {
+		if (!(/^[a-zA-Z]*$/.test(recup))) {
 			error_register("Veuillez entrer un nom valide");
 			return 1;
 		}
 	}
 
 	//Check pour le mail
-	if(type=="email"){
-		
+	if (type == "email") {
+
 		var verif_mail = recup.split("@");
 
 		if (empty(verif_mail[0]) || empty(verif_mail[1])) {
@@ -296,11 +296,11 @@ function valide_edit_profile(type) {
 	}
 
 	//Check pour le mdp
-	if(type=="mdp"){
+	if (type == "mdp") {
 		if ((recup.length < 8) || (recup.length > 20)) {
 			error_register("Le mot de passe doit etre compris entre 8 et 20 caractères");
 			return 1;
-		} 
+		}
 	}
 
 
@@ -412,20 +412,25 @@ function begin_swip() {
 			var p = document.createElement("p");
 			p.textContent = resp[1]
 
-			var but1 = document.createElement("button");
+			var but1 = document.createElement("div");
 			but1.textContent = "Ajouter";
+			but1.classList = "button_ajouter"
 			but1.setAttribute('onclick', "next(2)");
 
-			var but2 = document.createElement("button");
+			var but2 = document.createElement("div");
 			but2.textContent = "next";
-			but2.class = "button_next";
+			but2.classList = "button_next";
 			but2.setAttribute('onclick', "next(1)");
+
+			var content = document.createElement("div");
+			content.classList = "container_button";
+			content.appendChild(but2);
+			content.appendChild(but1);
 
 
 			div_info.appendChild(h1);
 			div_info.appendChild(p);
-			div_info.appendChild(but1);
-			div_info.appendChild(but2);
+			div_card.appendChild(content);
 
 			div_card.appendChild(img_back);
 			div_card.appendChild(div_info);
@@ -561,15 +566,13 @@ function supp_friend(user) {
 	});
 }
 
-function open_change_pdp()
-{
+function open_change_pdp() {
 	var modal = document.getElementById('PPModal');
-    modal.style.display = 'block';
+	modal.style.display = 'block';
 }
 
-function close_change_pdp()
-{
+function close_change_pdp() {
 	var modal = document.getElementById('PPModal');
-    modal.style.display = 'none';
+	modal.style.display = 'none';
 }
 

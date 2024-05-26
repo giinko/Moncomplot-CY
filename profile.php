@@ -46,7 +46,9 @@ if (!file_exists($img_profile_user)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/script_JS/connexion.js"></script>
+    <script src="assets/script_JS/script.js"></script>
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
 
@@ -68,7 +70,7 @@ if (!file_exists($img_profile_user)) {
     <div class="profile-container">
         <div class="profile-header">
 
-            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image" onclick="openPPModal()">
+            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image" onclick="open_change_pdp()">
 
 
 
@@ -82,6 +84,7 @@ if (!file_exists($img_profile_user)) {
         <label id="confirm_up_img"></label>
 
         <h1 class="info_class">Informations</h1>
+        <div id="erreur_message_register"></div>
         <div class="profile-information">
             <div class="line">
                 <p><strong>Prénom :</strong> <span id="edit_name"><?php echo $name; ?>
@@ -121,17 +124,18 @@ if (!file_exists($img_profile_user)) {
 
     <div id="PPModal" class="modal hidden">
         <div class="modal-content">
-            <span class="close" onclick="closePPModal()">&times;</span>
+            <span class="close" onclick="close_change_pdp()">&times;</span>
             <h2>changer la photo de profil</h2>
 
             <div class="modal_pp_content">
                 <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image">
-                <div id="importImage" class="import_image">
-                    Cliquez ou déposez une image ici pour importer une photo
-                    <input id="img_up_profile" type="file" name="photo" accept="image/*" onchange="handleFileSelect(event)">
+                <div onclick="document.getElementById('img_up_profile').click()" id="importImage" class="import_image">
+                    Cliquez ici pour importer une photo
+                    <input id="img_up_profile" type="file" name="photo" accept="image/*">
                 </div>
             </div>
             <button id="submitBtn" onclick="upload_img()"> Enregistrer</button>
+                        
         </div>
     </div>
 
@@ -148,13 +152,6 @@ if (!file_exists($img_profile_user)) {
             </ul>
         </div>
     </footer>
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="assets/script_JS/connexion.js"></script>
-    <script src="assets/script_JS/script.js"></script>
 
 </body>
 

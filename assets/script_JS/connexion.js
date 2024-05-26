@@ -99,8 +99,6 @@ function register() {
 		return 1;
 	}
 
-	// username n'existe pas dans la base de donnée
-
 	// Si les 2 mdp sont différent on renvoie une erreur
 	if (mdp1 != mdp2) {
 
@@ -120,7 +118,7 @@ function register() {
 		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 
-	}
+	} 
 
 	// Verif si le mail ressemble a un mail valide
 	var verif_mail = email.split("@");
@@ -258,10 +256,53 @@ function login() {
 	})
 }
 
-function valide_edit_profile(ok) {
+function valide_edit_profile(type) {
 
 	var recup = document.getElementById("edit_profile_input").value;
-	console.log(ok);
+
+	console.log(type);
+	console.log(recup);
+
+	if(empty(recup)){
+		error_register("Aucun champs ne peut etre vide");
+		return 1;
+	}
+	
+	//check pour le prénom
+	if(type=="name" || type=="lastname"){
+		if (!(/^[a-zA-Z]*$/.test(recup))){
+			error_register("Veuillez entrer un nom valide");
+			return 1;
+		}
+	}
+
+	//Check pour le mail
+	if(type=="email"){
+		
+		var verif_mail = recup.split("@");
+
+		if (empty(verif_mail[0]) || empty(verif_mail[1])) {
+
+			error_register("Merci d'entrer une adresse email valide");
+			return 1;
+		}
+		else {
+			var verif_mail2 = verif_mail[1].split(".");
+			if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
+				error_register("Merci d'entrer une adresse email valide");
+				return 1;
+			}
+		}
+	}
+
+	//Check pour le mdp
+	if(type=="mdp"){
+		if ((recup.length < 8) || (recup.length > 20)) {
+			error_register("Le mot de passe doit etre compris entre 8 et 20 caractères");
+			return 1;
+		} 
+	}
+
 
 	//On peut rajouter des checks pour vérif qu'il n'y a aucun problème sur les nouvelles variabel entré meme si le JS est tres permissif
 
@@ -270,7 +311,7 @@ function valide_edit_profile(ok) {
 		url: "../../script.php",
 		data: {
 			action: "edit_profile_data",
-			type: ok,
+			type: type,
 			contenu: recup
 		},
 		dataType: "json",
@@ -519,3 +560,16 @@ function supp_friend(user)
 		}
 	});
 }
+
+function open_change_pdp()
+{
+	var modal = document.getElementById('PPModal');
+    modal.style.display = 'block';
+}
+
+function close_change_pdp()
+{
+	var modal = document.getElementById('PPModal');
+    modal.style.display = 'none';
+}
+

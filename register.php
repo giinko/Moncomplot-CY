@@ -135,7 +135,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
                                 <h4>Élections</h4>
                             </div>
                         </div>
-                        <div onclick="cards_register('PucesRFID')" class="conspiration-card" value="PucesRFID">
+                        <div onclick="cards_register('Puces_RFID')" class="conspiration-card" value="Puces_RFID">
                             <img src="assets/images/conspirations/puceRFID.jpeg" alt="Puces RFID">
                             <div class="container">
                                 <h4>Puces RFID</h4>

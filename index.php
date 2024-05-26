@@ -2,9 +2,9 @@
 session_start();
 
 if (isset($_SESSION['LOGGED_USER'])) {
-            header("Location: page_abo.php");
-            exit();
-        }
+  header("Location: page_abo.php");
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -201,7 +201,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
         </li>
         <li><a href="a-propos.html">À propos</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="Politique-de-confidentialite.html">Politique de confidentialité</a></li>
+        <li><a href="Politique_conf.html">Politique de confidentialité</a></li>
       </ul>
     </div>
   </footer>

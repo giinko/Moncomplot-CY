@@ -68,19 +68,48 @@ if (!file_exists($img_profile_user)) {
     </header>
 
     <div class="profile-container">
+
         <div class="profile-header_vip">
-
-
             <h1>Bonjour <?php echo $user; ?></h1>
-
-
         </div>
-
-        <label id="confirm_up_img"></label>
-
         <h1 class="info_class">Pourquoi devenir VIP ?</h1>
-        <div id="erreur_message_register"></div>
-        <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam aspernatur eveniet officia excepturi perspiciatis enim consequuntur aperiam vel et, facere voluptates, voluptas sunt fugit consectetur doloribus quia voluptate nemo accusamus?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, tempore dolore quia similique ducimus veniam qui voluptatum quod a soluta adipisci distinctio maxime reprehenderit itaque, architecto sequi aperiam nemo! Officiis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur modi veritatis beatae facilis corporis fugit vero, molestias neque corrupti ducimus nulla minima unde, soluta voluptatibus delectus laudantium omnis eaque Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam vel, quaerat expedita earum at obcaecati cupiditate, labore ipsam veritatis animi quisquam quas minima dolorem laudantium iste. Ipsa maxime ipsum perspiciatis!</p>
+
+        <div class="abonnement_container">
+            <table class="tableau_abo">
+                <tr>
+                    <th></th>
+                    <th>Non-VIP</th>
+                    <th>Membre VIP</th>
+
+                </tr>
+                <tr>
+                    <td>Nom en couleur</td>
+                    <td> X</td>
+                    <td>OUI</td>
+
+                </tr>
+                <tr>
+                    <td>Priorité sur les swipes</td>
+                    <td>X</td>
+                    <td>OUI</td>
+                </tr>
+                <tr>
+                    <td>Nom en couleur</td>
+                    <td>X</td>
+                    <td>OUI</td>
+
+                </tr>
+                <tr>
+                    <td>Priorité sur les swipes</td>
+                    <td>X</td>
+                    <td>OUI</td>
+                </tr>
+            </table>
+
+            <a href="Devenir_vip.php">
+                <div class="button_rose" id="sabo">Devenir VIP</div>
+            </a>
         </div>
     </div>
 

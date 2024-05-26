@@ -951,6 +951,18 @@ textarea {
     text-align: center;
 }
 
+th,
+td {
+    border: 1px solid rgb(247, 0, 255);
+    padding: 10px;
+}
+
+.abonnement_container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
 #sabo:hover {
     background-color: rgb(247, 172, 32);
 }

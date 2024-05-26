@@ -552,7 +552,7 @@ function supp_friend(user)
 		},
 		dataType: "json",
 		success: function (response) {
-			console.log("ok");
+			console.log(response.message);
 		},
 		error: function (response) {
 			console.error("impossible de le supp");

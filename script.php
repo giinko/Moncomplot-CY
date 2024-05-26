@@ -379,16 +379,18 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		if($_POST['obj'] == "supp"){
 			for($i=0;$i<sizeof($o_users);$i++){
 				if($o_users[$i] == $_POST["user"]){
-					$o_friends[$i] == 0;
-					//On permet a la personne de la reswip ?
-					$o_swips[$i] == 0;
+					$o_friends[$i] = 0;
+					$o_swips[$i] = 0;
 				}
 			}
 		}
 
+		//Pour bloquer
+		//Pareil que pour supp juste pour bloque 
+
 
 		//On écris les nouvelles donné dans le fichier
-		$fichier = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "w");
+		$fichier = fopen("assets/Data/Profils/" . $_SESSION["LOGGED_USER"] . "/other_user.csv", "w");
 		if ($fichier === false) {
 		    die("impossible d'ouvrir le 2-fichier other_user");
 		    $message = "erreur l'ouverture du fichier 1";

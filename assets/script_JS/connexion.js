@@ -424,7 +424,7 @@ function begin_swip() {
 
 			var content = document.createElement("div");
 			content.classList = "container_button";
-			
+
 			if(resp[0]!="Oups"){
 				content.appendChild(but2);
 				content.appendChild(but1);
@@ -573,6 +573,7 @@ function supp_friend(user) {
 		dataType: "json",
 		success: function (response) {
 			console.log(response.message);
+			window.location.href = "page_abo.php";
 		},
 		error: function (response) {
 			console.error("impossible de le supp");
@@ -609,15 +610,22 @@ function recherche_user_admin() {
 
 			div_msg.innerHTML = "";
 
+			var p = document.createElement("p");
+			p.textContent = "il y a "+(all_us.length - 1)+" utilisateur(s) correspondant a votre recherche" ;
+			div_msg.appendChild(p);
+
 			for (var i = 0; i < all_us.length; i++) {
-				var p = document.createElement("p");
-				p.textContent = all_us[i];
+				if(all_us[i]!=""){
+					var p = document.createElement("p");
+					p.textContent = all_us[i];
 
-				var but = document.createElement("button");
-				but.textContent = "afficher";
+					var but = document.createElement("button");
+					but.textContent = "afficher le profile";
 
-				div_msg.appendChild(p);
-				div_msg.appendChild(but);
+					div_msg.appendChild(p);
+					div_msg.appendChild(but);
+				}
+				
 			}
 
 			console.log(response.message);

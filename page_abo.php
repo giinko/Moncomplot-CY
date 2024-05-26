@@ -6,6 +6,11 @@ if (!isset($_SESSION['LOGGED_USER'])) {
     exit();
 }
 
+if ($_SESSION['LOGGED_USER'] == "admin"){
+    header("Location: admin.php");
+    exit();
+}
+
 $fichier_all_users = fopen("assets/Data/data.csv", "r");
 $users = $mdps  = $emails = $names = $lastnames = $complots = [];
 
@@ -211,9 +216,9 @@ fclose($fichier);
 
 
 
-        <!--
         <div class="sujetdujour" id="all_friends">
-
+        <h1>Vos amis</h1>
+        <a href="page_abo.php">Actualiser vos amis</a>
             <?php
             for ($i = 0; $i < sizeof($o_users); $i++) {
                 if ($o_friends[$i] == 1) {
@@ -234,7 +239,7 @@ fclose($fichier);
             }
 
 
-            ?> -->
+            ?> 
 
         </div>
     </main>

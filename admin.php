@@ -3,10 +3,9 @@
 
 session_start();
 
-if (!isset($_SESSION['LOGGED_USER'])) {
-    //uniquement si le user == admin
-    //header("Location: login.php");
-    //exit();
+if ($_SESSION['LOGGED_USER']!="admin") {
+    header("Location: page_abo.php");
+    exit();
 }
 
 $fichier_all_users = fopen("assets/Data/data.csv", "r");
@@ -20,6 +19,7 @@ while (!feof($fichier_all_users)) {
     list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier_all_users);
 }
 
+fclose($fichier_all_users);
 
 ?>
 
@@ -33,6 +33,7 @@ while (!feof($fichier_all_users)) {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="assets/script_JS/connexion.js"></script>
     <link rel="stylesheet" href="assets/style/styles.css">
+    <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
 <body>
@@ -42,18 +43,17 @@ while (!feof($fichier_all_users)) {
         </div>
         <ul class="sidebar-menu">
             <li><a href="admin.php">Dashboard</a></li>
-            <li><a href="#logout">Logout</a></li>
+            <li><a onclick="deco()">Logout</a></li>
         </ul>
     </div>
     <div class="main-content">
-        <div class="navbar">
+        <div class="sidebar-header">
             <h2>Welcome, Admin</h2>
         </div>
         <div class="admin_all">
             <h1>Dashboard</h1>
 
             <h1>Recherche d'utilisateur</h1>
-            <p>Le site a <u>34</u> utilisateurs</p>
             <input id="input_admin_recherche_user" type="text" name="rechere_user" placeholder="username">
             <button onclick="recherche_user_admin()">Rechercher</button>
             <br><br>
@@ -61,9 +61,24 @@ while (!feof($fichier_all_users)) {
             <br><br>
 
             <h1>Recherche de chat</h1>
-            <p>Le site a <u>213</u> messages</p>
+            <p> comming soon ... </p>
+            <!--
             <input id="admin_recherche_user" type="text" name="rechere_user" placeholder="message">
             <button>Rechercher</button>
+            <div class="chat_swipe">
+            <div class="chat">
+                <h3>Chat en direct du complot : <?php echo $complot ?></h3>
+
+                <div class="messages" id="chat_messages">
+                    <p><strong>User1:</strong> Salut tout le monde !</p>
+                    <p><strong>User2:</strong> Salut User1, comment ça va ?</p>
+                </div>
+
+                <textarea id="chat_input" placeholder="Écrire un message..."></textarea>
+                <button id="send_chat_msg">Envoyer</button>
+            </div>
+            </div>
+        -->
         </div>
     </div>
 </body>

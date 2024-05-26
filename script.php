@@ -405,6 +405,40 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 
 	}
 
+	if($_POST["action"] == "recherche_user")
+	{
+		$response_code = HTTP_OK;
+
+
+		$fichier_all_users = fopen("assets/Data/data.csv", "r");
+		$users = $mdps  = $emails = $names = $lastnames = $complots = [];
+
+		if ($fichier_all_users === false) {
+		    die("impossible d'ouvrir le fichier all_data");
+		}
+
+		while (!feof($fichier_all_users)) {
+		    list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier_all_users);
+		}
+
+		fclose($fichier_all_users);
+
+		$resultat = "";
+
+	    // Parcourir chaque nom dans le tableau
+	    foreach ($users as $nom) {
+	        // Vérifier si la sous-chaîne est présente dans le nom (insensible à la casse)
+	        if (stripos($nom, $_POST["user"]) !== false) {
+	            $resultat.=$nom."|";
+	        }
+	    }
+
+	    $message = $resultat;
+
+
+
+	}
+
 
 
 	response($response_code, $message);

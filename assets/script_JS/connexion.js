@@ -61,6 +61,7 @@ function register() {
 	}
 	else {
 		error_register("Veuillez selectionner un complot");
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -68,6 +69,7 @@ function register() {
 
 	if (empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)) {
 		error_register("Tous les champs sont obligatoires");
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -77,7 +79,7 @@ function register() {
 
 		error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
 		document.getElementById("username_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -85,7 +87,7 @@ function register() {
 
 		error_register("Veuillez entrer un prénom valide");
 		document.getElementById("name_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -93,14 +95,11 @@ function register() {
 
 		error_register("Veuillez entrer un nom valide");
 		document.getElementById("lastname_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
 	// username n'existe pas dans la base de donnée
-	// email n'existe pas dans la base de donné
-
-
 
 	// Si les 2 mdp sont différent on renvoie une erreur
 	if (mdp1 != mdp2) {
@@ -108,17 +107,17 @@ function register() {
 		error_register("Les mots de passes ne sont pas identiques");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
 	//password compris entre 8 et 20 caratères
-	if ((mdp1.lenght < 8) && (mdp1.lenght > 20)) {
+	if ((mdp1.length < 8) || (mdp1.length > 20)) {
 
 		error_register("Les mots de passes doivent etre compris entre 8 et 20 caractères");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 
 	}
@@ -130,6 +129,7 @@ function register() {
 
 		error_register("Merci d'entrer une adresse email valide");
 		document.getElementById("email_register").value = "";
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 	else {
@@ -137,9 +137,36 @@ function register() {
 		if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
 			error_register("Merci d'entrer une adresse email valide");
 			document.getElementById("email_register").value = "";
+			window.scrollTo({top:0,behavior: "smooth"});
 			return 1;
 		}
 	}
+
+	//Vérifier si les "checkboxe" sont bien valider
+
+	var boxe1 = document.getElementById("checkbox_1_reg");
+	var boxe2 = document.getElementById("checkbox_2_reg");
+	var boxe3 = document.getElementById("checkbox_3_reg");
+
+
+	if(!(boxe1.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:0,behavior: "smooth"});
+		return 1;
+	}
+
+	if(!(boxe2.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:10,behavior: "smooth"});
+		return 1;
+	}
+
+	if(!(boxe3.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:0,behavior: "smooth"});
+		return 1;
+	}
+
 
 
 
@@ -158,8 +185,19 @@ function register() {
 		},
 		dataType: "json",
 
-		success: function () {
-			window.location.href = "login.php";
+		success: function (response) {
+
+			var resp = response.message.split("|");
+			//username existe deja
+			if(resp[0]==1){
+				error_register(resp[1]);
+				document.getElementById("username_register").value = "";
+				window.scrollTo({top:0,behavior: "smooth"});
+			}
+			else{
+				window.location.href = "login.php";
+			}
+			
 		},
 		error: function () {
 			console.log("erreur");

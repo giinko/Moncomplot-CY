@@ -25,6 +25,7 @@ while (!feof($fichier_all_users)) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +34,7 @@ while (!feof($fichier_all_users)) {
     <script src="assets/script_JS/connexion.js"></script>
     <link rel="stylesheet" href="assets/style/styles.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
@@ -49,7 +51,7 @@ while (!feof($fichier_all_users)) {
         </div>
         <div class="admin_all">
             <h1>Dashboard</h1>
-            
+
             <h1>Recherche d'utilisateur</h1>
             <p>Le site a <u>34</u> utilisateurs</p>
             <input id="input_admin_recherche_user" type="text" name="rechere_user" placeholder="username">
@@ -65,4 +67,5 @@ while (!feof($fichier_all_users)) {
         </div>
     </div>
 </body>
+
 </html>

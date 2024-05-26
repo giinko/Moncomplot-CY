@@ -166,7 +166,7 @@ body {
 /* Styles des profils */
 
 .profil {
-    width: 200px;
+    min-width: 200px;
     margin: 20px;
     background-color: rgba(217, 0, 255, 0.5);
     border-radius: 15px;
@@ -731,7 +731,7 @@ strong {
     background-color: #b400b4;
     color: white;
     text-align: center;
-    width: 180px;
+    min-width: 180px;
     height: 50px;
     border-radius: 10px;
     box-shadow: 10 15 black;
@@ -798,6 +798,7 @@ strong {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 10px;
+    background-color: #0000003b;
 }
 
 .left_panel {
@@ -901,6 +902,7 @@ textarea {
     position: relative;
     color: white;
     margin: auto;
+    margin-top: 20px;
 }
 
 .commencement {
@@ -941,4 +943,126 @@ textarea {
     background: #000;
 }
 
-@media screen and (max-width:1100px) {}
+#sabo {
+    background-color: rgb(192, 128, 10);
+}
+
+.profile-header_vip {
+    text-align: center;
+}
+
+#sabo:hover {
+    background-color: rgb(247, 172, 32);
+}
+
+@media screen and (max-width:970px) {
+    .main_pageabo {
+        margin-bottom: 100px;
+    }
+
+    .chat_swipe {
+        display: flex;
+        background-color: #3a00325b;
+        padding: 20px;
+        width: 100%;
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chat {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .swipe {
+        margin-bottom: 40px;
+        border-top: solid rgba(0, 0, 0, 0.13);
+        margin: auto;
+        width: 400px;
+    }
+
+    .theorie {
+        font-size: 2rem;
+    }
+
+    .sujetdujour p {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+@media screen and (max-width:1150px) {
+    .button_rose {
+        margin: 10px auto;
+        font-size: 0.8rem;
+    }
+
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+
+    .profile-container {
+        padding: 20px;
+        margin: 30px auto;
+        border-radius: 15px;
+        width: 90%;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+
+    .profile-container {
+        padding: 20px;
+        margin: 30px auto;
+        border-radius: 15px;
+        width: 90%;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+
+    .container_end {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .swipe {
+        margin-bottom: 40px;
+        border-top: solid rgba(0, 0, 0, 0.13);
+        margin: auto;
+        width: 280px;
+    }
+
+    .profile-container {
+        margin-bottom: 400px;
+    }
+
+
+}
+
+@media screen and (max-width:400px) {
+
+    .swipe {
+        margin-bottom: 40px;
+        border-top: solid rgba(0, 0, 0, 0.13);
+        margin: auto;
+        width: 280px;
+    }
+
+    .profile-container {
+        margin-bottom: 300px;
+    }
+
+
+}

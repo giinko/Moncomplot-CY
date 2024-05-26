@@ -58,10 +58,9 @@ if (isset($_SESSION['LOGGED_USER'])) {
             <p>20 ans</p>
             <p>platiste</p>
           </div>
-
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Tati</b></h4>
             <p>28 ans</p>
@@ -69,7 +68,23 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>PucesRFID</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Pyramides</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Papa</b></h4>
             <p>70 ans</p>
@@ -77,7 +92,23 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Autre</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Elections</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Papa</b></h4>
             <p>70 ans</p>
@@ -85,7 +116,15 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Platiste</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Papa</b></h4>
             <p>70 ans</p>
@@ -93,7 +132,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Papa</b></h4>
             <p>70 ans</p>
@@ -101,7 +140,55 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
         <div class="profil" onclick="openSubscriptionModal()">
-          <img src="assets/images/background-image.avif" alt="Avatar">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Vaccins</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Pyramides</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
+          <div class="container">
+            <h4><b>Cest Papa</b></h4>
+            <p>70 ans</p>
+            <p>Réptiliens</p>
+          </div>
+        </div>
+        <div class="profil" onclick="openSubscriptionModal()">
+          <img src="assets/images/img_avatar.png" alt="Avatar">
           <div class="container">
             <h4><b>Cest Papa</b></h4>
             <p>70 ans</p>
@@ -109,7 +196,6 @@ if (isset($_SESSION['LOGGED_USER'])) {
           </div>
         </div>
       </div>
-
       <div class="presentation">
         <h2>Rejoignez nos multiples communautées !</h2>
       </div>

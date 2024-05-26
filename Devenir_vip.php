@@ -68,61 +68,19 @@ if (!file_exists($img_profile_user)) {
     </header>
 
     <div class="profile-container">
-        <div class="profile-header">
-
-            <img id="imageDisplay" src="<?php echo $img_profile_user; ?>" alt="Profil Image" class="profile-image" onclick="open_change_pdp()">
+        <div class="profile-header_vip">
 
 
-
-
-
-            <h1><?php echo $user; ?></h1>
+            <h1>Bonjour <?php echo $user; ?></h1>
 
 
         </div>
 
         <label id="confirm_up_img"></label>
 
-        <h1 class="info_class">Informations</h1>
+        <h1 class="info_class">Pourquoi devenir VIP ?</h1>
         <div id="erreur_message_register"></div>
-        <div class="profile-information">
-            <div class="line">
-                <p><strong>Prénom :</strong> <span id="edit_name"><?php echo $name; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_name", "<?php echo $name; ?>");' id="button_edit" alt="">
-                    </span></p>
-            </div>
-            <div class="line">
-                <p><strong>Nom :</strong><span id="edit_lastname"><?php echo $lastname; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_lastname", "<?php echo $lastname; ?>");' id="button_edit" alt="">
-            </div>
-            <div class="line">
-                <p><strong>Email :</strong><span id="edit_email"><?php echo $mail; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_email", "<?php echo $mail; ?>");' id="button_edit" alt="">
-            </div>
-
-            <div class="line">
-                <p><strong>Mot de Passe :</strong> <span id="edit_mdp"><?php echo $mdp; ?>
-                        <img src="/assets/images/modify.png" onclick='edit_profile("edit_mdp", "<?php echo $mdp; ?>");' id="button_edit" alt="">
-                    </span></p>
-            </div>
-
-            <div class="line">
-                <p><strong>Complot :</strong> <span id="edit_complot"><?php echo $complot; ?>
-                    </span></p>
-            </div>
-
-        </div>
         <div>
-            <div class="container_end">
-                <a href="page_abo.php">
-                    <div class="button_rose">Retour à l'accueil</div>
-                </a>
-                <div class="button_rose" onclick="deco()">Se déconnecter</div>
-
-                <a href="Devenir_vip.php">
-                    <div class="button_rose" id="sabo">Devenir VIP</div>
-                </a>
-            </div>
         </div>
     </div>
 

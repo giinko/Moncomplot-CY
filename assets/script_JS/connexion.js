@@ -480,17 +480,23 @@ function next(beg) {
 
 			var but1 = document.createElement("div");
 			but1.textContent = "Ajouter";
+			but1.classList = "button_ajouter"
 			but1.setAttribute('onclick', "next(2)");
 
 			var but2 = document.createElement("div");
 			but2.textContent = "next";
+			but2.classList = "button_next";
 			but2.setAttribute('onclick', "next(1)");
+
+			var content = document.createElement("div");
+			content.classList = "container_button";
+			content.appendChild(but2);
+			content.appendChild(but1);
 
 
 			div_info.appendChild(h1);
 			div_info.appendChild(p);
-			div_info.appendChild(but1);
-			div_info.appendChild(but2);
+			div_info.appendChild(content);
 
 			div_card.appendChild(img_back);
 			div_card.appendChild(div_info);
@@ -576,16 +582,15 @@ function close_change_pdp() {
 	modal.style.display = 'none';
 }
 
-function recherche_user_admin()
-{
+function recherche_user_admin() {
 	var user = document.getElementById("input_admin_recherche_user").value;
 	console.log(user);
 	$.ajax({
 		url: 'script.php',
 		type: 'POST',
 		data: {
-			action : "recherche_user",
-			user : user
+			action: "recherche_user",
+			user: user
 		},
 		dataType: "json",
 		success: function (response) {
@@ -595,16 +600,16 @@ function recherche_user_admin()
 
 			div_msg.innerHTML = "";
 
-                for(var i = 0; i < all_us.length; i++){
-                    var p = document.createElement("p");
-                    p.textContent = all_us[i];
+			for (var i = 0; i < all_us.length; i++) {
+				var p = document.createElement("p");
+				p.textContent = all_us[i];
 
-                    var but = document.createElement("button");
-                    but.textContent = "afficher";
+				var but = document.createElement("button");
+				but.textContent = "afficher";
 
-                    div_msg.appendChild(p);
-                    div_msg.appendChild(but);
-                }
+				div_msg.appendChild(p);
+				div_msg.appendChild(but);
+			}
 
 			console.log(response.message);
 		},

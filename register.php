@@ -192,12 +192,12 @@ if (isset($_SESSION['LOGGED_USER'])) {
                     </div>
 
                 </div>
-                <input id="checkbox_1_reg" type="checkbox" id="certif_majeur" name="certif_majeur" class="checkbox" required>
-                <label for="certif_majeur">Je certifie avoir 18 ans ou +</label> <br>
-                <input id="checkbox_2_reg" type="checkbox" id="conditions" name="conditions" class="checkbox" required>
-                <label for="conditions">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label><br>
-                <input id="checkbox_3_reg" type="checkbox" id="croire" name="croire" class="checkbox" required>
-                <label for="croire">Je certifie croire fermement au complot que j'ai choisi</label>
+                <input id="checkbox_1_reg" type="checkbox" name="certif_majeur" class="checkbox" required>
+                <label for="checkbox_1_reg">Je certifie avoir 18 ans ou +</label> <br>
+                <input id="checkbox_2_reg" type="checkbox" name="conditions" class="checkbox" required>
+                <label for="checkbox_2_reg">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label><br>
+                <input id="checkbox_3_reg" type="checkbox" name="croyance" class="checkbox" required>
+                <label for="checkbox_3_reg">Je certifie croire fermement au complot que j'ai choisi</label>
 
 
                 <button class="button_login" onclick="register()">S'inscrire</button>

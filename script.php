@@ -385,6 +385,28 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 			}
 		}
 
+		if($_POST['obj'] == "bloq"){
+			for($i=0;$i<sizeof($o_users);$i++){
+				if($o_users[$i] == $_POST["user"]){
+					$o_bloque[$i] = 1;
+					$o_swips[$i] = 1;
+					$o_friends[$i] = 0;
+				}
+			}
+		}
+
+		if($_POST['obj'] == "deblo"){
+			for($i=0;$i<sizeof($o_users);$i++){
+				if($o_users[$i] == $_POST["user"]){
+					$o_bloque[$i] = 0;
+					$o_swips[$i] = 0;
+					$o_friends[$i] = 0;
+				}
+			}
+		}
+
+
+
 		//Pour bloquer
 		//Pareil que pour supp juste pour bloque 
 

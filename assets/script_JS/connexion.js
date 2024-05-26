@@ -582,6 +582,49 @@ function supp_friend(user) {
 	});
 }
 
+
+function bloque_friend(user) {
+	$.ajax({
+		url: 'script.php',
+		type: 'POST',
+		data: {
+			action: "asb_friend",
+			obj: "bloq",
+			user: user
+		},
+		dataType: "json",
+		success: function (response) {
+			console.log(response.message);
+			window.location.href = "page_abo.php";
+		},
+		error: function (response) {
+			console.error("impossible de le supp");
+			console.error(response.message);
+		}
+	});
+}
+
+function de_bloque_friend(user) {
+	$.ajax({
+		url: 'script.php',
+		type: 'POST',
+		data: {
+			action: "asb_friend",
+			obj: "deblo",
+			user: user
+		},
+		dataType: "json",
+		success: function (response) {
+			console.log(response.message);
+			window.location.href = "page_abo.php";
+		},
+		error: function (response) {
+			console.error("impossible de le supp");
+			console.error(response.message);
+		}
+	});
+}
+
 function open_change_pdp() {
 	var modal = document.getElementById('PPModal');
 	modal.style.display = 'block';

@@ -41,7 +41,7 @@ fclose($fichier_all_users);
         </div>
         <ul class="sidebar-menu">
             <li><a href="admin.php">Dashboard</a></li>
-            <li><a href="#logout">Logout</a></li>
+            <li><a onclick="deco()">Logout</a></li>
         </ul>
     </div>
     <div class="main-content">
@@ -59,6 +59,8 @@ fclose($fichier_all_users);
             <br><br>
 
             <h1>Recherche de chat</h1>
+            <p> comming soon ... </p>
+            <!--
             <input id="admin_recherche_user" type="text" name="rechere_user" placeholder="message">
             <button>Rechercher</button>
             <div class="chat_swipe">
@@ -74,6 +76,7 @@ fclose($fichier_all_users);
                 <button id="send_chat_msg">Envoyer</button>
             </div>
             </div>
+        -->
         </div>
     </div>
 </body>

@@ -225,15 +225,20 @@ fclose($fichier);
                     echo "<p>votre ami : $o_users[$i]";
 
                     echo "<button onclick='supp_friend(\"$o_users[$i]\")'>Supprimer ami</button>
-                    <button> Bloquer </button>
+                    <button onclick='bloque_friend(\"$o_users[$i]\")'> Bloquer </button>
                     </p>";
                 }
             }
+            ?>
+            <br>
+        <h1>Utilisateurs bloqués</h1>
+        <a href="page_abo.php">Actualiser vos bloqués</a>
+        <?php
 
             for ($i = 0; $i < sizeof($o_users); $i++) {
                 if ($o_bloque[$i] == 1) {
                     echo "<p>vous avez bloqué : $o_users[$i]
-                    <button> Débloquer </button>
+                    <button onclick='de_bloque_friend(\"$o_users[$i]\")'> Débloquer </button>
                     </p>";
                 }
             }

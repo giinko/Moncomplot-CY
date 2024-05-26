@@ -60,14 +60,6 @@ if (isset($_SESSION['LOGGED_USER'])) {
                 <input id="password1_register" type="password" name="password1" placeholder="Mot de passe" autocomplete="new-password" required>
                 <label for="password2_register">Confirmez votre mot de passe :</label>
                 <input id="password2_register" type="password" name="password2" placeholder="Confirmation mot de passe" autocomplete="new-password" required>
-                <!--
-                <select id="complot_register">
-                    <option valeur="fr">Choisir votre complot</option>
-                    <option valeur="fr">Terre plate</option>
-                    <option valeur="nl">Autre</option>
-                    <option valeur="en">Autre</option>
-                    <option valeur="other">Autre</option>
-                </select> -->
 
                 <div class="choix-conspiration">
                     <h4>Choisissez le complot qui vous interesse :<em id="indication"> (Choix définitif)</em>
@@ -197,16 +189,14 @@ if (isset($_SESSION['LOGGED_USER'])) {
                             </div>
                         </div>
                         -->
-
-
                     </div>
 
                 </div>
-                <input type="checkbox" id="certif_majeur" name="certif_majeur" class="checkbox" required>
+                <input id="checkbox_1_reg" type="checkbox" id="certif_majeur" name="certif_majeur" class="checkbox" required>
                 <label for="certif_majeur">Je certifie avoir 18 ans ou +</label> <br>
-                <input type="checkbox" id="conditions" name="conditions" class="checkbox" required>
+                <input id="checkbox_2_reg" type="checkbox" id="conditions" name="conditions" class="checkbox" required>
                 <label for="conditions">J'accepte les Conditions d'utilisation , <a href="politique-de-confidentialite.html">Politique de confidentialité.</a></label><br>
-                <input type="checkbox" id="croire" name="croire" class="checkbox" required>
+                <input id="checkbox_3_reg" type="checkbox" id="croire" name="croire" class="checkbox" required>
                 <label for="croire">Je certifie croire fermement au complot que j'ai choisi</label>
 
 

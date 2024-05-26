@@ -61,6 +61,7 @@ function register() {
 	}
 	else {
 		error_register("Veuillez selectionner un complot");
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -68,6 +69,7 @@ function register() {
 
 	if (empty(name) || empty(lastname) || empty(username) || empty(email) || empty(mdp1) || empty(mdp2)) {
 		error_register("Tous les champs sont obligatoires");
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -77,7 +79,7 @@ function register() {
 
 		error_register("Le pseudo ne peut contenir que des lettres ou des chifres");
 		document.getElementById("username_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -85,7 +87,7 @@ function register() {
 
 		error_register("Veuillez entrer un prénom valide");
 		document.getElementById("name_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
@@ -93,14 +95,9 @@ function register() {
 
 		error_register("Veuillez entrer un nom valide");
 		document.getElementById("lastname_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
-
-	// username n'existe pas dans la base de donnée
-	// email n'existe pas dans la base de donné
-
-
 
 	// Si les 2 mdp sont différent on renvoie une erreur
 	if (mdp1 != mdp2) {
@@ -108,20 +105,20 @@ function register() {
 		error_register("Les mots de passes ne sont pas identiques");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 
 	//password compris entre 8 et 20 caratères
-	if ((mdp1.lenght < 8) && (mdp1.lenght > 20)) {
+	if ((mdp1.length < 8) || (mdp1.length > 20)) {
 
 		error_register("Les mots de passes doivent etre compris entre 8 et 20 caractères");
 		document.getElementById("password1_register").value = "";
 		document.getElementById("password2_register").value = "";
-
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 
-	}
+	} 
 
 	// Verif si le mail ressemble a un mail valide
 	var verif_mail = email.split("@");
@@ -130,6 +127,7 @@ function register() {
 
 		error_register("Merci d'entrer une adresse email valide");
 		document.getElementById("email_register").value = "";
+		window.scrollTo({top:0,behavior: "smooth"});
 		return 1;
 	}
 	else {
@@ -137,9 +135,36 @@ function register() {
 		if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
 			error_register("Merci d'entrer une adresse email valide");
 			document.getElementById("email_register").value = "";
+			window.scrollTo({top:0,behavior: "smooth"});
 			return 1;
 		}
 	}
+
+	//Vérifier si les "checkboxe" sont bien valider
+
+	var boxe1 = document.getElementById("checkbox_1_reg");
+	var boxe2 = document.getElementById("checkbox_2_reg");
+	var boxe3 = document.getElementById("checkbox_3_reg");
+
+
+	if(!(boxe1.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:0,behavior: "smooth"});
+		return 1;
+	}
+
+	if(!(boxe2.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:10,behavior: "smooth"});
+		return 1;
+	}
+
+	if(!(boxe3.checked)){
+		error_register("Véfiez d'avoir bien cocher toutes les cases");
+		window.scrollTo({top:0,behavior: "smooth"});
+		return 1;
+	}
+
 
 
 
@@ -158,8 +183,19 @@ function register() {
 		},
 		dataType: "json",
 
-		success: function () {
-			window.location.href = "login.php";
+		success: function (response) {
+
+			var resp = response.message.split("|");
+			//username existe deja
+			if(resp[0]==1){
+				error_register(resp[1]);
+				document.getElementById("username_register").value = "";
+				window.scrollTo({top:0,behavior: "smooth"});
+			}
+			else{
+				window.location.href = "login.php";
+			}
+			
 		},
 		error: function () {
 			console.log("erreur");
@@ -220,10 +256,53 @@ function login() {
 	})
 }
 
-function valide_edit_profile(ok) {
+function valide_edit_profile(type) {
 
 	var recup = document.getElementById("edit_profile_input").value;
-	console.log(ok);
+
+	console.log(type);
+	console.log(recup);
+
+	if(empty(recup)){
+		error_register("Aucun champs ne peut etre vide");
+		return 1;
+	}
+	
+	//check pour le prénom
+	if(type=="name" || type=="lastname"){
+		if (!(/^[a-zA-Z]*$/.test(recup))){
+			error_register("Veuillez entrer un nom valide");
+			return 1;
+		}
+	}
+
+	//Check pour le mail
+	if(type=="email"){
+		
+		var verif_mail = recup.split("@");
+
+		if (empty(verif_mail[0]) || empty(verif_mail[1])) {
+
+			error_register("Merci d'entrer une adresse email valide");
+			return 1;
+		}
+		else {
+			var verif_mail2 = verif_mail[1].split(".");
+			if (empty(verif_mail2[0]) || empty(verif_mail2[1])) {
+				error_register("Merci d'entrer une adresse email valide");
+				return 1;
+			}
+		}
+	}
+
+	//Check pour le mdp
+	if(type=="mdp"){
+		if ((recup.length < 8) || (recup.length > 20)) {
+			error_register("Le mot de passe doit etre compris entre 8 et 20 caractères");
+			return 1;
+		} 
+	}
+
 
 	//On peut rajouter des checks pour vérif qu'il n'y a aucun problème sur les nouvelles variabel entré meme si le JS est tres permissif
 
@@ -232,7 +311,7 @@ function valide_edit_profile(ok) {
 		url: "../../script.php",
 		data: {
 			action: "edit_profile_data",
-			type: ok,
+			type: type,
 			contenu: recup
 		},
 		dataType: "json",
@@ -473,7 +552,7 @@ function supp_friend(user) {
 		},
 		dataType: "json",
 		success: function (response) {
-			console.log("ok");
+			console.log(response.message);
 		},
 		error: function (response) {
 			console.error("impossible de le supp");
@@ -481,3 +560,16 @@ function supp_friend(user) {
 		}
 	});
 }
+
+function open_change_pdp()
+{
+	var modal = document.getElementById('PPModal');
+    modal.style.display = 'block';
+}
+
+function close_change_pdp()
+{
+	var modal = document.getElementById('PPModal');
+    modal.style.display = 'none';
+}
+

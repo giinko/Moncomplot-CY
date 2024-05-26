@@ -21,22 +21,52 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		$mdp = $_POST['mdp'];
 		$complot = $_POST['complot'];
 
-		$chemin_dos = "assets/Data/Profils/" . $username;
-
-		mkdir($chemin_dos, 0777, True);
-
-		file_put_contents($chemin_dos . "/other_user.csv", "\n");
-
-		$fichier = fopen("assets/Data/data.csv", "a");
+		$fichier = fopen("assets/Data/data.csv", "r");
+		$users = $mdps  = $emails = $names = $lastnames = $complots = [];
 
 		if ($fichier === false) {
-			die("Une erreur s'est produite impossible d'ouvrir le fichier");
+		    die("impossible d'ouvrir le fichier data dans register check 1");
 		}
 
-		$ligne = $username . "," . $mdp . "," . $name . "," . $lastname . "," . $email . "," . $complot . "\n";
-		fwrite($fichier, $ligne);
+		while (!feof($fichier)) {
+		    list($users[], $mdps[], $names[], $lastnames[], $emails[], $complots[]) = fgetcsv($fichier);
+		}
 
-		fclose($fichier);
+		$count=0;
+		$pb = 0;
+
+		while(isset($users[$count])){
+
+			if($users[$count]==$username){
+				$message = "1|Ce username existe deja";
+				$pb = 1;
+			}
+
+			$count+=1;
+		}
+
+
+
+		if($pb == 0){
+
+			$chemin_dos = "assets/Data/Profils/" . $username;
+
+			mkdir($chemin_dos, 0777, True);
+
+			file_put_contents($chemin_dos . "/other_user.csv", "\n");
+
+			$fichier = fopen("assets/Data/data.csv", "a");
+
+			if ($fichier === false) {
+				die("Une erreur s'est produite impossible d'ouvrir le fichier");
+			}
+
+			$ligne = $username . "," . $mdp . "," . $name . "," . $lastname . "," . $email . "," . $complot . "\n";
+			fwrite($fichier, $ligne);
+
+			fclose($fichier);
+
+		}
 	}
 
 	if ($_POST['action'] == "LoginData") {
@@ -349,16 +379,18 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQU
 		if($_POST['obj'] == "supp"){
 			for($i=0;$i<sizeof($o_users);$i++){
 				if($o_users[$i] == $_POST["user"]){
-					$o_friends[$i] == 0;
-					//On permet a la personne de la reswip ?
-					$o_swips[$i] == 0;
+					$o_friends[$i] = 0;
+					$o_swips[$i] = 0;
 				}
 			}
 		}
 
+		//Pour bloquer
+		//Pareil que pour supp juste pour bloque 
+
 
 		//On écris les nouvelles donné dans le fichier
-		$fichier = fopen("assets/Data/Profils/" . $user . "/other_user.csv", "w");
+		$fichier = fopen("assets/Data/Profils/" . $_SESSION["LOGGED_USER"] . "/other_user.csv", "w");
 		if ($fichier === false) {
 		    die("impossible d'ouvrir le 2-fichier other_user");
 		    $message = "erreur l'ouverture du fichier 1";

@@ -339,6 +339,7 @@ function begin_swip() {
 
 			var but2 = document.createElement("button");
 			but2.textContent = "next";
+			but2.class = "button_next";
 			but2.setAttribute('onclick', "next(1)");
 
 
@@ -393,11 +394,11 @@ function next(beg) {
 			var p = document.createElement("p");
 			p.textContent = resp[1]
 
-			var but1 = document.createElement("button");
+			var but1 = document.createElement("div");
 			but1.textContent = "Ajouter";
 			but1.setAttribute('onclick', "next(2)");
 
-			var but2 = document.createElement("button");
+			var but2 = document.createElement("div");
 			but2.textContent = "next";
 			but2.setAttribute('onclick', "next(1)");
 
@@ -461,15 +462,14 @@ function upload_img() {
 
 }
 
-function supp_friend(user)
-{
+function supp_friend(user) {
 	$.ajax({
 		url: 'script.php',
 		type: 'POST',
 		data: {
-			action : "asb_friend",
-			obj : "supp",
-			user : user
+			action: "asb_friend",
+			obj: "supp",
+			user: user
 		},
 		dataType: "json",
 		success: function (response) {

@@ -573,3 +573,41 @@ function close_change_pdp()
     modal.style.display = 'none';
 }
 
+function recherche_user_admin()
+{
+	var user = document.getElementById("input_admin_recherche_user").value;
+	console.log(user);
+	$.ajax({
+		url: 'script.php',
+		type: 'POST',
+		data: {
+			action : "recherche_user",
+			user : user
+		},
+		dataType: "json",
+		success: function (response) {
+
+			var all_us = response.message.split('|');
+			var div_msg = document.getElementById("admin_affiche_user");
+
+			div_msg.innerHTML = "";
+
+                for(var i = 0; i < all_us.length; i++){
+                    var p = document.createElement("p");
+                    p.textContent = all_us[i];
+
+                    var but = document.createElement("button");
+                    but.textContent = "afficher";
+
+                    div_msg.appendChild(p);
+                    div_msg.appendChild(but);
+                }
+
+			console.log(response.message);
+		},
+		error: function (response) {
+			console.error("impossible de le supp");
+			console.error(response.message);
+		}
+	});
+}

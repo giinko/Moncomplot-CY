@@ -52,7 +52,15 @@ while (!feof($fichier_all_users)) {
             
             <h1>Recherche d'utilisateur</h1>
             <p>Le site a <u>34</u> utilisateurs</p>
-            <input id="admin_recherche_user" type="text" name="rechere_user" placeholder="username">
+            <input id="input_admin_recherche_user" type="text" name="rechere_user" placeholder="username">
+            <button onclick="recherche_user_admin()">Rechercher</button>
+            <br><br>
+            <div id="admin_affiche_user"></div>
+            <br><br>
+
+            <h1>Recherche de chat</h1>
+            <p>Le site a <u>213</u> messages</p>
+            <input id="admin_recherche_user" type="text" name="rechere_user" placeholder="message">
             <button>Rechercher</button>
         </div>
     </div>

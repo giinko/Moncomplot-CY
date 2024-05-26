@@ -1,41 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>Charger une image</title>
-</head>
-<body>
+<?php
+// Tableau contenant des noms
+$noms = ["Alice", "Bob", "Charlie", "Diana", "Edward", "Picer","oegicez"];
 
-<!-- Input pour sélectionner un fichier -->
-<input type="file" id="fileInput" accept="image/*">
+// Fonction de recherche de noms contenant une sous-chaîne
+function rechercherNomsContenant($tableau, $sousChaine) {
+    $resultat = [];
 
-<!-- Zone où l'image sera affichée -->
-<img id="imageDisplay" src="" alt="Image sélectionnée" style="max-width: 300px; display: none;">
-
-<script>
-// Sélection de l'input et de l'élément img
-const input = document.getElementById('fileInput');
-const imageDisplay = document.getElementById('imageDisplay');
-
-// Fonction appelée lorsque l'utilisateur sélectionne un fichier
-input.addEventListener('change', function() {
-    // Vérifier si un fichier a été sélectionné
-    if (this.files && this.files[0]) {
-        // Création d'une instance de FileReader
-        var reader = new FileReader();
-
-        // Définir ce qui se passe lorsque le fichier est lu
-        reader.onload = function(e) {
-            // Mettre à jour la source de l'élément img
-            imageDisplay.src = e.target.result;
-            imageDisplay.style.display = 'block';
-        };
-
-        // Lire le fichier sélectionné
-        reader.readAsDataURL(this.files[0]);
+    // Parcourir chaque nom dans le tableau
+    foreach ($tableau as $nom) {
+        // Vérifier si la sous-chaîne est présente dans le nom (insensible à la casse)
+        if (stripos($nom, $sousChaine) !== false) {
+            $resultat[] = $nom;
+        }
     }
-});
-</script>
 
-</body>
-</html>
+    return $resultat;
+}
+
+// Exemple d'utilisation de la fonction
+$sousChaine = "ice";
+$resultat = rechercherNomsContenant($noms, $sousChaine);
+
+// Afficher les résultats
+if (!empty($resultat)) {
+    echo "Les noms contenant '$sousChaine' sont : " . implode(", ", $resultat);
+} else {
+    echo "Aucun nom ne contient '$sousChaine'.";
+}
+?>

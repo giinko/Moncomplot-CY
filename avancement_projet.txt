@@ -46,3 +46,7 @@ Tellement d'avancée je saurai touteS les dénombrées ici
 Register avec choix des complots enfin fini. Page d'accueil visiteur améliorée etc
 à faire : beaucoup de choses, front des nouvelles pages + ça serai bien d'améliorer la nav-bar ( la rendre coulissante et responsive)
 faire la responsive de tout le site.
+
+27/05/2024 :
+
+Tout est allé trop vite, on a pas continué d'écrire sur la page 'avancement' par manque d'attention... Nous avions fais ce que nous avons pû pour écrire ici nos avancées mais bon, on a oublier de continuer...

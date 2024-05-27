@@ -3,7 +3,7 @@
 
 session_start();
 
-if ($_SESSION['LOGGED_USER']!="admin") {
+if ($_SESSION['LOGGED_USER'] != "admin") {
     header("Location: page_abo.php");
     exit();
 }
@@ -43,12 +43,12 @@ fclose($fichier_all_users);
         </div>
         <ul class="sidebar-menu">
             <li><a href="admin.php">Dashboard</a></li>
-            <li><a onclick="deco()">Logout</a></li>
+            <li><a onclick="deco()">Se Deconnecter</a></li>
         </ul>
     </div>
     <div class="main-content">
         <div class="sidebar-header">
-            <h2>Welcome, Admin</h2>
+            <h2>Bievenue, Administrateur</h2>
         </div>
         <div class="admin_all">
             <h1>Dashboard</h1>

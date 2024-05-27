@@ -29,7 +29,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
         <header>
             <nav class="navbar">
                 <ul>
-                    <li id="logo"><a href="index.php">Logo</a></li>
+                    <li id="logo"><a href="index.php">MonComplot.fr</a></li>
                     <li><a href="login.php">Se connecter</a></li>
                     <li><a href="register.php">Inscription</a></li>
                     <li><a href="a-propos.html">À propos</a></li>
@@ -75,7 +75,7 @@ if (isset($_SESSION['LOGGED_USER'])) {
                 </li>
                 <li><a href="a-propos.html">À propos</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="Politique-de-confidentialite.html">Politique de confidentialité</a></li>
+                <li><a href="Politique_conf.html">Politique de confidentialité</a></li>
             </ul>
         </div>
     </footer>

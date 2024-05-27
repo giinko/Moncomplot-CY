@@ -797,6 +797,8 @@ strong {
     border-radius: 15px;
     width: 95%;
     flex-wrap: wrap;
+    margin-bottom: 150px;
+
 }
 
 .chat_swipe {
@@ -812,10 +814,7 @@ strong {
 .sujetdujour {
     margin: 10px 0px;
     padding: 10px;
-    padding-bottom: 20px;
-    border-bottom: solid rgba(0, 0, 0, 0.164);
     width: 100%;
-    margin-bottom: 30px;
 }
 
 .chat {
@@ -1002,6 +1001,10 @@ textarea {
     border-bottom: 4px solid rgba(0, 0, 0, 0.288);
     padding-bottom: 30px;
     margin-bottom: 30px;
+}
+
+.main-politique {
+    margin-bottom: 100px;
 }
 
 th,

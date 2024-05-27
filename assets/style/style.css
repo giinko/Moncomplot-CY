@@ -370,6 +370,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 5% auto;
     width: 55%;
+    margin-bottom: 120px;
 
 }
 
@@ -725,6 +726,22 @@ strong {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+.container_end_vip {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    align-items: flex-start;
+}
+
+#retour_vip {
+    flex: 1;
+}
+
+.boite_droite {
+    display: flex;
+}
+
 .button_rose {
     margin: 30px;
     padding: 10px;
@@ -739,10 +756,28 @@ strong {
 
 .button_rose:hover {
     background-color: #eb06eb;
-    box-shadow: 0 10 15 black;
+    box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.349);
     cursor: pointer;
 }
 
+
+.button_vip {
+    margin: 30px;
+    padding: 10px;
+    background-color: #b400b4;
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 10 15 black;
+}
+
+.button_vip:hover {
+    background-color: #eb06eb;
+    box-shadow: 0 10 15 black;
+    cursor: pointer;
+}
 
 
 
@@ -947,8 +982,26 @@ textarea {
     background-color: rgb(192, 128, 10);
 }
 
+#sabo:hover {
+    background-color: rgb(247, 172, 32);
+    box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.349);
+}
+
+#vipplus {
+    background-color: rgb(173, 20, 20);
+}
+
+#vipplus:hover {
+    background-color: rgb(223, 0, 0);
+    box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.349);
+
+}
+
 .profile-header_vip {
     text-align: center;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.288);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 th,
@@ -963,8 +1016,75 @@ td {
     flex-direction: column;
 }
 
-#sabo:hover {
-    background-color: rgb(247, 172, 32);
+#quisomme {
+    box-shadow: outset 7px 12px 20px 1px #0000002b;
+}
+
+.index_propos {
+    margin-bottom: 100px;
+}
+
+@media screen and (max-width:1730px) {
+    .index_propos {
+        margin-bottom: 100px;
+    }
+
+    .index_propos p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width:1150px) {
+
+    .MonComplot h1 {
+        font-size: 3rem;
+    }
+
+    .MonComplot p {
+        font-size: 1.5rem;
+    }
+
+    .indexres h2 {
+        font-size: 1.5rem;
+    }
+
+    .catalogue-profils {}
+
+    .button_rose {
+        margin: 10px auto;
+        font-size: 0.8rem;
+    }
+
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+
+    .profile-container {
+        padding: 20px;
+        margin: 30px auto;
+        border-radius: 15px;
+        width: 90%;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+
+    .login-container {
+        width: 80%;
+    }
+
+
+    .index_propos p {
+        font-size: 0.85rem;
+    }
+
+    .index_propos h2 {
+        font-size: 1.5rem;
+    }
+
+    .contenu-text {
+        padding: 20px;
+    }
+
 }
 
 @media screen and (max-width:970px) {
@@ -1003,27 +1123,31 @@ td {
     }
 }
 
+@media screen and (max-width:900px) {
 
-
-@media screen and (max-width:1150px) {
-    .button_rose {
-        margin: 10px auto;
-        font-size: 0.8rem;
+    .MonComplot h1 {
+        font-size: 2.5rem;
     }
 
-    .profile-header h1 {
-        font-size: 2rem;
+    .MonComplot p {
+        font-size: 1.3rem;
     }
 
-    .profile-container {
-        padding: 20px;
-        margin: 30px auto;
-        border-radius: 15px;
-        width: 90%;
-        flex-wrap: wrap;
-        margin-bottom: 100px;
+    .indexres h2 {
+        font-size: 1.3rem;
     }
 
+    .rubrique {
+        flex-direction: column;
+    }
+
+    .contenu-image {
+        display: none;
+    }
+
+    #quisomme {
+        height: 200px;
+    }
 }
 
 @media screen and (max-width:700px) {
@@ -1041,9 +1165,79 @@ td {
     }
 
     .container_end {
-        display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .login-container {
+        width: 90%;
+    }
+
+    .MonComplot p {
+        font-size: 1rem;
+    }
+
+    .indexres h2 {
+        font-size: 1rem;
+    }
+
+    #quisomme {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width:650px) {
+
+    .index_body {
+        margin-bottom: 30px;
+    }
+
+    .tableau_abo {
+        font-size: 0.8rem;
+    }
+
+    .container_end_vip {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #retour_vip {
+        flex: 1;
+    }
+
+    .boite_droite {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .MonComplot p {
+        font-size: 1.3rem;
+    }
+
+    .indexres h2 {
+        font-size: 1.3rem;
+    }
+
+    .index_propos p {
+        font-size: 0.7rem;
+    }
+
+    .index_propos h2 {
+        font-size: 1.2rem;
+    }
+
+}
+
+
+@media screen and (max-width:590px) {
+    .index_body {
+        margin-bottom: 100px;
     }
 }
 
@@ -1056,14 +1250,51 @@ td {
         width: 280px;
     }
 
+
+
     .profile-container {
         margin-bottom: 400px;
+    }
+
+    .tableau_abo {
+        font-size: 0.7rem;
+    }
+
+
+    .index_propos p {
+        font-size: 0.8rem;
+    }
+
+    .index_propos h2 {
+        font-size: 1.2rem;
     }
 
 
 }
 
+@media screen and (max-width:450px) {
+
+
+    .tableau_abo {
+        font-size: 0.6rem;
+    }
+
+    .index_propos p {
+        font-size: 0.6rem;
+    }
+
+    .index_propos h2 {
+        font-size: 1.1rem;
+    }
+
+}
+
 @media screen and (max-width:400px) {
+
+
+    .tableau_abo {
+        font-size: 0.5rem;
+    }
 
     .swipe {
         margin-bottom: 40px;

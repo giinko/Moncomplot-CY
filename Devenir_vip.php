@@ -45,7 +45,7 @@ if (!file_exists($img_profile_user)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
+    <title>Devenir VIP</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="assets/script_JS/connexion.js"></script>
     <script src="assets/script_JS/script.js"></script>
@@ -81,35 +81,88 @@ if (!file_exists($img_profile_user)) {
                     <th></th>
                     <th>Non-VIP</th>
                     <th>Membre VIP</th>
+                    <th>Membre VIP +</th>
 
                 </tr>
                 <tr>
-                    <td>Nom en couleur</td>
-                    <td> X</td>
-                    <td>OUI</td>
+                    <td>Messagerie général du complot</td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+
+                </tr>
+                <tr>
+                    <td>Chat exclusif VIP</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
 
                 </tr>
                 <tr>
                     <td>Priorité sur les swipes</td>
-                    <td>X</td>
-                    <td>OUI</td>
+                    <td><img src="/assets/images/croix.png" height="20px"> </td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
                 </tr>
                 <tr>
-                    <td>Nom en couleur</td>
-                    <td>X</td>
-                    <td>OUI</td>
+                    <td>Thème personnalisé</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
 
                 </tr>
                 <tr>
-                    <td>Priorité sur les swipes</td>
-                    <td>X</td>
-                    <td>OUI</td>
+                    <td>Couleur de chat personnalisé</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                </tr>
+                <tr>
+                    <td>Couleur du pseudo personnalisé et badge VIP</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                </tr>
+                <tr>
+                    <td>Bannière sur le profil</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                </tr>
+                <tr>
+                    <td>Changement de pseudo</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                </tr>
+                <tr>
+                    <td>Photo de profils animés (GIF autoirsés)</td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/croix.png" height="20px"></td>
+                    <td><img src="/assets/images/valide.png" height="20px"></td>
+                </tr>
+                <tr>
+                    <td>Prix</td>
+                    <td>GRATUIT</td>
+                    <td>3,99$/month</td>
+                    <td>7.99/month</td>
                 </tr>
             </table>
+            <div class="container_end_vip">
+                <a href="page_abo.php">
+                    <div class="button_rose" id="retour_vip">Retour à l'accueil</div>
+                </a>
+                <div class="boite_droite">
 
-            <a href="Devenir_vip.php">
-                <div class="button_rose" id="sabo">Devenir VIP</div>
-            </a>
+                    <a href="Devenir_vip.php">
+                        <div class="button_rose" id="sabo">Devenir VIP</div>
+                    </a>
+                    <a href="Devenir_vip.php">
+                        <div class="button_rose" id="vipplus">Devenir VIP +</div>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </div>
 

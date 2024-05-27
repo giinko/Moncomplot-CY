@@ -118,10 +118,17 @@ if (!file_exists($img_profile_user)) {
                     <div class="button_rose">Retour à l'accueil</div>
                 </a>
                 <div class="button_rose" onclick="deco()">Se déconnecter</div>
-
-                <a href="Devenir_vip.php">
-                    <div class="button_rose" id="sabo">Devenir VIP</div>
-                </a>
+                <?php
+                if ($user == "admin") {
+                    echo '<a href="admin.php">';
+                    echo '<div class="button_rose" id="sabo">Mode administrateur</div>';
+                    echo '</a>';
+                } else {
+                    echo '<a href="Devenir_vip.php">';
+                    echo '<div class="button_rose" id="sabo">Devenir VIP</div>';
+                    echo '</a>';
+                }
+                ?>
             </div>
         </div>
     </div>
